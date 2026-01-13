@@ -1,21 +1,39 @@
-class missionAreaSelector
+class missionAreaSelectorGeneral
 {
-    file = "missionAreaSelector";
+    file = "missionAreaSelector\functions";
 
     class openMissionAreaSelector {};
+    class previewMissionArea {};
+    class terminateMissionAreaPreview {};
+    class moveMissionArea {};
+    class initMissionAreaSelection {};
+    class handleMapClick {};
+}
+
+class missionAreaSelectorAdvanced
+{
+    file = "missionAreaSelector\functions\advanced";
+
     class openAdvancedConfig {};
     class refreshAdvancedConfigInfo {};
     class confirmAdvancedParams{};
-    class previewMissionArea {};
-    class terminateMissionAreaPreview {};
-    class populateEnvConfigFields {};
-    class populateAiConfigFields {};
-    class confirmEnvConfig {};
-    class confirmAiConfig {};
-    class moveMissionArea {};
     class createMarkersForSyncedObjects {};
     class scaleObjectPlacement {};
-    class initMissionAreaSelection {};
     class handleTransformButton {};
-    class handleMapClick {};
+}
+
+class missionAreaSelectorEnvironment
+{
+    file = "missionAreaSelector\functions\environment";
+
+    class populateEnvConfigFields {};
+    class confirmEnvConfig {};
+}
+
+class missionAreaSelectorAI
+{
+    file = "missionAreaSelector\functions\ai";
+
+    class populateAiConfigFields {};
+    class confirmAiConfig {};
 }
