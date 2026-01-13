@@ -28,26 +28,16 @@ class Rimsiakas_AdvancedConfigDialog
         Rimsiakas_AdvancedConfigDialog_ApplyParamsBtn
     };
 
-    class Rimsiakas_AdvancedConfigDialog_BackButton: RscButton
+    class Rimsiakas_AdvancedConfigDialog_ParamsBackground: RscText
     {
-        idc = 1000;
-        action = "closeDialog 1;";
-
-        text = "Back"; //--- ToDo: Localize;
-        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
-    };
-    class Rimsiakas_AdvancedConfigDialog_Map: RscMapControl
-    {
-        idc = 1001;
-
-        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+        idc = 1007;
+        x = 31 * GUI_GRID_W + GUI_GRID_X;
         y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
-        w = 30 * GUI_GRID_W;
+        w = 8.5 * GUI_GRID_W;
         h = 20 * GUI_GRID_H;
+        colorBackground[] = {-1,-1,-1,0.5};
     };
+
     class Rimsiakas_AdvancedConfigDialog_Instruction: RscText
     {
         idc = 1002;
@@ -60,63 +50,69 @@ class Rimsiakas_AdvancedConfigDialog
         colorBackground[] = {-1,-1,-1,0.5};
         sizeEx = 0.05;
     };
-    class Rimsiakas_AdvancedConfigDialog_RotateCCW: RscButton
+
+    class Rimsiakas_AdvancedConfigDialog_Map: RscMapControl
+    {
+        idc = 1001;
+
+        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+        w = 30 * GUI_GRID_W;
+        h = 20 * GUI_GRID_H;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_BottomButton: RscButton
+    {
+        y = 23 * GUI_GRID_H + GUI_GRID_Y;
+        w = 5.5 * GUI_GRID_W;
+        h = 1.5 * GUI_GRID_H;
+    }
+
+    class Rimsiakas_AdvancedConfigDialog_BackButton: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 1000;
+        action = "closeDialog 1;";
+
+        text = "Back"; //--- ToDo: Localize;
+        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_RotateCCW: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
         idc = 1003;
         action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
 
         text = "Rotate CCW"; //--- ToDo: Localize;
         x = 6.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_RotateCW: RscButton
+    class Rimsiakas_AdvancedConfigDialog_RotateCW: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
         idc = 1004;
         action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
 
         text = "Rotate CW"; //--- ToDo: Localize;
         x = 12.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_ScaleDown: RscButton
+    class Rimsiakas_AdvancedConfigDialog_ScaleDown: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
         idc = 1005;
         action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
 
         text = "Scale-"; //--- ToDo: Localize;
         x = 18.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_ScaleUp: RscButton
+    class Rimsiakas_AdvancedConfigDialog_ScaleUp: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
         idc = 1006;
         action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
 
         text = "Scale+"; //--- ToDo: Localize;
         x = 24.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_ParamsBackground: RscText
-    {
-        idc = 1007;
-        x = 31 * GUI_GRID_W + GUI_GRID_X;
-        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
-        w = 8.5 * GUI_GRID_W;
-        h = 20 * GUI_GRID_H;
-        colorBackground[] = {-1,-1,-1,0.5};
-    };
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusLabel: RscText
     {
         idc = 1008;
@@ -126,6 +122,7 @@ class Rimsiakas_AdvancedConfigDialog
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
+
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusValue: RscText
     {
         idc = 1009;
@@ -134,6 +131,7 @@ class Rimsiakas_AdvancedConfigDialog
         w = 7.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
     };
+
     class Rimsiakas_AdvancedConfigDialog_IntelGridSizeLabel: RscText
     {
         idc = 1010;

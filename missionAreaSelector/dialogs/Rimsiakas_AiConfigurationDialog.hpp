@@ -48,14 +48,10 @@ class Rimsiakas_AiConfigurationDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AiConfigurationDialog_PatrolFormation: RscCombo
+    class Rimsiakas_AiConfigurationDialog_Formation: RscCombo
     {
-        idc = 1002;
-        x = 10 * GUI_GRID_W + GUI_GRID_X;
-        y = 2 * GUI_GRID_H + GUI_GRID_Y;
         w = 18.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        tooltip = "Group will use this formation while looking for targets or while moving towards their target";
 
         class Items
         {
@@ -114,6 +110,14 @@ class Rimsiakas_AiConfigurationDialog
                 default = 0;
             };
         };
+    }
+
+    class Rimsiakas_AiConfigurationDialog_PatrolFormation: Rimsiakas_AiConfigurationDialog_Formation
+    {
+        idc = 1002;
+        x = 10 * GUI_GRID_W + GUI_GRID_X;
+        y = 2 * GUI_GRID_H + GUI_GRID_Y;
+        tooltip = "Group will use this formation while looking for targets or while moving towards their target";
     };
 
     class Rimsiakas_AiConfigurationDialog_AttackFormationLabel: RscText
@@ -126,72 +130,12 @@ class Rimsiakas_AiConfigurationDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AiConfigurationDialog_AttackFormation: RscCombo
+    class Rimsiakas_AiConfigurationDialog_AttackFormation: Rimsiakas_AiConfigurationDialog_Formation
     {
         idc = 1004;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 5 * GUI_GRID_H + GUI_GRID_Y;
-        w = 18.5 * GUI_GRID_W;
-        h = 1 * GUI_GRID_H;
         tooltip = "Group will switch to this formation when within engagement distance to their target";
-
-        class Items
-        {
-            class Column
-            {
-                text = "Column";
-                data = "COLUMN";
-                default = 0;
-            };
-            class StaggeredColumn
-            {
-                text = "Staggered Column";
-                data = "STAG COLUMN";
-                default = 0;
-            };
-            class Wedge
-            {
-                text = "Wedge";
-                data = "WEDGE";
-                default = 1;
-            };
-            class EchelonLeft
-            {
-                text = "Echelon Left";
-                data = "ECH LEFT";
-                default = 0;
-            };
-            class EchelonRight
-            {
-                text = "Echelon Right";
-                data = "ECH RIGHT";
-                default = 0;
-            };
-            class Vee
-            {
-                text = "Vee";
-                data = "VEE";
-                default = 0;
-            };
-            class Line
-            {
-                text = "Line";
-                data = "LINE";
-                default = 0;
-            };
-            class File
-            {
-                text = "File";
-                data = "FILE";
-                default = 0;
-            };
-            class Diamond
-            {
-                text = "Diamond";
-                data = "DIAMOND";
-                default = 0;
-            };
-        };
     };
 
     class Rimsiakas_AiConfigurationDialog_MovementSpeedModeLabel: RscText

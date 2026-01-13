@@ -6,8 +6,8 @@ import RscSlider;
 import RscCombo;
 import RscCheckBox;
 
-#include "Dialogs\Rimsiakas_AdvancedConfigDialog.hpp"
-#include "Dialogs\Rimsiakas_AiConfigurationDialog.hpp"
-#include "Dialogs\Rimsiakas_EnvironmentConfigurationDialog.hpp"
-#include "Dialogs\Rimsiakas_MissionAreaPreviewDialog.hpp"
-#include "Dialogs\Rimsiakas_MissionAreaSelectorDialog.hpp"
+#include "dialogs\Rimsiakas_AdvancedConfigDialog.hpp"
+#include "dialogs\Rimsiakas_AiConfigurationDialog.hpp"
+#include "dialogs\Rimsiakas_EnvironmentConfigurationDialog.hpp"
+#include "dialogs\Rimsiakas_MissionAreaPreviewDialog.hpp"
+#include "dialogs\Rimsiakas_MissionAreaSelectorDialog.hpp"
