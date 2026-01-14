@@ -28,6 +28,7 @@ class CfgFunctions
             class controlGroupSpeed {};
             class controlGroupJoining {};
             class controlGroupKeepingFormation {};
+            class moveMissionArea {};
         };
 
         class intelSharing

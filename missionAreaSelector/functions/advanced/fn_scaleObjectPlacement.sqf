@@ -107,12 +107,3 @@ patrolCenter setVariable ["maxInfantryResponseDistance", round ((patrolCenter ge
 patrolCenter setVariable ["maxVehicleResponseDistance", round ((patrolCenter getVariable "maxVehicleResponseDistance_original") * _scale), true];
 patrolCenter setVariable ["maxAirResponseDistance", round ((patrolCenter getVariable "maxAirResponseDistance_original") * _scale), true];
 patrolCenter setVariable ["scaling", _scale, true];
-
-if ("missionAreaMarker" in allMapMarkers) then {
-    private _markerSize = (markerSize "missionAreaMarker") select 0;
-    "missionAreaMarker" setMarkerSizeLocal [_patrolRadius, _patrolRadius];
-};
-
-if (!hasInterface && {!isNil "Rimsiakas_loggedInAdmin"}) then {
-    ["missionAreaMarker", [_patrolRadius, _patrolRadius]] remoteExec ["setMarkerSizeLocal", Rimsiakas_loggedInAdmin];
-};
