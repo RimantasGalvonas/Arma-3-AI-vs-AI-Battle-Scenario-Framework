@@ -5,7 +5,7 @@ patrolCenter setVariable ["maxVehicleResponseDistance", floor (parseNumber (ctrl
 patrolCenter setVariable ["maxAirResponseDistance", floor (parseNumber (ctrlText 1018)), true];
 
 _scale = patrolCenter getVariable ["scaling", 1];
-patrolCenter setVariable ["intelGridSize_original", (patrolCenter getVariable "maxInfantryResponseDistance") / _scale, true];
+patrolCenter setVariable ["intelGridSize_original", (patrolCenter getVariable "intelGridSize") / _scale, true];
 patrolCenter setVariable ["maxInfantryResponseDistance_original", (patrolCenter getVariable "maxInfantryResponseDistance") / _scale, true];
 patrolCenter setVariable ["maxVehicleResponseDistance_original", (patrolCenter getVariable "maxVehicleResponseDistance") / _scale, true];
 patrolCenter setVariable ["maxAirResponseDistance_original", (patrolCenter getVariable "maxAirResponseDistance") / _scale, true];
