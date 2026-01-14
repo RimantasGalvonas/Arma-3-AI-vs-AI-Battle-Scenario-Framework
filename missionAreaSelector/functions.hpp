@@ -5,9 +5,9 @@ class missionAreaSelectorGeneral
     class openMissionAreaSelector {};
     class previewMissionArea {};
     class terminateMissionAreaPreview {};
-    class moveMissionArea {};
     class initMissionAreaSelection {};
     class handleMapClick {};
+    class updateMissionAreaSelectionMarker {};
 }
 
 class missionAreaSelectorAdvanced

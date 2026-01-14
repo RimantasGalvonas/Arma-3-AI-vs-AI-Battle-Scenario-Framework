@@ -81,11 +81,3 @@ private _moveObjectFunc = {
 patrolCenter setPos _newMissionPos;
 private _oldRotation = patrolCenter getVariable ["rotation", 0];
 patrolCenter setVariable ["rotation", _oldRotation + _rotation, true];
-
-if ("missionAreaMarker" in allMapMarkers) then {
-    "missionAreaMarker" setMarkerDirLocal (_oldRotation + _rotation);
-};
-
-if (!hasInterface && {!isNil "Rimsiakas_loggedInAdmin"}) then {
-    ["missionAreaMarker", (_oldRotation + _rotation)] remoteExec ["setMarkerDirLocal", Rimsiakas_loggedInAdmin];
-};
