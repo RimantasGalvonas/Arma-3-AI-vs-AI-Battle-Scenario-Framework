@@ -68,9 +68,24 @@ if (_groupHasVehicles == true) then {
     };
 
     if (_distance > _minFlankingDistance) then {
+        // Collect attack positions already chosen by friendlies - used to prevent groups clumping together in one place
+        _friendlyGroups = allGroups select {_x != _group && {[side _group, side _x] call BIS_fnc_sideIsFriendly}};
+        _occupiedVantagePoints = [];
+        {
+            _friendlyAttackPosition = _x getVariable ["attackingFromPos", nil];
+            if (isNil "_friendlyAttackPosition") then {
+                continue;
+            };
+
+            _occupiedVantagePoints append [_friendlyAttackPosition];
+        } forEach _friendlyGroups;
+
+
         // Find a good place to attack from and advance onto the enemy from that position
-        _vantagePoint = [getPos (leader _group), _targetPos, (_maxFlankingDistance min _distance), _minFlankingDistance, nil, true] call Rimsiakas_fnc_findOverwatchWithCover;
+        _vantagePoint = [getPos (leader _group), _targetPos, (_maxFlankingDistance min _distance), _minFlankingDistance, nil, true, true, _occupiedVantagePoints] call Rimsiakas_fnc_findOverwatchWithCover;
         _vantagePoint = _vantagePoint select 0;
+        _group setVariable ["attackingFromPos", _vantagePoint];
+
 
         [_group, getPos (leader _group), _vantagePoint, _targetPos] call Rimsiakas_fnc_createIntermediateCombatMoveWaypoints;
 
@@ -79,14 +94,18 @@ if (_groupHasVehicles == true) then {
             [group this] call Rimsiakas_fnc_temporaryCombatMode;
             ([group this, 15] call Rimsiakas_fnc_waypointPreConditionTimeout) && {!([group this] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently)};
         ";
+
+        _vantagePointWPStatement = "[group this] call Rimsiakas_fnc_updateAttackingFromPos;";
+
         _vantagePointWP = _group addWayPoint [_vantagePoint, 1];
         _vantagePointWP setWaypointType "MOVE";
-        _vantagePointWP setWaypointStatements [_vantagePointWPCondition, ""];
+        _vantagePointWP setWaypointStatements [_vantagePointWPCondition, _vantagePointWPStatement];
 
 
         [_group, _vantagePoint, _targetPos, _targetPos, false] call Rimsiakas_fnc_createIntermediateCombatMoveWaypoints;
     } else {
         // Enemy is nearby so advance onto their position directly
+        _group setVariable ["attackingFromPos", getPos (leader _group)];
         [_group, getPos (leader _group), _targetPos, _targetPos] call Rimsiakas_fnc_createIntermediateCombatMoveWaypoints;
     };
 
