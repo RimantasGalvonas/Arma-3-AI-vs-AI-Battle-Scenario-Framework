@@ -1,4 +1,6 @@
 [] spawn {
+    // TODO: Currently this doesn't work in multiplayer
+
     private _debugMarkerNames = [];
 
     while {patrolCenter getVariable ["showFriendlyGroupTargets", true]} do {
@@ -27,15 +29,27 @@
             private _groupLeaderPos = getPos leader _group;
             private _lastKnownPosition = _group getVariable "lastReportedTargetPosition";
             private _color = [side _group, true] call BIS_fnc_sideColor;
+            private _attackingFromPos = _group getVariable ["attackingFromPos", nil];
 
+            if (!isNil "_attackingFromPos") then {
+                private _markerName = "group" + (str _group) + "attackingFromPosLine";
+                createMarkerLocal [_markerName, _groupLeaderPos];
+                _markerName setMarkerColorLocal _color;
+                _markerName setMarkerAlphaLocal 0.3;
+                _markerName setMarkerShapeLocal "POLYLINE";
+                _markerName setMarkerPolylineLocal [_groupLeaderPos select 0, _groupLeaderPos select 1, _attackingFromPos select 0, _attackingFromPos select 1];
+                _debugMarkerNames append [_markerName];
+            } else {
+                _attackingFromPos = _groupLeaderPos;
+            };
 
             private _markerName = "group" + (str _group) + "targetLastKnownPositionLine";
-            createMarkerLocal [_markerName, _groupLeaderPos];
+            createMarkerLocal [_markerName, _attackingFromPos];
             private _targetLeaderPos = getPos leader _currentTargetGroup;
             _markerName setMarkerColorLocal _color;
             _markerName setMarkerAlphaLocal 0.3;
             _markerName setMarkerShapeLocal "POLYLINE";
-            _markerName setMarkerPolylineLocal [_groupLeaderPos select 0, _groupLeaderPos select 1, _lastKnownPosition select 0, _lastKnownPosition select 1];
+            _markerName setMarkerPolylineLocal [_attackingFromPos select 0, _attackingFromPos select 1, _lastKnownPosition select 0, _lastKnownPosition select 1];
             _debugMarkerNames append [_markerName];
 
             _markerName = "group" + (str _group) + "targetLastKnownPositionIcon";

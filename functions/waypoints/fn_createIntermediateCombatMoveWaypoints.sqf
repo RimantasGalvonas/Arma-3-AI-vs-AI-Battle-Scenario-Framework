@@ -80,9 +80,11 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
             _preferablePosition = _backupPreferablePosition;
         };
 
+        _waypointStatement = "[group this] call Rimsiakas_fnc_updateAttackingFromPos;";
+
         _intermediateWaypoint = _group addWayPoint [_preferablePosition, 1];
         _intermediateWaypoint setWaypointType "MOVE";
-        _intermediateWaypoint setWaypointStatements [_waypointCondition, ""];
+        _intermediateWaypoint setWaypointStatements [_waypointCondition, _waypointStatement];
 
         if (_withinEngangementDistance && {!isPlayer leader _group}) then {
             _intermediateWaypoint setWaypointFormation (patrolCenter getVariable ["aiConfigAttackFormation", "WEDGE"]);
