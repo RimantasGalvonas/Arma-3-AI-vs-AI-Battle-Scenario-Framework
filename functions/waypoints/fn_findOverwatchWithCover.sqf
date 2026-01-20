@@ -47,11 +47,9 @@ private _angleEnd = 359;
 // For when _approachMode == true
 private _targetDirection = _centerPos getDir _targetPos;
 private _attackerPosition = _centerPos;
-private _approachConeAngle = 120;
+private _approachConeAngle = 0;
 if (_approachMode) then {
     _centerPos = _targetPos;
-    _angleStart = 180 + _targetDirection - (_approachConeAngle / 2);
-    _angleEnd = 180 + _targetDirection + (_approachConeAngle / 2);
 };
 
 
@@ -61,6 +59,12 @@ for "_radius" from _minDistance to _maxDistance step _intersectionCheckInterval 
     private _circumference = _radius * 2 * 3.14;
     private _pointsCount = _circumference / _intersectionCheckInterval;
     private _angleIncrement = 360 / _pointsCount;
+
+    if (_approachMode) then {
+        _approachConeAngle = 240 - 0.39 * _radius;
+        _angleStart = 180 + _targetDirection - (_approachConeAngle / 2);
+        _angleEnd = 180 + _targetDirection + (_approachConeAngle / 2);
+    };
 
     for "_angle" from _angleStart to _angleEnd step _angleIncrement do {
 
@@ -75,20 +79,19 @@ for "_radius" from _minDistance to _maxDistance step _intersectionCheckInterval 
 
         private _isFlat = (isNil "_requiredFlatness" || {!(_checkPos isFlatEmpty [-1, -1, _requiredFlatness, _intersectionCheckInterval / 2, 0] isEqualTo [])});
 
-        if (_isFlat) then {
-            if (!terrainIntersect [_targetPos, _checkPos]) then {
-                if (count (nearestTerrainObjects [_checkPos, _suitableCoverClasses, _intersectionCheckInterval, false]) > 0) then {
-                    _selectedPositions append [_checkPos];
-
-                    // Debugging
-                    // private _markerName = "vantagePointDebug" + str _checkPos;
-                    // createMarkerLocal [_markerName, _checkPos];
-                    // _markerName setMarkerTypeLocal "mil_dot";
-                    // _markerName setMarkerAlphaLocal 0.3;
-                    // _markerName setMarkerColorLocal "ColorGreen";
-                };
-            };
+        if (!_isFlat) then {
+            continue;
         };
+
+        if (terrainIntersect [_targetPos, _checkPos]) then {
+            continue;
+        };
+
+        if (count (nearestTerrainObjects [_checkPos, _suitableCoverClasses, _intersectionCheckInterval, false]) == 0) then {
+            continue;
+        };
+
+        _selectedPositions append [_checkPos];
     };
 };
 
@@ -133,14 +136,6 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
     };
 
     private _score = (_x select 2) * _heightMultiplier;
-
-    // Debugging
-    // private _markerName = "vantagePointDebug" + str _checkPos;
-    // createMarkerLocal [_markerName, _checkPos];
-    // _markerName setMarkerTypeLocal "mil_dot";
-    // _markerName setMarkerColorLocal "ColorYellow";
-    // _markerName setMarkerAlphaLocal 0.5;
-    // _markerName setMarkerTextLocal ((str (_x select 2)) + " " + str _heightDifference + " " + str _score);
 
     _x set [2, _score];
     _x set [3, _heightDifference];
@@ -226,13 +221,6 @@ if (isNil "_result") then {
 
                     if (count (nearestTerrainObjects [_checkPos, _suitableCoverClasses, 3, false]) > 0) then {
                         _coveredPositionsAroundHere append [_checkPos];
-
-                        // Debugging
-                        // private _markerName = "preciseCoverDebug" + str _checkPos;
-                        // createMarkerLocal [_markerName, _checkPos];
-                        // _markerName setMarkerTypeLocal "mil_dot";
-                        // _markerName setMarkerAlphaLocal 0.3;
-                        // _markerName setMarkerColorLocal "ColorWhite";
                     };
                 };
             };
