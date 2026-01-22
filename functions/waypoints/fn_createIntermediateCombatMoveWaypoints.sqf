@@ -1,26 +1,22 @@
 params ["_group", "_startingPos", "_destination", "_enemyPos", ["_checkStartingPos", true]];
 
-private ["_waypointStepDistance", "_distance", "_lastPos", "_intermediatePositions"];
+private _waypointStepDistance = 100;
 
-_waypointStepDistance = 100;
-
-_distance = _startingPos distance2D _destination;
+private _distance = _startingPos distance2D _destination;
 
 if (_distance > 2000) then {
     _waypointStepDistance = _distance / 10;
 };
 
-_lastPos = _startingPos;
+private _lastPos = _startingPos;
 
 _intermediatePositions = [];
 
 while {_distance > (_waypointStepDistance * 1.5)} do {
-    private ["_preferablePosition", "_intermediatePosition", "_dir", "_waypointCondition", "_maxEngagementDistance", "_vantagePointData", "_vantagePoint", "_intermediateWaypoint", "_backupPreferablePosition"];
-
-    _preferablePosition = nil;
-    _intermediatePosition = nil;
-    _dir = _lastPos getDir _destination;
-    _waypointCondition = "true";
+    private _preferablePosition = nil;
+    private _intermediatePosition = nil;
+    private _dir = _lastPos getDir _destination;
+    private _waypointCondition = "true";
 
 
     if (_checkStartingPos && {_lastPos isEqualTo _startingPos}) then {
@@ -31,7 +27,7 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
         _intermediatePosition = _lastPos getPos [_waypointStepDistance, _dir];
     };
 
-    _maxEngagementDistance = 500; // TODO: calculate according to squad weaponry
+    private _maxEngagementDistance = 500; // TODO: calculate according to squad weaponry
     if (
         [_enemyPos] call Rimsiakas_fnc_isPositionInForest || {
         [_intermediatePosition, _waypointStepDistance / 1.5] call Rimsiakas_fnc_isPositionInForest || {
@@ -45,8 +41,8 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
     // If within engagement distance, try to find a position from which the target is visible, preferably with cover
     if (_withinEngangementDistance) then {
-        _vantagePointData = [_intermediatePosition, _destination, _waypointStepDistance / 1.5] call Rimsiakas_fnc_findOverwatchWithCover;
-        _vantagePoint = _vantagePointData select 0;
+        private _vantagePointData = [_intermediatePosition, _destination, _waypointStepDistance / 1.5] call Rimsiakas_fnc_findOverwatchWithCover;
+        private _vantagePoint = _vantagePointData select 0;
 
         if (_intermediatePosition distance2D _vantagePoint > 0) then {
             _preferablePosition = _vantagePoint;
@@ -55,8 +51,9 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
                 // This is an advantageous position so stay there until the target is dealt with or can't be seen anymore
                 // Do the check every 15 seconds to give time for the group to notice the enemy upon arriving to the waypoint
                 _waypointCondition = "
-                    [group this] call Rimsiakas_fnc_temporaryCombatMode;
-                    ([group this, 15] call Rimsiakas_fnc_waypointPreConditionTimeout) && {!([group this] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently)};
+                    private _group = group this;
+                    [_group] call Rimsiakas_fnc_temporaryCombatMode;
+                    ([_group, 15] call Rimsiakas_fnc_waypointPreConditionTimeout) && {!([_group] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently)};
                 ";
             };
         };
@@ -74,7 +71,7 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
     // Skip creating the waypoint at this step if the most suitable position was on water
     if (surfaceIsWater _preferablePosition == false) then {
-        _backupPreferablePosition = _preferablePosition;
+        private _backupPreferablePosition = _preferablePosition;
         _preferablePosition = _preferablePosition findEmptyPosition [2, (_waypointStepDistance / 3), typeOf (leader _group)]; // To avoid placing waypoints inside houses. Makes the units get stuck
         if ((count _preferablePosition) == 0) then {
             _preferablePosition = _backupPreferablePosition;
@@ -82,7 +79,7 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
         _waypointStatement = "[group this] call Rimsiakas_fnc_updateAttackingFromPos;";
 
-        _intermediateWaypoint = _group addWayPoint [_preferablePosition, 1];
+        private _intermediateWaypoint = _group addWayPoint [_preferablePosition, 1];
         _intermediateWaypoint setWaypointType "MOVE";
         _intermediateWaypoint setWaypointStatements [_waypointCondition, _waypointStatement];
 

@@ -1,7 +1,5 @@
 params ["_group", "_target", ["_targetPriority", 1], ["_additionalWaypointStatements", ""], ["_additionalWaypointCondition", "true"]];
 
-private ["_netId", "_groupHasVehicles", "_waypointCondition", "_waypointStatements", "_finalWaypoint"];
-
 
 
 private _previousTargetGroup = _group getVariable ["currentTargetGroup", false];
@@ -21,12 +19,7 @@ for "_i" from count (waypoints _group) - 1 to 0 step -1 do {
 
 
 
-// netId is used to get group in conditions and statemens rather than by (group this) due to some bug where "this" variable points to a unit from a different group
-_netId = _group call BIS_fnc_netId;
-
-
-
-_groupHasVehicles = false;
+private _groupHasVehicles = false;
 
 {
     if ((vehicle _x) != _x) exitWith {_groupHasVehicles = true};
@@ -35,21 +28,21 @@ _groupHasVehicles = false;
 
 
 if (_groupHasVehicles == true) then {
-    _waypointCondition = _additionalWaypointCondition;
+    private _waypointCondition = _additionalWaypointCondition;
 
-    _waypointStatements = "
+    private _waypointStatements = "
         %1
-        _group = '%2' call BIS_fnc_groupFromNetId;
-        _target = _group getVariable ['currentTarget', nil];
+        private _group = group this;
+        private _target = _group getVariable ['currentTarget', nil];
         if (!isNil '_target' && {!alive _target}) then {
             [_group] call Rimsiakas_fnc_searchForEnemies;
         };
     ";
-    _waypointStatements = format [_waypointStatements, _additionalWaypointStatements, _netId];
+    _waypointStatements = format [_waypointStatements, _additionalWaypointStatements];
 
 
 
-    _finalWaypoint = _group addWayPoint [getPos (vehicle _target), -1];
+    private _finalWaypoint = _group addWayPoint [getPos (vehicle _target), -1];
     _finalWaypoint waypointAttachVehicle (vehicle _target);
     _finalWaypoint setWaypointType "DESTROY";
     _finalWaypoint setWaypointStatements [_waypointCondition, _waypointStatements];
@@ -91,11 +84,14 @@ if (_groupHasVehicles == true) then {
 
 
         _vantagePointWPCondition = "
-            [group this] call Rimsiakas_fnc_temporaryCombatMode;
-            ([group this, 15] call Rimsiakas_fnc_waypointPreConditionTimeout) && {!([group this] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently)};
+            private _group = group this;
+            [_group] call Rimsiakas_fnc_temporaryCombatMode;
+            ([_group, 15] call Rimsiakas_fnc_waypointPreConditionTimeout) && {!([_group] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently) && {%1}};
         ";
+        _vantagePointWPCondition = format [_vantagePointWPCondition, _additionalWaypointCondition];
 
-        _vantagePointWPStatement = "[group this] call Rimsiakas_fnc_updateAttackingFromPos;";
+        _vantagePointWPStatement = "%1 [group this] call Rimsiakas_fnc_updateAttackingFromPos;";
+        _vantagePointWPStatement = format [_vantagePointWPStatement, _additionalWaypointStatements];
 
         _vantagePointWP = _group addWayPoint [_vantagePoint, 1];
         _vantagePointWP setWaypointType "MOVE";
@@ -111,23 +107,15 @@ if (_groupHasVehicles == true) then {
 
 
 
-    _waypointStatements = "
-        %1
-        _group = '%2' call BIS_fnc_groupFromNetId;
-        [_group] call Rimsiakas_fnc_searchForEnemies;
-    ";
-    _waypointStatements = format [_waypointStatements, _additionalWaypointStatements, _netId];
+    private _waypointStatements = "%1 [group this] call Rimsiakas_fnc_searchForEnemies;";
+    _waypointStatements = format [_waypointStatements, _additionalWaypointStatements];
 
-    _waypointCondition = "
-        _group = '%1' call BIS_fnc_groupFromNetId;
-
-        (!([_group] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently) && {%2});
-    ";
-    _waypointCondition = format [_waypointCondition, _netId, _additionalWaypointCondition];
+    private _waypointCondition = "(!([group this] call Rimsiakas_fnc_hasGroupSeenItsTargetRecently) && {%1});";
+    _waypointCondition = format [_waypointCondition, _additionalWaypointCondition];
 
 
 
-    _finalWaypoint = _group addWayPoint [getPos _target, 5];
+    private _finalWaypoint = _group addWayPoint [getPos _target, 5];
     _finalWaypoint setWaypointType "SAD";
     _finalWaypoint setWaypointStatements [_waypointCondition, _waypointStatements];
     _finalWaypoint setWaypointFormation (patrolCenter getVariable ["aiConfigAttackFormation", "WEDGE"]);
