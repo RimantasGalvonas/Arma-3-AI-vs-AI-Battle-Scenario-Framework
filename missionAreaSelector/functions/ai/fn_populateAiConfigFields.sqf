@@ -37,4 +37,7 @@
 
     private _forceFormation = patrolCenter getVariable ["aiConfigForceFormation", false];
     (displayCtrl 300012) cbSetChecked _forceFormation;
+
+    private _shootFlares = patrolCenter getVariable ["aiConfigShootFlares", false];
+    (displayCtrl 300014) cbSetChecked _shootFlares;
 };

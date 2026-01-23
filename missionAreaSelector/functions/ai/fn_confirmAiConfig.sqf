@@ -16,4 +16,7 @@ patrolCenter setVariable ["aiConfigAllowLastManToJoinNewGroup", _allowJoinGroup,
 private _forceFormation = cbChecked (displayCtrl 300012);
 patrolCenter setVariable ["aiConfigForceFormation", _forceFormation, true];
 
+private _shootFlares = cbChecked (displayCtrl 300014);
+patrolCenter setVariable ["aiConfigShootFlares", _shootFlares, true];
+
 closeDialog 1;
