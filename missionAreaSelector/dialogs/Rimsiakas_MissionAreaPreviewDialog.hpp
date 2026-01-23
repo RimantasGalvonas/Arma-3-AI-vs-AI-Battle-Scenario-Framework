@@ -15,7 +15,7 @@ class Rimsiakas_MissionAreaPreviewDialog
     class BackToSelectionButton: RscButton
     {
         idc = 1600;
-        text = "Back to selection"; //--- ToDo: Localize;
+        text = "Back to selection";
         x = 15 * GUI_GRID_W + GUI_GRID_X;
         y = 22 * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;

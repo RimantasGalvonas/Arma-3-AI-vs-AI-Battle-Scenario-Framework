@@ -5,9 +5,16 @@ import RscEdit;
 import RscSlider;
 import RscCombo;
 import RscCheckBox;
+import RscFrame;
 
+#include "commonElements.hpp"
 #include "dialogs\Rimsiakas_AdvancedConfigDialog.hpp"
 #include "dialogs\Rimsiakas_AiConfigurationDialog.hpp"
-#include "dialogs\Rimsiakas_EnvironmentConfigurationDialog.hpp"
 #include "dialogs\Rimsiakas_MissionAreaPreviewDialog.hpp"
 #include "dialogs\Rimsiakas_MissionAreaSelectorDialog.hpp"
+
+// Control id rules:
+// Mission area map has a reserved 9999 id
+// Everything in the MissionAreaSelectorDialog is 10YYXX where YY is a section
+// Everything in the AdvancedConfigDialog is 20YYXX where YY is a section
+// Everything in the AiConfigurationDialog is 30XXXX

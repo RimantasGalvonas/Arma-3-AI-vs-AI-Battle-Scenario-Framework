@@ -1,14 +1,13 @@
 [] spawn {
-    waitUntil {!isNull findDisplay 46423};
+    waitUntil {!isNull findDisplay 46421};
 
     _now = date;
 
-    ctrlSetText [1400, str (_now select 0)];
-    ctrlSetText [1401, str (_now select 1)];
-    ctrlSetText [1402, str (_now select 2)];
-    ctrlSetText [1403, str (_now select 3)];
-    ctrlSetText [1404, str (_now select 4)];
-
-    sliderSetPosition [1900, (overcast * 10)];
-    sliderSetPosition [1901, (fog * 10)];
+    ctrlSetText [102002, str (_now select 0)];
+    ctrlSetText [102004, str (_now select 1)];
+    ctrlSetText [102006, str (_now select 2)];
+    ctrlSetText [102008, str (_now select 3)];
+    ctrlSetText [102010, str (_now select 4)];
+    ctrlSetText [102012, str (round (overcast * 100))];
+    ctrlSetText [102014, str (round (fog * 100))];
 };

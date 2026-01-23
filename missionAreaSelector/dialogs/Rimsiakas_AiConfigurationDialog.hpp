@@ -30,18 +30,18 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_Background: RscText
     {
-        idc = 1000;
+        idc = 300000;
         x = 9.5 * GUI_GRID_W + GUI_GRID_X;
         y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 19.5 * GUI_GRID_W;
         h = 18.5 * GUI_GRID_H;
-        colorBackground[] = {-1,-1,-1,0.5};
+        colorBackground[] = {0.15,0.15,0.15,0.9};
     };
 
     class Rimsiakas_AiConfigurationDialog_PatrolFormationLabel: RscText
     {
-        idc = 1001;
-        text = "Patrol formation:"; //--- ToDo: Localize;
+        idc = 300001;
+        text = "Patrol formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 1 * GUI_GRID_H + GUI_GRID_Y;
         w = 10 * GUI_GRID_W;
@@ -114,7 +114,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_PatrolFormation: Rimsiakas_AiConfigurationDialog_Formation
     {
-        idc = 1002;
+        idc = 300002;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 2 * GUI_GRID_H + GUI_GRID_Y;
         tooltip = "Group will use this formation while looking for targets or while moving towards their target";
@@ -122,8 +122,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackFormationLabel: RscText
     {
-        idc = 1003;
-        text = "Attack formation:"; //--- ToDo: Localize;
+        idc = 300003;
+        text = "Attack formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 4 * GUI_GRID_H + GUI_GRID_Y;
         w = 10 * GUI_GRID_W;
@@ -132,7 +132,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackFormation: Rimsiakas_AiConfigurationDialog_Formation
     {
-        idc = 1004;
+        idc = 300004;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 5 * GUI_GRID_H + GUI_GRID_Y;
         tooltip = "Group will switch to this formation when within engagement distance to their target";
@@ -140,8 +140,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_MovementSpeedModeLabel: RscText
     {
-        idc = 1005;
-        text = "Group movement speed:"; //--- ToDo: Localize;
+        idc = 300005;
+        text = "Group movement speed:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 7 * GUI_GRID_H + GUI_GRID_Y;
         w = 10 * GUI_GRID_W;
@@ -150,7 +150,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_MovementSpeedMode: RscCombo
     {
-        idc = 1006;
+        idc = 300006;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 8 * GUI_GRID_H + GUI_GRID_Y;
         w = 18.5 * GUI_GRID_W;
@@ -182,8 +182,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackSpeedOverrideLabel: RscText
     {
-        idc = 1007;
-        text = "Force normal attack speed:"; //--- ToDo: Localize;
+        idc = 300007;
+        text = "Force normal attack speed:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 10 * GUI_GRID_H + GUI_GRID_Y;
         w = 10 * GUI_GRID_W;
@@ -192,7 +192,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackSpeedOverride: RscCheckBox
     {
-        idc = 1008;
+        idc = 300008;
         x = 19.5 * GUI_GRID_W + GUI_GRID_X;
         y = 10 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -203,8 +203,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AllowGroupJoiningLabel: RscText
     {
-        idc = 1009;
-        text = "Allow last man to join new group:"; //--- ToDo: Localize;
+        idc = 300009;
+        text = "Allow last man to join new group:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 12 * GUI_GRID_H + GUI_GRID_Y;
         w = 12 * GUI_GRID_W;
@@ -213,7 +213,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AllowGroupJoining: RscCheckBox
     {
-        idc = 1010;
+        idc = 300010;
         x = 21.5 * GUI_GRID_W + GUI_GRID_X;
         y = 12 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -224,8 +224,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ForceKeepFormationLabel: RscText
     {
-        idc = 1011;
-        text = "Force keeping formation:"; //--- ToDo: Localize;
+        idc = 300011;
+        text = "Force keeping formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 14 * GUI_GRID_H + GUI_GRID_Y;
         w = 12 * GUI_GRID_W;
@@ -234,7 +234,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ForceKeepFormation: RscCheckBox
     {
-        idc = 1012;
+        idc = 300012;
         x = 19 * GUI_GRID_W + GUI_GRID_X;
         y = 14 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -245,8 +245,8 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ConfirmButton: RscButton
     {
-        idc = 1600;
-        text = "Confirm"; //--- ToDo: Localize;
+        idc = 3000099;
+        text = "Confirm";
         action = "call Rimsiakas_fnc_confirmAiConfig";
 
         x = 10.5 * GUI_GRID_W + GUI_GRID_X;

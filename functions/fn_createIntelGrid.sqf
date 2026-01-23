@@ -1,4 +1,4 @@
-private _gridSize = patrolCenter getVariable ["intelGridSize", 0];
+private _gridResolution = patrolCenter getVariable ["intelGridResolution", 1];
 
 
 
@@ -27,7 +27,7 @@ for "_i" from 0 to 2 do {
 
 
 
-if (_gridSize == 0) exitWith {};
+if (_gridResolution <= 1) exitWith {};
 
 
 private _rotateRelativePosition = {
@@ -51,6 +51,7 @@ private _rotateRelativePosition = {
 
 private _middlePos = getPos patrolCenter;
 private _patrolRadius = (patrolCenter getVariable "patrolRadius");
+private _gridSize = _patrolRadius * 2 / _gridResolution;
 private _leftmostGrid = (_middlePos select 0) - _patrolRadius + (_gridSize / 2);
 private _rightmostGrid = (_middlePos select 0) + _patrolRadius;
 private _topGrid = (_middlePos select 1) - _patrolRadius + (_gridSize / 2);

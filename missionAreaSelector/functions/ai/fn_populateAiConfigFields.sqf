@@ -14,10 +14,10 @@
     ];
 
     private _patrolFormation = patrolCenter getVariable ["aiConfigPatrolFormation", "WEDGE"];
-    lbSetCurSel [1002, _formationHashMap get _patrolFormation];
+    lbSetCurSel [300002, _formationHashMap get _patrolFormation];
 
     private _attackFormation = patrolCenter getVariable ["aiConfigAttackFormation", "WEDGE"];
-    lbSetCurSel [1004, _formationHashMap get _attackFormation];
+    lbSetCurSel [300004, _formationHashMap get _attackFormation];
 
 
     private _speedHashMap = createHashMapFromArray [
@@ -27,14 +27,14 @@
     ];
 
     private _speedMode = patrolCenter getVariable ["aiConfigSpeedMode", "NORMAL"];
-    lbSetCurSel [1006, _speedHashMap get _speedMode];
+    lbSetCurSel [300006, _speedHashMap get _speedMode];
 
     private _attackSpeedOverride = patrolCenter getVariable ["aiConfigAttackSpeedOverride", false];
-    (displayCtrl 1008) cbSetChecked _attackSpeedOverride;
+    (displayCtrl 300008) cbSetChecked _attackSpeedOverride;
 
     private _allowJoinGroup = patrolCenter getVariable ["aiConfigAllowLastManToJoinNewGroup", false];
-    (displayCtrl 1010) cbSetChecked _allowJoinGroup;
+    (displayCtrl 300010) cbSetChecked _allowJoinGroup;
 
     private _forceFormation = patrolCenter getVariable ["aiConfigForceFormation", false];
-    (displayCtrl 1012) cbSetChecked _forceFormation;
+    (displayCtrl 300012) cbSetChecked _forceFormation;
 };

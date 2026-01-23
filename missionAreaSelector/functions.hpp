@@ -37,3 +37,11 @@ class missionAreaSelectorAI
     class populateAiConfigFields {};
     class confirmAiConfig {};
 }
+
+class intelGrid
+{
+    file = "missionAreaSelector\functions\intelGrid";
+
+    class handleIntelGridButton {};
+    class refreshIntelGridValue {};
+}

@@ -12,7 +12,7 @@ call Rimsiakas_fnc_refreshAdvancedConfigInfo;
 
 _dialog = findDisplay 46424;
 
-_map = _dialog displayCtrl 1001;
+_map = _dialog displayCtrl 9999;
 
 _map ctrlAddEventHandler ["MouseButtonClick", {
     _ctrl = _this select 0;
@@ -47,6 +47,6 @@ waitUntil {isNull findDisplay 46424};
 
 waitUntil {!isNull findDisplay 46421};
 _dialog = findDisplay 46421;
-_map = _dialog displayCtrl 1001;
+_map = _dialog displayCtrl 9999;
 _map ctrlMapAnimAdd [0, 0.25, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
