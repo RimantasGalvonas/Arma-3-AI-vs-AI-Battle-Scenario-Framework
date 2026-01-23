@@ -29,6 +29,7 @@ class CfgFunctions
             class controlGroupJoining {};
             class controlGroupKeepingFormation {};
             class moveMissionArea {};
+            class shootFlares {};
         };
 
         class intelSharing
