@@ -5,7 +5,7 @@ _getIncompleteParts = {
 
 
 
-    if (isNil "patrolCenter" || {isNil {patrolCenter getVariable "patrolRadius"} || isNil {patrolCenter getVariable "intelGridSize"}}) exitWith {
+    if (isNil "patrolCenter" || {isNil {patrolCenter getVariable "patrolRadius"}}) exitWith {
         _incompleteParts;
     };
 

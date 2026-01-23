@@ -4,20 +4,24 @@ class Rimsiakas_AdvancedConfigDialog
     movingEnabled = false;
     enableSimulation = true;
 
+    controlsBackground[]=
+    {
+        Rimsiakas_AdvancedConfigDialog_MainBackground,
+        Rimsiakas_AdvancedConfigDialog_Heading,
+        Rimsiakas_AdvancedConfigDialog_PatrolRadiusFrame,
+        Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceFrame
+    };
+
     controls[]=
     {
         Rimsiakas_AdvancedConfigDialog_BackButton,
         Rimsiakas_AdvancedConfigDialog_Map,
-        Rimsiakas_AdvancedConfigDialog_Instruction,
         Rimsiakas_AdvancedConfigDialog_RotateCCW,
         Rimsiakas_AdvancedConfigDialog_RotateCW,
         Rimsiakas_AdvancedConfigDialog_ScaleDown,
         Rimsiakas_AdvancedConfigDialog_ScaleUp,
-        Rimsiakas_AdvancedConfigDialog_ParamsBackground,
         Rimsiakas_AdvancedConfigDialog_PatrolRadiusLabel,
         Rimsiakas_AdvancedConfigDialog_PatrolRadiusValue,
-        Rimsiakas_AdvancedConfigDialog_IntelGridSizeLabel,
-        Rimsiakas_AdvancedConfigDialog_IntelGridSizeValue,
         Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceLabel,
         Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryLabel,
         Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryValue,
@@ -28,95 +32,39 @@ class Rimsiakas_AdvancedConfigDialog
         Rimsiakas_AdvancedConfigDialog_ApplyParamsBtn
     };
 
-    class Rimsiakas_AdvancedConfigDialog_ParamsBackground: RscText
+    class Rimsiakas_AdvancedConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
-        idc = 1007;
-        x = 31 * GUI_GRID_W + GUI_GRID_X;
-        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
-        w = 8.5 * GUI_GRID_W;
-        h = 20 * GUI_GRID_H;
-        colorBackground[] = {-1,-1,-1,0.5};
+         idc = 200000;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_Instruction: RscText
+    class Rimsiakas_AdvancedConfigDialog_Heading: Rimsiakas_Heading
     {
-        idc = 1002;
-
-        text = "Advanced configuration"; //--- ToDo: Localize;
-        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-        w = 39 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
-        colorBackground[] = {-1,-1,-1,0.5};
-        sizeEx = 0.05;
+        idc = 200001;
+        text = "Advanced configuration";
     };
 
     class Rimsiakas_AdvancedConfigDialog_Map: RscMapControl
     {
-        idc = 1001;
-
+        idc = 9999;
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
         y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 30 * GUI_GRID_W;
         h = 20 * GUI_GRID_H;
     };
 
-    class Rimsiakas_AdvancedConfigDialog_BottomButton: RscButton
+    class Rimsiakas_AdvancedConfigDialog_PatrolRadiusFrame: RscFrame
     {
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
-    }
-
-    class Rimsiakas_AdvancedConfigDialog_BackButton: Rimsiakas_AdvancedConfigDialog_BottomButton
-    {
-        idc = 1000;
-        action = "closeDialog 1;";
-
-        text = "Back"; //--- ToDo: Localize;
-        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_RotateCCW: Rimsiakas_AdvancedConfigDialog_BottomButton
-    {
-        idc = 1003;
-        action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
-
-        text = "Rotate CCW"; //--- ToDo: Localize;
-        x = 6.5 * GUI_GRID_W + GUI_GRID_X;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_RotateCW: Rimsiakas_AdvancedConfigDialog_BottomButton
-    {
-        idc = 1004;
-        action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
-
-        text = "Rotate CW"; //--- ToDo: Localize;
-        x = 12.5 * GUI_GRID_W + GUI_GRID_X;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_ScaleDown: Rimsiakas_AdvancedConfigDialog_BottomButton
-    {
-        idc = 1005;
-        action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
-
-        text = "Scale-"; //--- ToDo: Localize;
-        x = 18.5 * GUI_GRID_W + GUI_GRID_X;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_ScaleUp: Rimsiakas_AdvancedConfigDialog_BottomButton
-    {
-        idc = 1006;
-        action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
-
-        text = "Scale+"; //--- ToDo: Localize;
-        x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+        idc = 201000;
+        x = 31 * GUI_GRID_W + GUI_GRID_X;
+        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+        w = 8.5 * GUI_GRID_W;
+        h = 3 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusLabel: RscText
     {
-        idc = 1008;
-        text = "Patrol Radius:"; //--- ToDo: Localize;
+        idc = 201001;
+        text = "Patrol Radius:";
         x = 31.5 * GUI_GRID_W + GUI_GRID_X;
         y = 3 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
@@ -125,114 +73,146 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusValue: RscText
     {
-        idc = 1009;
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 4 * GUI_GRID_H + GUI_GRID_Y;
-        w = 7.5 * GUI_GRID_W;
-        h = 1 * GUI_GRID_H;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_IntelGridSizeLabel: RscText
-    {
-        idc = 1010;
-        text = "Intel Grid Size:"; //--- ToDo: Localize;
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 6 * GUI_GRID_H + GUI_GRID_Y;
-        w = 7.5 * GUI_GRID_W;
-        h = 0.5 * GUI_GRID_H;
-    };
-
-    class Rimsiakas_AdvancedConfigDialog_IntelGridSizeValue: RscEdit
-    {
-        idc = 1011;
+        idc = 201002;
         x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 7 * GUI_GRID_H + GUI_GRID_Y;
+        y = 4 * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        tooltip = "The size of colored squares on the map hinting the enemy locations. Set to 0 to disable."; //--- ToDo: Localize;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceFrame: RscFrame
+    {
+        idc = 202000;
+        x = 31 * GUI_GRID_W + GUI_GRID_X;
+        y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+        w = 8.5 * GUI_GRID_W;
+        h = 16 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceLabel: RscText
     {
-        idc = 1012;
-        text = "Intel Response Dist."; //--- ToDo: Localize;
+        idc = 202001;
+        text = "Intel Response Dist.";
         x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 7 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryLabel: RscText
     {
-        idc = 1013;
-        text = "Infantry"; //--- ToDo: Localize;
+        idc = 202002;
+        text = "Infantry";
         x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 11 * GUI_GRID_H + GUI_GRID_Y;
+        y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryValue: RscEdit
     {
-        idc = 1014;
+        idc = 202003;
         x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 12 * GUI_GRID_H + GUI_GRID_Y;
+        y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        tooltip = "Maximum distance to target at which infantry groups will respond to intel about the enemy location."; //--- ToDo: Localize;
+        tooltip = "Maximum distance to target at which infantry groups will respond to intel about the enemy location.";
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceVehiclesLabel: RscText
     {
-        idc = 1015;
-        text = "Vehicles"; //--- ToDo: Localize;
+        idc = 202004;
+        text = "Vehicles";
         x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 11 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceVehiclesValue: RscEdit
     {
-        idc = 1016;
+        idc = 202005;
         x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 12 * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        tooltip = "Maximum distance to target at which mounted groups will respond to intel about the enemy location."; //--- ToDo: Localize;
+        tooltip = "Maximum distance to target at which mounted groups will respond to intel about the enemy location.";
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceAirLabel: RscText
     {
-        idc = 1017;
-        text = "Air"; //--- ToDo: Localize;
+        idc = 202006;
+        text = "Air";
         x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 16 * GUI_GRID_H + GUI_GRID_Y;
+        y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceAirValue: RscEdit
     {
-        idc = 1018;
+        idc = 202007;
         x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 17 * GUI_GRID_H + GUI_GRID_Y;
+        y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        tooltip = "Maximum distance to target at which air assets will respond to intel about the enemy location."; //--- ToDo: Localize;
+        tooltip = "Maximum distance to target at which air assets will respond to intel about the enemy location.";
     };
 
-    class Rimsiakas_AdvancedConfigDialog_ApplyParamsBtn: RscButton
+    class Rimsiakas_AdvancedConfigDialog_ApplyParamsBtn: Rimsiakas_Button
     {
-        idc = 1019;
+        idc = 202099;
         action = "call Rimsiakas_fnc_confirmAdvancedParams;";
-
-        text = "Apply"; //--- ToDo: Localize;
+        text = "Apply";
         x = 32 * GUI_GRID_W + GUI_GRID_X;
         y = 20 * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
-        h = 1.5 * GUI_GRID_H;
-        tooltip = "Apply the input field values."; //--- ToDo: Localize;
-        colorBackground[] = {-1,-1,-1,1};
+        tooltip = "Apply the input field values.";
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_BottomButton: Rimsiakas_Button
+    {
+        y = 23 * GUI_GRID_H + GUI_GRID_Y;
+        w = 5.5 * GUI_GRID_W;
+    }
+
+    class Rimsiakas_AdvancedConfigDialog_BackButton: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 209000;
+        action = "closeDialog 1;";
+        text = "Back";
+        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_RotateCCW: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 209001;
+        action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+        text = "Rotate CCW";
+        x = 6.5 * GUI_GRID_W + GUI_GRID_X;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_RotateCW: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 209002;
+        action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+        text = "Rotate CW";
+        x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_ScaleDown: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 209003;
+        action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+        text = "Scale-";
+        x = 18.5 * GUI_GRID_W + GUI_GRID_X;
+    };
+
+    class Rimsiakas_AdvancedConfigDialog_ScaleUp: Rimsiakas_AdvancedConfigDialog_BottomButton
+    {
+        idc = 209004;
+        action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+        text = "Scale+";
+        x = 24.5 * GUI_GRID_W + GUI_GRID_X;
     };
 }
