@@ -15,7 +15,7 @@ This is a customizeable mission template to be used in the Eden editor. It allow
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.3.3/AI-vs-AI-Battle-Scenario-Template-1.3.3.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.3.4/AI-vs-AI-Battle-Scenario-Template-1.3.4.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -34,7 +34,7 @@ Mandatory:
 Enter these into said entity's init box:
 <pre>
 this setVariable ["patrolRadius", <b>1000</b>];
-this setVariable ["intelGridSize", <b>100</b>];
+this setVariable ["intelGridResolution", <b>6</b>];
 this setVariable ["maxInfantryResponseDistance", <b>500</b>];
 this setVariable ["maxVehicleResponseDistance", <b>1500</b>];
 this setVariable ["maxAirResponseDistance", <b>10000</b>];
@@ -201,9 +201,9 @@ The camps will be populated with units from the chosen side.
 </details>
 
 <details>
-<summary>Ai behavior configuration</summary>
+<summary>AI Behavior Configuration</summary>
 
-## Ai behavior configuration
+## Ai Behavior Configuration
 You can adjust the behavior of AI by setting these variables on the <b>patrolCenter</b> entity:
 
 <pre>
@@ -275,6 +275,13 @@ this setVariable ["aiConfigMaxAttackRatio", 3];
 The maximum number of groups that can attack the same enemy group. This allows groups to keep looking for new targets if the ones that are already known, are already being engaged by friendlies.
 
 If not set, defaults to **3**.
+
+<br>
+<pre>
+this setVariable ["aiConfigShootFlares", true];
+</pre>
+
+Automatically spawns illumination flares in the direction of groups' next waypoint once it gets dark.
 
 <br>
 </details>
@@ -467,7 +474,6 @@ _group setVariable ["ignoreIntel", true];
 # Example missions
 Extract these to Documents/Arma 3/missions/ and open with the Eden editor.
 
-These missions may not use the latest version of the scripts so I do not recommend basing your own missions directly on these.
 <ul>
 <li>
 <details>
@@ -478,7 +484,7 @@ These missions may not use the latest version of the scripts so I do not recomme
 
 This is the main example mission, showing off most of the available functionality and includes an explanation on how it was made in the mission diary.
 
-Made on v1.3.2
+Made on v1.3.4
 </details>
 </li>
 <li>
@@ -486,13 +492,13 @@ Made on v1.3.2
 <summary>Force Through Gamemode [SP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.3.3/ForceThroughMissions.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.3.4/ForceThroughMissions.zip)
 
 This is the source for these missions: https://steamcommunity.com/workshop/filedetails/?id=2427506774
 
 This scenario demonstrates the possibility to add additional logic to the scenarios right in the editor without having to modify the scripts themselves. Look for the **missionLocationChangerLogic** object and expressions in the **Spawn AI** modules.
 
-Made on v1.3.3
+Made on v1.3.4
 
 Editing tutorial:
 https://www.youtube.com/watch?v=kwI_mhtQ6OI
@@ -546,10 +552,24 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
+1.3.4 (2026-01-24)
+<ul>
+<li>Fix bug where changing the inventory response distance in the mission configuration dialog messes up the intel grid size value.</li>
+<li>Update the logic for picking a position to attack from:</li>
+<ul>
+<li>Groups will now try to avoid positions that other groups have already picked as an attack position. This should help groups spread out more, if there's enough good favorable positions.</li>
+<li>Update the angles from which the groups can choose to attack. This should reduce the amount of long annoying detours while allowing better flanking angles.</li>
+</ul>
+<li>Update the mission configuration dialog design.</li>
+<li>New setting to automatically spawn flares at night.</li>
+<li>Breaking change: intelGridSize param for patrolCenter was renamed to intelGridResolution.</li>
+</ul>
+</li>
+<li>
 1.3.3 (2025-10-26)
 <ul>
-<li>New setting to allow infinite response distance for groups as long as they have no target assigned (no GUI, set by script only)</li>
-<li>Remove the max attack ratio setting from the GUI, but leave the functionality intact</li>
+<li>New setting to allow infinite response distance for groups as long as they have no target assigned (no GUI, set by script only).</li>
+<li>Remove the max attack ratio setting from the GUI, but leave the functionality intact.</li>
 </ul>
 </li>
 <li>
