@@ -29,7 +29,6 @@ class CfgFunctions
             class controlGroupJoining {};
             class controlGroupKeepingFormation {};
             class moveMissionArea {};
-            class shootFlares {};
         };
 
         class intelSharing
@@ -79,6 +78,14 @@ class CfgFunctions
             class isPositionInForest {};
             class isPositionAmongBuildings {};
             class updateAttackingFromPos {};
+        };
+
+        class flares
+        {
+            file = "functions\flares";
+            class shootFlares {};
+            class getFlareShootingParams {};
+            class isDarkEnoughForFlares {};
         };
 
         #include "missionAreaSelector\functions.hpp"
