@@ -21,7 +21,7 @@ if (count (_vehicles) == 0) exitWith {
     private _randomPosition = [_centerPos, _minimumDistance, _maximumDistance, 1, 0, 0.6, 0] call BIS_fnc_findSafePos;
     {
         private _unitPosition = _randomPosition findEmptyPosition [2, 20, typeOf _x];
-        private _azimuth = random [0, 180, 359];
+        private _azimuth = [0, 359] call BIS_fnc_randomInt;
 
         vehicle _x setPos _unitPosition; // Set on vehicle because it might be a turret
         vehicle _x setDir _azimuth;
@@ -55,7 +55,7 @@ if (isNil "_startingRoadSection" == true) exitWith {
 
     {
         private _unitPosition = [_randomPosition, 0, _requiredArea, 5, 0, 0.6, 0] call BIS_fnc_findSafePos;
-        private _azimuth = random [0, 180, 359];
+        private _azimuth = [0, 359] call BIS_fnc_randomInt;
 
         vehicle _x setPos _unitPosition;
         vehicle _x setDir _azimuth;
@@ -63,7 +63,7 @@ if (isNil "_startingRoadSection" == true) exitWith {
 
     {
         private _unitPosition = _randomPosition findEmptyPosition [5, _requiredArea, typeOf _x];
-        private _azimuth = random [0, 180, 359];
+        private _azimuth = [0, 359] call BIS_fnc_randomInt;
 
         vehicle _x setPos _unitPosition;
         vehicle _x setDir _azimuth;
@@ -110,7 +110,7 @@ if (isNil "_startingRoadSection" == false) exitWith {
     // Handle dismounts in group
     {
         private _unitPosition = (getPos _startingRoadSection) findEmptyPosition [5, 20, typeOf _x];
-        private _azimuth = random [0, 180, 359];
+        private _azimuth = [0, 359] call BIS_fnc_randomInt;
 
         vehicle _x setPos _unitPosition;
         vehicle _x setDir _azimuth;
