@@ -45,7 +45,16 @@ while {patrolCenter getVariable ["aiConfigShootFlares", false]} do {
 
             _group setVariable ["lastFlareShotTime", _elapsedTime];
 
-            private _flare = "F_40mm_White_Illumination" createVehicle _flareCoords;
+            // Note: yes, this is supposed to be adjusted here just before launching and not before it checks for proximity, because this adjustment is meant to make sure the flare is where it needs to be mid-burn
+            _wind = wind;
+            _windSpeed = sqrt (((wind select 0) ^ 2) + ((wind select 1) ^ 2));
+            _windAdjustedFlareCoords = [
+                (_flareCoords select 0) - ((_wind select 0) * 6.25),
+                (_flareCoords select 1) - ((_wind select 1) * 6.25),
+                (_flareCoords select 2) - (140 - 140/(1 + 0.002 * (_windSpeed ^ 2)))
+            ];
+
+            private _flare = "F_40mm_White_Illumination" createVehicle _windAdjustedFlareCoords;
             _flare setVelocity [1, 1, 1];
             _flare setVariable ["staleAt", _elapsedTime + (_flareShootingParams get "flareStaleTime")];
         } forEach allGroups;
