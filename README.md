@@ -35,18 +35,21 @@ Enter these into said entity's init box:
 <pre>
 this setVariable ["patrolRadius", <b>1000</b>];
 this setVariable ["intelGridResolution", <b>6</b>];
+this setVariable ["flaresLevel", <b>0</b>];
 this setVariable ["maxInfantryResponseDistance", <b>500</b>];
 this setVariable ["maxVehicleResponseDistance", <b>1500</b>];
 this setVariable ["maxAirResponseDistance", <b>10000</b>];
 this setVariable ["dynamic", <b>false</b>];
 </pre>
-<b>1000</b> is the radius of the mission area. Units will roam around it looking for enemies. You may adjust the number.
+<b>patrolRadius</b> is the radius of the mission area. Units will roam around it looking for enemies. You may adjust the number.
 
-<b>100</b> is the size of a colored square on the map showing you the approximate location of enemies in the mission area. You may adjust this number or set it to <b>0</b> to disable it. Setting the value to something very low will give you very precise positions but may negatively impact performance.
+<b>flaresLevel</b> is the level of battlefield illumination by flares at night. Valid values: 0, 1, 2, 3. 0 to disable.  
 
-<b>500</b>, <b>1500</b>, <b>10000</b> are maximum distances at which infantry, vehicles and aircraft respond to intel about enemy locations. You may adjust these numbers.
+<b>intelGridResolution</b> is the resolution of colored squares on the map showing you the approximate location of enemies in the mission area. You may adjust this number or set it to <b>0</b> to disable it. Setting the value to something very high will give you very precise positions but may negatively impact performance.
 
-You may change the <b>false</b> to <b>true</b> in `this setVariable ["dynamic", false];` to enable mission location selection at mission start. Read more about it below in the <b>Dynamic Mission Area</b> section.
+<b>maxInfantryResponseDistance</b>, <b>maxVehicleResponseDistance</b>, <b>maxAirResponseDistance</b> are maximum distances at which infantry, vehicles and aircraft respond to intel about enemy locations. You may adjust these numbers.
+
+You may change the <b>dynamic</b> value to <b>true</b> in `this setVariable ["dynamic", false];` to enable mission location selection at mission start. Read more about it below in the <b>Dynamic Mission Area</b> section.
 </li>
 <li>It is recommended to place a <b>Military Symbols</b> module in the editor (found in: <b>Systems > Modules > Other</b>). It allows you to see the position of friendly groups on the map.</li>
 </ol>
@@ -275,13 +278,6 @@ this setVariable ["aiConfigMaxAttackRatio", 3];
 The maximum number of groups that can attack the same enemy group. This allows groups to keep looking for new targets if the ones that are already known, are already being engaged by friendlies.
 
 If not set, defaults to **3**.
-
-<br>
-<pre>
-this setVariable ["aiConfigShootFlares", true];
-</pre>
-
-Automatically spawns illumination flares in the direction of groups' next waypoint once it gets dark.
 
 <br>
 </details>
