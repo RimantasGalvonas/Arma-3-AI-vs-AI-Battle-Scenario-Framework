@@ -39,7 +39,7 @@ player setVariable ["CHVD_initialized", true];
 
 [] call Rimsiakas_fnc_createIntelGrid;
 [] call Rimsiakas_fnc_displayFriendlyGroupTargets;
-
+[] call Rimsiakas_fnc_addGroupActions;
 
 
 // Set visible group icons (otherwise allied faction icons are not shown)
@@ -58,6 +58,8 @@ addMissionEventHandler ["TeamSwitch", {
         call CHVD_fnc_init;
         _to setVariable ["CHVD_initialized", true];
     };
+
+    [] call Rimsiakas_fnc_addGroupActions;
 }];
 
 

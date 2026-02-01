@@ -36,6 +36,7 @@ Enter these into said entity's init box:
 this setVariable ["patrolRadius", <b>1000</b>];
 this setVariable ["intelGridResolution", <b>6</b>];
 this setVariable ["flaresLevel", <b>0</b>];
+this setVariable ["groupSwitching", <b>false</b>];
 this setVariable ["maxInfantryResponseDistance", <b>500</b>];
 this setVariable ["maxVehicleResponseDistance", <b>1500</b>];
 this setVariable ["maxAirResponseDistance", <b>10000</b>];
@@ -43,7 +44,9 @@ this setVariable ["dynamic", <b>false</b>];
 </pre>
 <b>patrolRadius</b> is the radius of the mission area. Units will roam around it looking for enemies. You may adjust the number.
 
-<b>flaresLevel</b> is the level of battlefield illumination by flares at night. Valid values: 0, 1, 2, 3. 0 to disable.  
+<b>flaresLevel</b> is the level of battlefield illumination by flares at night. Valid values: 0, 1, 2, 3. 0 to disable.
+
+<b>groupSwitching</b> allows the player to join another nearby group or take over as the group's leader.
 
 <b>intelGridResolution</b> is the resolution of colored squares on the map showing you the approximate location of enemies in the mission area. You may adjust this number or set it to <b>0</b> to disable it. Setting the value to something very high will give you very precise positions but may negatively impact performance.
 
