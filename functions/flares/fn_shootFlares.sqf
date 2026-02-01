@@ -3,6 +3,16 @@ while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
     if (call Rimsiakas_fnc_isDarkEnoughForFlares) then {
         {
             private _group = _x;
+
+            private _groupHasVehicles = false;
+            {
+                if ((vehicle _x) != _x) exitWith {_groupHasVehicles = true};
+            } forEach units _group;
+
+            if (_groupHasVehicles == true) then {
+                continue;
+            };
+
             private _leader = leader _group;
             private _leaderPos = getPos _leader;
             private _elapsedTime = time;
