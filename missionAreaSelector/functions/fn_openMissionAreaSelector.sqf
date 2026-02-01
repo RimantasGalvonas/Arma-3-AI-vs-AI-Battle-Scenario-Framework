@@ -30,3 +30,5 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
     [_pos, "main"] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
 }];
+
+lbSetCurSel [101502, patrolCenter getVariable ["flaresLevel", 0]];

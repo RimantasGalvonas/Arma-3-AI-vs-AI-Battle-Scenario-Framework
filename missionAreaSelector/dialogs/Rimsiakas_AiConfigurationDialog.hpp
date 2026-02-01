@@ -14,8 +14,7 @@ class Rimsiakas_AiConfigurationDialog
         Rimsiakas_AiConfigurationDialog_MovementSpeedModeLabel,
         Rimsiakas_AiConfigurationDialog_AttackSpeedOverrideLabel,
         Rimsiakas_AiConfigurationDialog_AllowGroupJoiningLabel,
-        Rimsiakas_AiConfigurationDialog_ForceKeepFormationLabel,
-        Rimsiakas_AiConfigurationDialog_AutoFlaresLabel
+        Rimsiakas_AiConfigurationDialog_ForceKeepFormationLabel
     };
 
     controls[]=
@@ -26,7 +25,6 @@ class Rimsiakas_AiConfigurationDialog
         Rimsiakas_AiConfigurationDialog_AttackSpeedOverride,
         Rimsiakas_AiConfigurationDialog_AllowGroupJoining,
         Rimsiakas_AiConfigurationDialog_ForceKeepFormation,
-        Rimsiakas_AiConfigurationDialog_AutoFlares,
         Rimsiakas_AiConfigurationDialog_ConfirmButton
     };
 
@@ -36,7 +34,7 @@ class Rimsiakas_AiConfigurationDialog
         x = 9.5 * GUI_GRID_W + GUI_GRID_X;
         y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 19.5 * GUI_GRID_W;
-        h = 20.5 * GUI_GRID_H;
+        h = 18.5 * GUI_GRID_H;
         colorBackground[] = {0.15,0.15,0.15,0.9};
     };
 
@@ -245,27 +243,6 @@ class Rimsiakas_AiConfigurationDialog
         checked = 0;
     };
 
-    class Rimsiakas_AiConfigurationDialog_AutoFlaresLabel: RscText
-    {
-        idc = 300013;
-        text = "Shoot flares:";
-        x = 10 * GUI_GRID_W + GUI_GRID_X;
-        y = 16 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5 * GUI_GRID_W;
-        h = 1 * GUI_GRID_H;
-    };
-
-    class Rimsiakas_AiConfigurationDialog_AutoFlares: RscCheckBox
-    {
-        idc = 300014;
-        x = 15 * GUI_GRID_W + GUI_GRID_X;
-        y = 16 * GUI_GRID_H + GUI_GRID_Y;
-        w = 1 * GUI_GRID_W;
-        h = 1 * GUI_GRID_H;
-        tooltip = "Automatically shoot illumination flares at night.";
-        checked = 0;
-    };
-
     class Rimsiakas_AiConfigurationDialog_ConfirmButton: RscButton
     {
         idc = 3000099;
@@ -273,7 +250,7 @@ class Rimsiakas_AiConfigurationDialog
         action = "call Rimsiakas_fnc_confirmAiConfig";
 
         x = 10.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 5 * GUI_GRID_W;
         h = 1.5 * GUI_GRID_H;
     };

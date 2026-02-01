@@ -8,6 +8,7 @@ class missionAreaSelectorGeneral
     class initMissionAreaSelection {};
     class handleMapClick {};
     class updateMissionAreaSelectionMarker {};
+    class confirmMissionAreaSelection {};
 }
 
 class missionAreaSelectorAdvanced
