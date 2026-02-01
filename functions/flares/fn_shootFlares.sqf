@@ -67,6 +67,9 @@ while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
             private _flare = "F_40mm_White_Illumination" createVehicle _windAdjustedFlareCoords;
             _flare setVelocity [1, 1, 1];
             _flare setVariable ["staleAt", _elapsedTime + (_flareShootingParams get "flareStaleTime")];
+
+            playSound3d ["a3\missions_f_beta\data\sounds\showcase_night\flaregun_shoot.wss", _leader];
+            playSound3d ["a3\missions_f_beta\data\sounds\showcase_night\flaregun_1.wss", _leader];
         } forEach allGroups;
     };
 
