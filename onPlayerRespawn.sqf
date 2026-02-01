@@ -3,7 +3,7 @@ params ["_newUnit", "_oldUnit", "_respawn", "_respawnDelay"];
 
 
 [_newUnit] call Rimsiakas_fnc_revealFriendlyGroupsOnMap;
-
+[] call Rimsiakas_fnc_addGroupActions;
 
 
 {

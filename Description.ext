@@ -88,6 +88,15 @@ class CfgFunctions
             class isDarkEnoughForFlares {};
         };
 
+        class groupSwitching
+        {
+            file = "functions\groupSwitching";
+            class addGroupActions {};
+            class clientRequestGroupTakeOver {};
+            class joinNearestGroup {};
+            class serverHandleGroupTakeOverRequest {};
+        };
+
         #include "missionAreaSelector\functions.hpp"
     };
 };
