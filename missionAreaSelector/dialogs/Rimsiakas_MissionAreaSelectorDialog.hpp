@@ -142,7 +142,6 @@ class Rimsiakas_MissionAreaSelectorDialog
     class Rimsiakas_MissionAreaSelectorDialog_FlareField: RscCombo
     {
         idc = 101502;
-        tooltip = "How strongly to illuminate the battlefield at night.";
         class Items
         {
         	class Disabled
