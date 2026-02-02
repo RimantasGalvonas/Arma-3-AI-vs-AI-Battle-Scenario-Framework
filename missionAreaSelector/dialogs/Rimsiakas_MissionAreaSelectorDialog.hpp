@@ -79,8 +79,8 @@ class Rimsiakas_MissionAreaSelectorDialog
     class Rimsiakas_MissionAreaSelectorDialog_IntelGridLabel: RscText
     {
         idc = 101001;
-        text = "Intel Grid Size:";
-        tooltip = "The size of colored squares on the map hinting the enemy locations.";
+        text = "Intel Grid:";
+        tooltip = "The resolution of colored squares on the map hinting the enemy locations.";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = 3 * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
