@@ -86,6 +86,7 @@ class CfgFunctions
             class shootFlares {};
             class getFlareShootingParams {};
             class isDarkEnoughForFlares {};
+            class getMaximumSolarElevationForFlares {};
         };
 
         class groupSwitching
