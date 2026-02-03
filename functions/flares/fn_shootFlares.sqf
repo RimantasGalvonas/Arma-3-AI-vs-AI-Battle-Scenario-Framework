@@ -27,7 +27,7 @@ while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
             };
 
 
-            if ((_lastFlareShotTime + (_flareShootingParams get "flareShootCooldown")) < _elapsedTime) then {
+            if ((_lastFlareShotTime + (_flareShootingParams get "flareShootCooldown")) > _elapsedTime) then {
                 continue;
             };
 
