@@ -9,7 +9,6 @@ class missionAreaSelectorGeneral
     class handleMapClick {};
     class updateMissionAreaSelectionMarker {};
     class confirmMissionAreaSelection {};
-    class updateFlareTooltips {};
 }
 
 class missionAreaSelectorAdvanced

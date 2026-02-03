@@ -32,4 +32,3 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 }];
 
 lbSetCurSel [101502, patrolCenter getVariable ["flaresLevel", 0]];
-[] call Rimsiakas_fnc_updateFlareTooltips;
