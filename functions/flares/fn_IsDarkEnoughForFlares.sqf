@@ -1,12 +1,27 @@
-if (!isNil "customIsDarkEnoughForFlaresFunction") exitWith {
-	[] call customIsDarkEnoughForFlaresFunction; // Option to override this behavior by placing a Game Logic entity with a custom function in the editor.
+if (sunOrMoon < 1) exitWith {
+    true;
 };
 
-private _lat = -getnumber (configfile >> "cfgworlds" >> worldname >> "latitude");
-private _declination = 23.45 * sin (360/365 * (284 + (365 * datetonumber date)));
-private _hourAngle = 15 * (dayTime - 12);
-private _solarElevation = asin ((sin _lat * sin _declination) + (cos _lat * cos _declination * cos _hourAngle));
 
-private _maximumSolarElevation = [] call Rimsiakas_fnc_getMaximumSolarElevationForFlares;
+private _sunRiseSunSetTimes = date call BIS_fnc_sunriseSunsetTime;
+private _sunRise = _sunRiseSunSetTimes select 0;
+private _sunSet = _sunRiseSunSetTimes select 1;
+private _delay = linearConversion [0.4, 0.6, overcast, 0.38, -0.16, true]; // Start shooting flares ~23 min after sunset when clear, ~10 min before sunset when overcast.
 
-_solarElevation < _maximumSolarElevation;
+if (patrolCenter getVariable ["flaresLevel", 0] > 2) then { // On some maps this might seem like a very early start, but it can get dark really very fast on others, such as The Bra
+    _delay = linearConversion [0.4, 0.6, overcast, 0.135, -0.135, true]; // Start shooting flares ~8 min after sunset when clear, ~8 min before sunset when overcast.
+};
+
+if (_sunRise == -1) exitWith {
+    true;
+};
+
+if (_sunSet == -1) exitWith {
+    false;
+};
+
+if (dayTime < ((_sunRise - _delay + 24) mod 24) || {dayTime > ((_sunSet + _delay) mod 24)}) exitWith {
+    true;
+};
+
+false;
