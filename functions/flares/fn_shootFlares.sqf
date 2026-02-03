@@ -1,8 +1,8 @@
 while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
-
-    if (call Rimsiakas_fnc_isDarkEnoughForFlares) then {
+    if ((getLighting select 1) < 150) then {
         {
             private _group = _x;
+
 
             private _groupHasVehicles = false;
             {
@@ -13,21 +13,23 @@ while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
                 continue;
             };
 
+            private _elapsedTime = time;
             private _leader = leader _group;
             private _leaderPos = getPos _leader;
-            private _elapsedTime = time;
-            private _lastFlareShotTime = _group getVariable ["lastFlareShotTime", nil];
             private _flareShootingParams = [_leaderPos] call Rimsiakas_fnc_getFlareShootingParams;
             private _flareCoords = [0, 0, 0];
+            private _flareCooldown = _flareShootingParams get "flareShootCooldown";
+            private _lastFlareShotTime = _group getVariable ["lastFlareShotTime", -_flareCooldown];
 
 
-            if (isNil "_lastFlareShotTime") then {
-                _lastFlareShotTime = _elapsedTime - random [-15, -5, 5];
-                _group setVariable ["lastFlareShotTime", _lastFlareShotTime];
+
+            if ((_lastFlareShotTime + _flareCooldown) > _elapsedTime) then {
+                continue;
             };
 
+            if (!([] call Rimsiakas_fnc_isDarkEnoughForFlares)) then {
+                _group setVariable ["lastFlareShotTime", _elapsedTime]; // Use the flareShootCooldown to skip this group for a while
 
-            if ((_lastFlareShotTime + (_flareShootingParams get "flareShootCooldown")) > _elapsedTime) then {
                 continue;
             };
 
@@ -47,8 +49,6 @@ while {patrolCenter getVariable ["flaresLevel", 0] > 0} do {
             private _nonStaleFlares = (nearestObjects [_flareCoords, ["F_40mm_White_Illumination"], (_flareShootingParams get "flareProximityLimit"), true]) select { _x getVariable ["staleAt", _elapsedTime + 45] > _elapsedTime; };
 
             if (count (_nonStaleFlares) > 0) then {
-                _group setVariable ["lastFlareShotTime", _elapsedTime + random [4, 8, 12]];
-
                 continue;
             };
 
