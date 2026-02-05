@@ -15,7 +15,7 @@ This is a customizeable mission template to be used in the Eden editor. It allow
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.1/AI-vs-AI-Battle-Scenario-Template-1.4.1.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.2/AI-vs-AI-Battle-Scenario-Template-1.4.2.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -479,7 +479,7 @@ Extract these to Documents/Arma 3/missions/ and open with the Eden editor.
 <summary>Take part in a NATO assault against an area controlled by AAF and CSAT [SP/MP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.3.2/PartakeInAnAssaultAgainstEnemySector.Altis.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.1/PartakeInAnAssaultAgainstEnemySector.Altis.zip)
 
 This is the main example mission, showing off most of the available functionality and includes an explanation on how it was made in the mission diary.
 
@@ -491,13 +491,13 @@ Made on v1.4.1
 <summary>Force Through Gamemode [SP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.1/ForceThroughMissions.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.2/ForceThroughMissions.zip)
 
 This is the source for these missions: https://steamcommunity.com/workshop/filedetails/?id=2427506774
 
 This scenario demonstrates the possibility to add additional logic to the scenarios right in the editor without having to modify the scripts themselves. Look for the **missionLocationChangerLogic** object and expressions in the **Spawn AI** modules.
 
-Made on v1.4.1
+Made on v1.4.2
 
 Editing tutorial:
 https://www.youtube.com/watch?v=kwI_mhtQ6OI
@@ -550,6 +550,14 @@ If you publish a scenario based on this template, please mention me in the credi
 <details>
 <summary>Open changelog</summary>
 <ul>
+<li>
+1.4.2 (2026-02-05)
+<ul>
+<li>Move the Force Through group switching functionality into the framework.</li>
+<li>Play a sound when shooting flares.</li>
+<li>Use the getLighting command to determine when to start shooting flares.</li>
+</ul>
+</li>
 <li>
 1.4.1 (2026-02-01)
 <ul>
