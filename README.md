@@ -553,7 +553,8 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>
 1.4.3 (YYYY-MM-DD)
 <ul>
-<li>Fix the unfinished implementation of widening the attack position angles from 1.4.0.
+<li>Fix the unfinished implementation of widening the attack position angles from 1.4.0.</li>
+<li>If an attack position with visibility can't be found, do another simpler search for a covered position away from other friendly attack positions.</li>
 </ul>
 </li>
 <li>

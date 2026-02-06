@@ -69,7 +69,7 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
 
     // Skip creating the waypoint at this step if the most suitable position was on water
-    if (surfaceIsWater _preferablePosition == false) then {
+    if (!(surfaceIsWater _preferablePosition)) then {
         private _backupPreferablePosition = _preferablePosition;
         _preferablePosition = _preferablePosition findEmptyPosition [2, (_waypointStepDistance / 3), typeOf (leader _group)]; // To avoid placing waypoints inside houses. Makes the units get stuck
         if ((count _preferablePosition) == 0) then {
