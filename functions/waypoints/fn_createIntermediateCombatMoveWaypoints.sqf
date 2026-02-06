@@ -42,12 +42,11 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
     // If within engagement distance, try to find a position from which the target is visible, preferably with cover
     if (_withinEngangementDistance) then {
         private _vantagePointData = [_intermediatePosition, _destination, _waypointStepDistance / 1.5] call Rimsiakas_fnc_findOverwatchWithCover;
-        private _vantagePoint = _vantagePointData select 0;
 
-        if (_intermediatePosition distance2D _vantagePoint > 0) then {
-            _preferablePosition = _vantagePoint;
+        if (!isNil "_vantagePointData") then {
+            _preferablePosition = _vantagePointData get "pos";
 
-            if ((count (_vantagePointData select 1)) > ((count units _group) * 0.75)) then {
+            if ((count (_vantagePointData get "nearbyCoveredPositions")) > ((count units _group) * 0.75)) then {
                 // This is an advantageous position so stay there until the target is dealt with or can't be seen anymore
                 // Do the check every 15 seconds to give time for the group to notice the enemy upon arriving to the waypoint
                 _waypointCondition = "

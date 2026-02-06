@@ -75,8 +75,14 @@ if (_groupHasVehicles == true) then {
 
 
         // Find a good place to attack from and advance onto the enemy from that position
-        _vantagePoint = [getPos (leader _group), _targetPos, (_maxFlankingDistance min _distance), _minFlankingDistance, nil, true, true, _occupiedVantagePoints] call Rimsiakas_fnc_findOverwatchWithCover;
-        _vantagePoint = _vantagePoint select 0;
+        _vantagePointData = [getPos (leader _group), _targetPos, (_maxFlankingDistance min _distance), _minFlankingDistance, nil, true, true, _occupiedVantagePoints] call Rimsiakas_fnc_findOverwatchWithCover;
+
+        if (!isNil "_vantagePointData") then {
+            _vantagePoint = _vantagePointData get "pos";
+        } else {
+            _vantagePoint = getPos (leader _group);
+        };
+
         _group setVariable ["attackingFromPos", _vantagePoint];
 
 
