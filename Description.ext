@@ -15,20 +15,25 @@ class CfgFunctions
         {
             file = "functions";
             class validator {};
-            class getVehicleClassesInGroup {};
             class disableAIWhileLoading {
                 preInit = 1;
                 postInit = 1;
             };
             class reenableAI {};
             class createIntelGrid {};
-            class displayFriendlyGroupTargets {};
-            class getAveragePosition {};
-            class revealFriendlyGroupsOnMap {};
             class controlGroupSpeed {};
             class controlGroupJoining {};
             class controlGroupKeepingFormation {};
             class moveMissionArea {};
+        };
+
+        class terrainProcessing
+        {
+            file = "functions\terrainProcessing";
+            class findOverwatchWithCover {};
+            class isPositionInForest {};
+            class isPositionAmongBuildings {};
+            class getAveragePosition {};
         };
 
         class intelSharing
@@ -41,6 +46,8 @@ class CfgFunctions
             class getAttackCapabilities {};
             class afterTargetChange {};
             class sortGroupsByAmountAndProximityToKnownTargets {};
+            class displayFriendlyGroupTargets {};
+            class revealFriendlyGroupsOnMap {};
         }
 
         class unitPlacement
@@ -55,6 +62,7 @@ class CfgFunctions
             class orientGroupTowardsWaypoint {};
             class findRoad {};
             class findNearestLand {};
+            class getVehicleClassesInGroup {};
         };
 
         class rewrites
@@ -73,10 +81,7 @@ class CfgFunctions
             class createIntermediateCombatMoveWaypoints {};
             class createIntermediateMoveWaypoints {};
             class waypointPreConditionTimeout {};
-            class findOverwatchWithCover {};
             class temporaryCombatMode {};
-            class isPositionInForest {};
-            class isPositionAmongBuildings {};
             class updateAttackingFromPos {};
         };
 

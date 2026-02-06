@@ -18,12 +18,12 @@
 //         Decrease the chance for positions to be selected that are nearby the provided positions. Note that a position nearby may still be chosen if its is by far the best option.
 
 // Returns:
-//     ARRAY - data of the position with cover from which the target location can be seen or special data if no such location could be found.
+//     HASHMAP - data of the position with cover from which the target location can be seen or nil if no such location could be found.
 //     [
-//         result position (_centerPos if no suitable position found),
-//         array of positions with cover 10m around this position (empty array if no suitable position found)
-//         score calculated for this position (nil if no suitable position found)
-//         height advantage over the target (nil if no suitable position found)
+//         "pos" - result position
+//         "nearbyCoveredPositions" - array of positions with cover 10m around this position
+//         "score" - score calculated for this position
+//         "heightDifference" - height advantage over the target
 //     ]
 
 
@@ -33,7 +33,7 @@ private _intersectionCheckInterval = 10;
 private _coverGroupingRadius = 30;
 
 // Add a metre to the heights to measure visibility not straight from the ground
-private _targetPos = [_targetPos select 0, _targetPos select 1, ((_targetPos select 2) + 1)];
+_targetPos set [2, (_targetPos select 2) + 1];
 
 private _selectedPositions = [];
 
@@ -120,7 +120,12 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
 
         if (count _coverAroundThisPos > 0) then {
             private _score = count _coverAroundThisPos;
-            private _positionData = [_checkPos, _coverAroundThisPos, _score];
+
+            private _positionData = createHashMap;
+            _positionData set ["pos", _checkPos];
+            _positionData set ["nearbyCoveredPositions", _coverAroundThisPos];
+            _positionData set ["score", _score];
+
             _validPositions append [_positionData];
         };
     };
@@ -130,7 +135,7 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
 
 // Adjust score by height advantage
 {
-    private _checkPos = _x select 0;
+    private _checkPos = _x get "pos";
     private _heightDifference = (getTerrainHeightASL _checkPos) - (getTerrainHeightASL _targetPos);
 
     private _heightMultiplier = 1;
@@ -144,10 +149,10 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
         };
     };
 
-    private _score = (_x select 2) * _heightMultiplier;
+    private _score = (_x get "score") * _heightMultiplier;
 
-    _x set [2, _score];
-    _x set [3, _heightDifference];
+    _x set ["score", _score];
+    _x set ["heightDifference", _heightDifference];
 
     _validPositions set [_forEachIndex, _x];
 } forEach _validPositions;
@@ -158,7 +163,7 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
 private _indicesToDelete = [];
 if ((count _positionsToAvoid) > 0) then {
     {
-        private _checkPos = _x select 0;
+        private _checkPos = _x get "pos";
         private _proximityPenaltyDivisor = 1;
         private _maxPenalty = 2.5;
         private _proximityPenaltyEffectRadius = 450;
@@ -180,8 +185,8 @@ if ((count _positionsToAvoid) > 0) then {
         };
 
         if (_proximityPenaltyDivisor > 1) then {
-            private _score = (_x select 2) / _proximityPenaltyDivisor;
-            _x set [2, _score];
+            private _score = (_x get "score") / _proximityPenaltyDivisor;
+            _x set ["score", _score];
             _validPositions set [_forEachIndex, _x];
         };
     } forEach _validPositions;
@@ -193,7 +198,7 @@ _validPositions deleteAt _indicesToDelete;
 //Positions and their scores are put into a flat array to be used with selectRandomWeighted command
 private _positionsAndScore = [];
 {
-    _positionsAndScore append [_x, _x select 2];
+    _positionsAndScore append [_x, _x get "score"];
 } forEach _validPositions;
 
 // Don't always return the best position, but a bit randomized - otherwise nearby squads will be taking identical paths to the same target.
@@ -201,47 +206,45 @@ private _result = selectRandomWeighted _positionsAndScore;
 
 
 
-if (isNil "_result") then {
-    _result = [_centerPos, [], nil, nil];
+if (isNil "_result") exitWith {};
+
+if (!_precisionMode) then {
+    private _averagePositionOfCoveredAreas = [_result get "nearbyCoveredPositions"] call Rimsiakas_fnc_getAveragePosition;
+    private _bestPosition = [(_result get "nearbyCoveredPositions"), _averagePositionOfCoveredAreas] call BIS_fnc_nearestPosition;
+
+    _result set ["pos", _bestPosition];
 } else {
-    if (!_precisionMode) then {
-        private _averagePositionOfCoveredAreas = [_result select 1] call Rimsiakas_fnc_getAveragePosition;
-        private _bestPosition = [(_result select 1), _averagePositionOfCoveredAreas] call BIS_fnc_nearestPosition;
+    // Additional scan around the selected position to find the position with the most cover more precisely.
+    private _coveredPositions = _result get "nearbyCoveredPositions";
+    private _preciseMostCoveredPosition = _result get "pos";
+    private _preciseMostCoveredPositionCoverCount = 0;
 
-        _result set [0, _bestPosition];
-    } else {
-        // Additional scan around the selected position to find the position with the most cover more precisely.
-        private _coveredPositions = _result select 1;
-        private _preciseMostCoveredPosition = _result select 0;
-        private _preciseMostCoveredPositionCoverCount = 0;
+    {
+        private _coveredPosition = _x;
+        private _coveredPositionsAroundHere = [];
 
-        {
-            private _coveredPosition = _x;
-            private _coveredPositionsAroundHere = [];
+        for "_radius" from 1 to 6.5 step 3 do {
+            private _circumference = _radius * 2 * 3.14;
+            private _pointsCount = _circumference / 3;
+            private _angleIncrement = 360 / _pointsCount;
 
-            for "_radius" from 1 to 6.5 step 3 do {
-                private _circumference = _radius * 2 * 3.14;
-                private _pointsCount = _circumference / 3;
-                private _angleIncrement = 360 / _pointsCount;
+            for "_angle" from 0 to 359 step _angleIncrement do {
 
-                for "_angle" from 0 to 359 step _angleIncrement do {
+                private _checkPos = _coveredPosition getPos [_radius, _angle];
 
-                    private _checkPos = _coveredPosition getPos [_radius, _angle];
-
-                    if (count (nearestTerrainObjects [_checkPos, _suitableCoverClasses, 3, false]) > 0) then {
-                        _coveredPositionsAroundHere append [_checkPos];
-                    };
+                if (count (nearestTerrainObjects [_checkPos, _suitableCoverClasses, 3, false]) > 0) then {
+                    _coveredPositionsAroundHere append [_checkPos];
                 };
             };
+        };
 
-            if (_preciseMostCoveredPositionCoverCount < count _coveredPositionsAroundHere) then {
-                _preciseMostCoveredPosition = _coveredPosition;
-                _preciseMostCoveredPositionCoverCount = count _coveredPositionsAroundHere;
-            };
-        } forEach _coveredPositions;
+        if (_preciseMostCoveredPositionCoverCount < count _coveredPositionsAroundHere) then {
+            _preciseMostCoveredPosition = _coveredPosition;
+            _preciseMostCoveredPositionCoverCount = count _coveredPositionsAroundHere;
+        };
+    } forEach _coveredPositions;
 
-        _result set [0, _preciseMostCoveredPosition];
-    };
+    _result set ["pos", _preciseMostCoveredPosition];
 };
 
 _result;
