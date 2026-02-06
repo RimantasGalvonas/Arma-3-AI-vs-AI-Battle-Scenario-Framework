@@ -70,8 +70,7 @@ for "_radius" from _minDistance to _maxDistance step _intersectionCheckInterval 
 
         private _checkPos = _centerPos getPos [_radius, _angle];
 
-        if (
-            _approachMode && {!([_attackerPosition, _targetDirection, _approachConeAngle, _checkPos] call BIS_fnc_inAngleSector)}) then {
+        if (_approachMode && {!([_attackerPosition, _targetDirection, _approachConeAngle, _checkPos] call BIS_fnc_inAngleSector)}) then {
             continue;
         };
 
@@ -104,8 +103,18 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
     private _pointsCount = _circumference / _coverGroupingRadius;
     private _angleIncrement = 360 / _pointsCount;
 
+    if (_approachMode) then {
+        _approachConeAngle = 240 - 0.39 * _radius;
+        _angleStart = 180 + _targetDirection - (_approachConeAngle / 2);
+        _angleEnd = 180 + _targetDirection + (_approachConeAngle / 2);
+    };
+
     for "_angle" from _angleStart to _angleEnd step _angleIncrement do {
         private _checkPos = _centerPos getPos [_radius, _angle];
+
+        if (_approachMode && {!([_attackerPosition, _targetDirection, _approachConeAngle, _checkPos] call BIS_fnc_inAngleSector)}) then {
+            continue;
+        };
 
         private _coverAroundThisPos = _selectedPositions inAreaArray [_checkPos, _coverGroupingRadius, _coverGroupingRadius, 0, false];
 

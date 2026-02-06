@@ -551,6 +551,12 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
+1.4.3 (YYYY-MM-DD)
+<ul>
+<li>Fix the unfinished implementation of widening the attack position angles from 1.4.0.
+</ul>
+</li>
+<li>
 1.4.2 (2026-02-05)
 <ul>
 <li>Move the Force Through group switching functionality into the framework.</li>
