@@ -16,6 +16,7 @@
 //         When set to true, an additional scan will be done around the selected position to find the position with the most cover more precisely.
 //     7: (Optional) ARRAY - _positionsToAvoid - positions to avoid
 //         Decrease the chance for positions to be selected that are nearby the provided positions. Note that a position nearby may still be chosen if its is by far the best option.
+//         Positions are hashmaps containing keys "pos" and "weight"
 
 // Returns:
 //     HASHMAP - data of the position with cover from which the target location can be seen or nil if no such location could be found.
@@ -161,24 +162,14 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
 
 // Adjust score by distance to positions-to-avoid
 private _indicesToDelete = [];
+private _maxProximityPenalty = 2.5;
 if ((count _positionsToAvoid) > 0) then {
     {
         private _checkPos = _x get "pos";
-        private _proximityPenaltyDivisor = 1;
-        private _maxPenalty = 2.5;
-        private _proximityPenaltyEffectRadius = 450;
 
-        {
-            private _distance = _x distance2D _checkPos;
+        _proximityPenaltyDivisor = [_checkPos, _positionsToAvoid, _maxProximityPenalty] call Rimsiakas_fnc_getProximityToAvoidedPositionsPenaltyDivisor;
 
-            if (_distance > _proximityPenaltyEffectRadius) then {
-                continue;
-            };
-
-            _proximityPenaltyDivisor = _proximityPenaltyDivisor + ((_proximityPenaltyEffectRadius / _distance) ^ 0.4) - 1;
-        } forEach _positionsToAvoid;
-
-        if (_proximityPenaltyDivisor > _maxPenalty) then {
+        if (_proximityPenaltyDivisor > _maxProximityPenalty) then {
             _indicesToDelete append [_forEachIndex]; // Can't just delete here, _forEachIndex gets messed up
 
             continue;

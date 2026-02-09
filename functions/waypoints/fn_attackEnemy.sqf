@@ -60,18 +60,7 @@ if (_groupHasVehicles == true) then {
     };
 
     if (_distance > _minFlankingDistance) then {
-        // Collect attack positions already chosen by friendlies - used to prevent groups clumping together in one place
-        _friendlyGroups = allGroups select {_x != _group && {[side _group, side _x] call BIS_fnc_sideIsFriendly}};
-        _occupiedVantagePoints = [];
-        {
-            _friendlyAttackPosition = _x getVariable ["attackingFromPos", nil];
-            if (isNil "_friendlyAttackPosition") then {
-                continue;
-            };
-
-            _occupiedVantagePoints append [_friendlyAttackPosition];
-        } forEach _friendlyGroups;
-
+        _occupiedVantagePoints = [_group] call Rimsiakas_fnc_collectWeightedAttackingFromPos;
 
 
         // Find a good place to attack from and advance onto the enemy from that position
