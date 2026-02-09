@@ -11,6 +11,7 @@
 //     3: (Optional) NUMBER - _minDistance - minimum search radius
 //     4: (Optional) ARRAY - _positionsToAvoid - positions to avoid
 //         Decrease the chance for positions to be selected that are nearby the provided positions. Note that a position nearby may still be chosen if its is by far the best option.
+//         Positions are hashmaps containing keys "pos" and "weight"
 
 // Returns:
 //     HASHMAP - data of the position with cover from which the target location can be seen or nil if no such location could be found.
@@ -53,19 +54,7 @@ for "_radius" from _minDistance to _maxDistance step _checkInterval do {
 
         // Adjust score by distance to positions-to-avoid
         if ((count _positionsToAvoid) > 0) then {
-            private _proximityPenaltyDivisor = 1;
-            private _proximityPenaltyEffectRadius = 450;
-
-            {
-                private _distance = _x distance2D _checkPos;
-
-                if (_distance > _proximityPenaltyEffectRadius) then {
-                    continue;
-                };
-
-                _proximityPenaltyDivisor = _proximityPenaltyDivisor + ((_proximityPenaltyEffectRadius / _distance) ^ 0.4) - 1;
-            } forEach _positionsToAvoid;
-
+            _proximityPenaltyDivisor = [_checkPos, _positionsToAvoid, 2.5] call Rimsiakas_fnc_getProximityToAvoidedPositionsPenaltyDivisor;
 
             if (_proximityPenaltyDivisor > 1) then {
                 _score = _score / _proximityPenaltyDivisor;
@@ -87,17 +76,11 @@ private _result = selectRandomWeighted _positionsAndScore;
 
 if (isNil "_result") exitWith {};
 
-
-if (count (_result get "nearestTerrainObjects") == 0) exitWith {
-    _result;
-};
-
-
 private _nearestCover = (_result get "nearestTerrainObjects") apply {getPos _x};
-private _averagePositionOfCoveredAreas = [_nearestCover] call Rimsiakas_fnc_getAveragePosition;
-private _bestPosition = [_nearestCover, _averagePositionOfCoveredAreas] call BIS_fnc_nearestPosition;
-
-_result set ["pos", _bestPosition];
-
+if (count _nearestCover > 0) then {
+    private _averagePositionOfCoveredAreas = [_nearestCover] call Rimsiakas_fnc_getAveragePosition;
+    private _bestPosition = [_nearestCover, _averagePositionOfCoveredAreas] call BIS_fnc_nearestPosition;
+    _result set ["pos", _bestPosition];
+};
 
 _result;

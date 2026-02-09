@@ -35,6 +35,7 @@ class CfgFunctions
             class isPositionAmongBuildings {};
             class getAveragePosition {};
             class findCoveredAttackPosition {};
+            class getProximityToAvoidedPositionsPenaltyDivisor {};
         };
 
         class intelSharing
@@ -47,6 +48,8 @@ class CfgFunctions
             class getAttackCapabilities {};
             class afterTargetChange {};
             class sortGroupsByAmountAndProximityToKnownTargets {};
+            class updateAttackingFromPos {};
+            class collectWeightedAttackingFromPos {};
             class displayFriendlyGroupTargets {};
             class revealFriendlyGroupsOnMap {};
         }
@@ -83,7 +86,6 @@ class CfgFunctions
             class createIntermediateMoveWaypoints {};
             class waypointPreConditionTimeout {};
             class temporaryCombatMode {};
-            class updateAttackingFromPos {};
         };
 
         class flares
