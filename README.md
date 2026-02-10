@@ -555,6 +555,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <ul>
 <li>Fix the unfinished implementation of widening the attack position angles from 1.4.0.</li>
 <li>If an attack position with visibility can't be found, do another simpler search for a covered position away from other friendly attack positions.</li>
+<li>Flare timing adjustments.</li>
 </ul>
 </li>
 <li>
