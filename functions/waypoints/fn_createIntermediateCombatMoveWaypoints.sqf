@@ -62,14 +62,16 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
     // Couldn't find a higher position, so look for an area with cover
     if (isNil "_preferablePosition") then {
-        _preferablePosition = selectBestPlaces[_intermediatePosition, (_waypointStepDistance / 2), "houses + trees + hills - (100 * waterDepth)", 5, 1];
+        _preferablePosition = selectBestPlaces[_intermediatePosition, (_waypointStepDistance / 2), "houses + trees + hills + (waterDepth interpolate [1.1, 1.5, 0, -500])", 5, 1];
         _preferablePosition = (_preferablePosition select 0) select 0;
     };
 
 
 
-    // Skip creating the waypoint at this step if the most suitable position was on water
-    if (!(surfaceIsWater _preferablePosition)) then {
+    // Skip creating the waypoint at this step if the most suitable position was in deep water
+    private _preferablePositionIsDeepWater = (((selectBestPlaces [_preferablePosition, 0.2, "waterDepth", 0.1, 1]) select 0) select 1) > 1.3;
+
+    if (!_preferablePositionIsDeepWater) then {
         private _backupPreferablePosition = _preferablePosition;
         _preferablePosition = _preferablePosition findEmptyPosition [2, (_waypointStepDistance / 3), typeOf (leader _group)]; // To avoid placing waypoints inside houses. Makes the units get stuck
         if ((count _preferablePosition) == 0) then {
