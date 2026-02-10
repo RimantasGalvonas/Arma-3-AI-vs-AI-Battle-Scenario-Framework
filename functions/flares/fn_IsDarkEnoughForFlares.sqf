@@ -4,7 +4,7 @@ if (!isNil "customIsDarkEnoughForFlaresFunction") exitWith {
 
 private _lightLevel = getLighting select 1;
 
-private _maxLight = 100;
+private _maxLight = 75;
 private _minLight = 25;
 
 switch (toLower worldName) do
@@ -16,7 +16,7 @@ switch (toLower worldName) do
     case "gm_weferlingen_summer";
     case "sefrouramal";
     case "tanoa": {
-        _maxLight = 80;
+        _maxLight = 20;
         _minLight = 10;
     };
     case "cam_lao_nam";
@@ -25,8 +25,8 @@ switch (toLower worldName) do
     case "spe_mortain";
     case "enoch";
     case "stozec": {
-        _maxLight = 120;
-        _minLight = 40;
+        _maxLight = 75;
+        _minLight = 35;
     };
 };
 
