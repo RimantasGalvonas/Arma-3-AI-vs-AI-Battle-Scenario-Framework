@@ -51,13 +51,11 @@ if (_groupHasVehicles == true) then {
 
     private _distance = (leader _group) distance _targetPos;
 
-    private _maxFlankingDistance = 500;
-    private _minFlankingDistance = 250;
 
-    if ([_targetPos] call Rimsiakas_fnc_isPositionInForest || {[_targetPos] call Rimsiakas_fnc_isPositionAmongBuildings}) then {
-        _maxFlankingDistance = 300;
-        _minFlankingDistance = 100;
-    };
+
+    ([_targetPos] call Rimsiakas_fnc_getMinMaxFlankingDistance) params ["_minFlankingDistance", "_maxFlankingDistance"];
+
+
 
     if (_distance > _minFlankingDistance) then {
         _occupiedVantagePoints = [_group] call Rimsiakas_fnc_collectWeightedAttackingFromPos;
