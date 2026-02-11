@@ -60,6 +60,7 @@ while {_speedMode != "NORMAL"} do {
 
         private _requiredProximityToCover = 15;
         private _requiredCoverCount = 3;
+        private _requiredUnitsWithCover = floor ((count units _group) * 0.3);
 
         private _waypointPosition = waypointPosition [_group, (currentWaypoint _group)];
         private _waypointDir = (leader _group) getDir _waypointPosition;
@@ -71,19 +72,25 @@ while {_speedMode != "NORMAL"} do {
             continue;
         };
 
-        private _unitsWithCover = [];
+        private _unitsWithCover = 0;
         {
+            scopeName "groupUnitsLoop";
+
             private _unit = _x;
 
             if (count (nearestTerrainObjects [getPos _unit, _suitableCoverClasses, _requiredProximityToCover, false]) >= _requiredCoverCount) then {
-                _unitsWithCover append [_unit];
+                _unitsWithCover = _unitsWithCover + 1;
+            };
+
+            // Slow down if at least some of the group is in cover
+            if (_unitsWithCover >= _requiredUnitsWithCover) then {
+                _group setSpeedMode "LIMITED";
+
+                breakOut "groupUnitsLoop";
             };
         } foreach units _group;
 
-        // Slow down if at least some of the group is in cover
-        if ((count _unitsWithCover) >= floor ((count units _group) * 0.3)) then {
-            _group setSpeedMode "LIMITED";
-        } else {
+        if (_unitsWithCover < _requiredUnitsWithCover) then {
             _group setSpeedMode "NORMAL";
         };
 
