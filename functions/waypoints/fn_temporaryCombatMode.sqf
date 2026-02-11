@@ -11,6 +11,11 @@ if (leader _group == player || {_group getVariable ["hasTemporaryCombatMode", fa
 
     _group setBehaviour "COMBAT";
 
+    private _lastKnownTargetPos = _group getVariable ["lastReportedTargetPosition", nil];
+    if (!isNil "_lastKnownTargetPos") then {
+        _group setFormDir ((leader _group) getDir _lastKnownTargetPos);
+    };
+
     sleep _combatModeTime;
 
     _group setBehaviour _originalBehaviour;
