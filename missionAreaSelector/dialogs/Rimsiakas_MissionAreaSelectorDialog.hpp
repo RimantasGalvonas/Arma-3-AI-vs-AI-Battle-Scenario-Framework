@@ -145,12 +145,12 @@ class Rimsiakas_MissionAreaSelectorDialog
         tooltip = "How strongly to illuminate the battlefield at night.";
         class Items
         {
-        	class Disabled
-        	{
-        		text = "Disabled";
-        		data = 0;
-        		default = 1;
-        	};
+            class Disabled
+            {
+                text = "Disabled";
+                data = 0;
+                default = 1;
+            };
             class Low
             {
                 text = "Low";
