@@ -1,5 +1,5 @@
 if (!isNil "customIsDarkEnoughForFlaresFunction") exitWith {
-	call customIsDarkEnoughForFlaresFunction; // Option to override this behavior by placing a Game Logic entity with a custom function in the editor.
+    call customIsDarkEnoughForFlaresFunction; // Option to override this behavior by placing a Game Logic entity with a custom function in the editor.
 };
 
 private _lightLevel = getLighting select 1;

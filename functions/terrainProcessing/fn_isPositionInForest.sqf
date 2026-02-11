@@ -9,12 +9,12 @@ if (_strictMode) exitWith { // Mode that checks if we are deep enough in the for
 
     switch (toLower worldName) do
     {
-    	case "tanoa": { _expression = "((trees + forest) / -2) + meadow*1.25"; _depth = 50; _threshold = -0.4; }; // Lots of vegetation, can afford lower depth and threshold. Gotta go easy on meadows, because they're often overgrown
-    	case "cam_lao_nam": { _expression = "-trees + meadow*2"; _depth = 50; }; // Trees instead of forest due to rice fields
-    	case "vn_khe_sanh": { _expression = "-trees"; _threshold = -0.3; }; // Trees instead of forest due to rice fields
-    	case "vn_the_bra": { _expression = "(trees * 1.9 + forest * 0.1) / -2"; _threshold = -0.3; }; // Trees instead of forest due to rice fields, gotta still use some due to tall grass
-    	case "stozec": { _depth = 75; }; // Thick foliage even at the edge of forests, needs less depth. Higher threshold removes some forest roads and such.
-    	case "enoch": { _expression = "((trees + forest) / -2) + meadow*100"; _threshold = -0.8; }; // Very foresty, with clearly defined meadows, can afford lower tolerances.
+        case "tanoa": { _expression = "((trees + forest) / -2) + meadow*1.25"; _depth = 50; _threshold = -0.4; }; // Lots of vegetation, can afford lower depth and threshold. Gotta go easy on meadows, because they're often overgrown
+        case "cam_lao_nam": { _expression = "-trees + meadow*2"; _depth = 50; }; // Trees instead of forest due to rice fields
+        case "vn_khe_sanh": { _expression = "-trees"; _threshold = -0.3; }; // Trees instead of forest due to rice fields
+        case "vn_the_bra": { _expression = "(trees * 1.9 + forest * 0.1) / -2"; _threshold = -0.3; }; // Trees instead of forest due to rice fields, gotta still use some due to tall grass
+        case "stozec": { _depth = 75; }; // Thick foliage even at the edge of forests, needs less depth. Higher threshold removes some forest roads and such.
+        case "enoch": { _expression = "((trees + forest) / -2) + meadow*100"; _threshold = -0.8; }; // Very foresty, with clearly defined meadows, can afford lower tolerances.
     };
 
     private _targetPosForestFactor = selectBestPlaces [_position, _depth, _expression, 30, 1];
