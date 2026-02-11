@@ -86,6 +86,7 @@ class CfgFunctions
             class createIntermediateMoveWaypoints {};
             class waypointPreConditionTimeout {};
             class temporaryCombatMode {};
+            class getMinMaxFlankingDistance {};
         };
 
         class flares

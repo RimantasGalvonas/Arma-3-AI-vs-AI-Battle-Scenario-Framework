@@ -557,6 +557,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>If an attack position with visibility can't be found, do another simpler search for a covered position away from other friendly attack positions.</li>
 <li>Flare timing adjustments.</li>
 <li>Allow waypoints in shallow water.</li>
+<li>Closer flanking distance limits for less open terrains.</li>
 </ul>
 </li>
 <li>
