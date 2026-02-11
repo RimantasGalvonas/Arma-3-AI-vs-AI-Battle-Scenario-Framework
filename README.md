@@ -558,6 +558,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Flare timing adjustments.</li>
 <li>Allow waypoints in shallow water.</li>
 <li>Closer flanking distance limits for less open terrains.</li>
+<li>Turn group towards last known target position at waiting endpoints.</li>
 </ul>
 </li>
 <li>
