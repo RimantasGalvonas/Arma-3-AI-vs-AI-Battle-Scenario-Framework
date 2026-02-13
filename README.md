@@ -72,17 +72,37 @@ You must create some <b>placers</b> and sync them to the <b>Patrol Center</b> en
 In its init box enter this:<br>
 <pre>
 this setVariable ["logicType", "placer"];
+</pre>
+</li>
+<li>
+Define the area where the placer can place things by either of these two methods:
+<ol>
+<li>
+Create a <b>trigger</b> (or several) with a non-zero area, give it a name and put it in the init field:
+<pre>
+this setVariable ["areaTriggers", [<b>triggerName1</b>, <b>triggerName2</b>]];
+</pre>
+
+Several different placers can share the same trigger for their area too.<br>
+Note that if you're using <b>Dynamic Mission Area</b>, you also have to sync these triggers to the <b>patrolCenter</b> entity.
+<br><br>
+</li>
+<li>
+Add this to the init field:
+<pre>
 this setVariable ["minSpawnRadius", <b>0</b>];
 this setVariable ["maxSpawnRadius", <b>600</b>];
 </pre>
 
-You may adjust the **numbers** for minSpawnRadius and maxSpawnRadius. These values determine the min/max distance from the placer where units can be spawned.
+You may adjust the **minSpawnRadius** and **maxSpawnRadius**. These values determine the min/max distance from the placer where units can be spawned.
+</li>
+</ol>
 </li>
 
 <li>Sync the <b>placer</b> to the <b>Patrol Center</b>.</li>
 </ol>
 
-You may repeat these steps to make as many placers as you want. At least two are recommended - one for each side.
+You may repeat these steps to make as many placers as you want.
 
 <br>
 </details>
@@ -550,6 +570,12 @@ If you publish a scenario based on this template, please mention me in the credi
 <details>
 <summary>Open changelog</summary>
 <ul>
+<li>
+1.4.4 (YYYY-MM-DD)
+<ul>
+<li>Allow syncing triggers to placers to define their area.</li>
+</ul>
+</li>
 <li>
 1.4.3 (2026-02-11)
 <ul>

@@ -75,6 +75,7 @@ class CfgFunctions
             class findSafePosWithDebug {};
             class objectsGrabberWithSoldiers {};
             class objectsMapperWithATL {};
+            class findSafePosWithTrigger {};
         };
 
         class waypoints

@@ -58,25 +58,31 @@ private _scaleObjectPlacementFunc = {
 
 
         if (typeOf _object == "LOGIC" && {_object getVariable "logicType" == "placer"}) then {
-            private _minSpawnRadius = _object getVariable ["minSpawnRadius_original", nil];
+            if (!isNil {_object getVariable "minSpawnRadius"}) then {
+                private _minSpawnRadius = _object getVariable ["minSpawnRadius_original", nil];
 
-            if (isNil "_minSpawnRadius") then {
-                _minSpawnRadius = _object getVariable "minSpawnRadius";
-                _object setVariable ["minSpawnRadius_original", _minSpawnRadius, true];
+                if (isNil "_minSpawnRadius") then {
+                    _minSpawnRadius = _object getVariable "minSpawnRadius";
+                    _object setVariable ["minSpawnRadius_original", _minSpawnRadius, true];
+                };
+
+                _object setVariable ["minSpawnRadius", _minSpawnRadius * _scale, true];
             };
 
-            _object setVariable ["minSpawnRadius", _minSpawnRadius * _scale, true];
 
 
+            if (!isNil {_object getVariable "maxSpawnRadius"}) then {
+                private _maxSpawnRadius = _object getVariable ["maxSpawnRadius_original", nil];
 
-            private _maxSpawnRadius = _object getVariable ["maxSpawnRadius_original", nil];
+                if (isNil "_maxSpawnRadius") then {
+                    _maxSpawnRadius = _object getVariable "maxSpawnRadius";
+                    _object setVariable ["maxSpawnRadius_original", _maxSpawnRadius];
+                };
 
-            if (isNil "_maxSpawnRadius") then {
-                _maxSpawnRadius = _object getVariable "maxSpawnRadius";
-                _object setVariable ["maxSpawnRadius_original", _maxSpawnRadius];
+                _object setVariable ["maxSpawnRadius", _maxSpawnRadius * _scale, true];
             };
 
-            _object setVariable ["maxSpawnRadius", _maxSpawnRadius * _scale, true];
+
             {
                 [_x, _scale] call _scaleObjectPlacementFunc;
             } forEach (_object getVariable ["childPlacers", []]);

@@ -1,12 +1,22 @@
 params ["_placer"];
 
-private _placerPos = getPos _placer;
-private _minSpawnRadius = _placer getVariable "minSpawnRadius";
-private _maxSpawnRadius = _placer getVariable "maxSpawnRadius";
 
 
-if (surfaceIsWater _placerPos && {_placer getVariable ["relocateToNearestLandIfOnWater", false]}) then {
-    _placerPos = [_placerPos] call Rimsiakas_fnc_findNearestLand;
+if (surfaceIsWater (getPos _placer) && {_placer getVariable ["relocateToNearestLandIfOnWater", false]}) then {
+    _placer setPos ([getPos _placer] call Rimsiakas_fnc_findNearestLand);
+};
+
+
+
+private _areaTriggers = _placer getVariable ["areaTriggers", []];
+private _whitelistedSearchAreas = [];
+private _blackListedSearchAreas = ["water"];
+
+if (count _areaTriggers > 0) then {
+    _whitelistedSearchAreas = _areaTriggers;
+} else {
+    _whitelistedSearchAreas = [[getPos _placer, _placer getVariable "maxSpawnRadius"]];
+    _blackListedSearchAreas append [[getPos _placer, _placer getVariable "minSpawnRadius"]];
 };
 
 
@@ -16,14 +26,14 @@ if (surfaceIsWater _placerPos && {_placer getVariable ["relocateToNearestLandIfO
         private _randomPos = nil;
 
         if (_x getVariable ["preferRoad", false]) then {
-            _road = [_placerPos, _minSpawnRadius, _maxSpawnRadius] call Rimsiakas_fnc_findRoad;
+            _road = [_placer] call Rimsiakas_fnc_findRoad;
             if (!(isNil "_road")) then {
                 _randomPos = getPos _road;
             }
         };
 
         if (isNil "_randomPos") then {
-            _randomPos = [[[_placerPos, _maxSpawnRadius]],[[_placerPos, _minSpawnRadius], "water"]] call BIS_fnc_randomPos;
+            _randomPos = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
         };
 
         _x setPos _randomPos;
@@ -48,7 +58,7 @@ if (surfaceIsWater _placerPos && {_placer getVariable ["relocateToNearestLandIfO
     };
 
     if (!isNil {_syncedGroup}) then {
-        [_syncedGroup, _placerPos, _minSpawnRadius, _maxSpawnRadius, 0, 0.6, 0] call Rimsiakas_fnc_teleportSquadToRandomPosition;
+        [_syncedGroup, _placer] call Rimsiakas_fnc_teleportSquadToRandomPosition;
 
         (hcLeader _syncedGroup) hcRemoveGroup _syncedGroup;
 
@@ -89,19 +99,14 @@ if (surfaceIsWater _placerPos && {_placer getVariable ["relocateToNearestLandIfO
 
 // Synchronized respawn positions, AI spawn modules and objects
 {
-    private _randomPosition = [_placerPos, _minSpawnRadius, _maxSpawnRadius, 10, 0, 0.3, 0, [], [[0,0],[0,0]]] call BIS_fnc_findSafePos;
+    private _randomPosition = [_placer, 10, 0, 0.3, 0, [], [[0,0],[0,0]]] call Rimsiakas_fnc_findSafePosWithTrigger;
     if ((_randomPosition select 0) == 0) then {
         // If no clear area can be found, try to find a flattish place
-        _randomPosition = [_placerPos, _minSpawnRadius, _maxSpawnRadius, 0.1, 0, 0.3, 0, [], [[0,0],[0,0]]] call BIS_fnc_findSafePos;
+        _randomPosition = [_placer, 0.1, 0, 0.3, 0, [], [[0,0],[0,0]]] call Rimsiakas_fnc_findSafePosWithTrigger;
 
         if ((_randomPosition select 0) == 0) then {
             // If no flat area can be found, choose a random one
-            private _blacklistedAreas = ["water"];
-            if (_minSpawnRadius > 0) then {
-                _blacklistedAreas = [_placerPos, _minSpawnRadius];
-            };
-
-            _randomPosition = [[[_placerPos, _maxSpawnRadius]], [_blacklistedAreas]] call BIS_fnc_randomPos;
+            _randomPosition = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
         };
 
         // Clear the chosen area

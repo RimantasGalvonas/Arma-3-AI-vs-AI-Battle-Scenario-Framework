@@ -4,9 +4,6 @@ if (typeName _side != "SIDE") then {
     throw "Param passed to the spawnCamp function must be a SIDE OBJECT, not a string. Use [opfor]/[blufor]/[independent]";
 };
 
-private _placerPos = getPos _placer;
-private _minSpawnRadius = _placer getVariable "minSpawnRadius";
-private _maxSpawnRadius = _placer getVariable "maxSpawnRadius";
 private _compositionAzimuth = random 360;
 
 if (isNil "campAreas") then {
@@ -21,9 +18,9 @@ private _compositionElements = _composition select 0;
 
 
 // Find random position that fits the composition. If none can be found, clear any flattish area of terrain objects within the required radius and use that one.
-private _randomPosition = [_placerPos, _minSpawnRadius, _maxSpawnRadius, _compositionSize, 0, 0.3, 0, campAreas, [[0,0],[0,0]]] call BIS_fnc_findSafePos;
+private _randomPosition = [_placer, _compositionSize, 0, 0.3, 0, campAreas, [[0,0],[0,0]]] call Rimsiakas_fnc_findSafePosWithTrigger;
 if ((_randomPosition select 0) == 0) then {
-    _randomPosition = [_placerPos, _minSpawnRadius, _maxSpawnRadius, 5, 0, 0.3, 0, campAreas] call BIS_fnc_findSafePos;
+    _randomPosition = [_placer, 5, 0, 0.3, 0, campAreas] call Rimsiakas_fnc_findSafePosWithTrigger;
     private _terrainObjects = nearestTerrainObjects [_randomPosition, [], _compositionSize, false];
 
     {

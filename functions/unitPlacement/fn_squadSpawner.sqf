@@ -1,9 +1,5 @@
 params ["_placer", "_groupConfig"];
 
-private _placerPos = getPos _placer;
-private _minSpawnRadius = _placer getVariable "minSpawnRadius";
-private _maxSpawnRadius = _placer getVariable "maxSpawnRadius";
-
 
 
 private _actuallyVehicleClasses = ["Car", "Armored", "Air", "Support"];
@@ -43,7 +39,7 @@ if (typeName _groupConfig == "ARRAY") then {
 
 
 
-[_newGroup, _placerPos, _minSpawnRadius, _maxSpawnRadius, 0, 0.6, 0] call Rimsiakas_fnc_teleportSquadToRandomPosition;
+[_newGroup, _placer] call Rimsiakas_fnc_teleportSquadToRandomPosition;
 
 
 

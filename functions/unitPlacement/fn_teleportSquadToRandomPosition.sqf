@@ -1,4 +1,4 @@
-params ["_group", "_centerPos", "_minimumDistance", "_maximumDistance", "_maxGradient", "_waterMode", "_shoreMode"];
+params ["_group", "_placer"];
 
 private _vehicles = [];
 private _dismounts = [];
@@ -18,7 +18,7 @@ _vehicles = _vehicles arrayIntersect _vehicles;
 
 // No vehicles in group - simpler way to spawn infantry
 if (count (_vehicles) == 0) exitWith {
-    private _randomPosition = [_centerPos, _minimumDistance, _maximumDistance, 1, 0, 0.6, 0] call BIS_fnc_findSafePos;
+    private _randomPosition = [_placer, 1, 0, 0.6, 0] call Rimsiakas_fnc_findSafePosWithTrigger;
     {
         private _unitPosition = _randomPosition findEmptyPosition [2, 20, typeOf _x];
         private _azimuth = [0, 359] call BIS_fnc_randomInt;
@@ -31,7 +31,7 @@ if (count (_vehicles) == 0) exitWith {
 
 
 // Try to find a road section
-private _startingRoadSection = [_centerPos, _minimumDistance, _maximumDistance] call Rimsiakas_fnc_findRoad;
+private _startingRoadSection = [_placer] call Rimsiakas_fnc_findRoad;
 
 
 
@@ -41,10 +41,10 @@ if (isNil "_startingRoadSection" == true) exitWith {
 
     private _defaultPos = [[0,0],[0,0]];
 
-    private _randomPosition = [_centerPos, _minimumDistance, _maximumDistance, _requiredArea, 0, 0.3, 0, nil, _defaultPos] call BIS_fnc_findSafePos;
+    private _randomPosition = [_placer, _requiredArea, 0, 0.3, 0, nil, _defaultPos] call Rimsiakas_fnc_findSafePosWithTrigger;
 
     if ((_randomPosition select 0) == 0) then {
-        _randomPosition = [_centerPos, _minimumDistance, _maximumDistance, 1, 0, 0.3, 0] call BIS_fnc_findSafePos;
+        _randomPosition = [_placer, 1, 0, 0.3, 0] call Rimsiakas_fnc_findSafePosWithTrigger;
         private _terrainObjects = nearestTerrainObjects [_randomPosition, [], _requiredArea, false];
 
         {
