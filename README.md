@@ -574,6 +574,7 @@ If you publish a scenario based on this template, please mention me in the credi
 1.4.4 (YYYY-MM-DD)
 <ul>
 <li>Allow syncing triggers to placers to define their area.</li>
+<li>Update the camp compositions to make stationary soldiers stay standing up.</li>
 </ul>
 </li>
 <li>
