@@ -1,5 +1,5 @@
-# Arma 3 AI vs AI Battle Scenario Template
-This is a customizeable mission template to be used in the Eden editor. It allows you to quickly create a variety of battle scenarios involving many AI units just by placing and configuring a few objects in the editor.
+# Arma 3 AI vs AI Battle Scenario Framework
+This is a customizeable mission framework to be used in the Eden editor. It allows you to quickly create a variety of battle scenarios involving many AI units just by placing and configuring a few objects in the editor.
 
 #### Features
 - Randomize the position of units across a certain area and make the units roam the mission area looking for enemies.
