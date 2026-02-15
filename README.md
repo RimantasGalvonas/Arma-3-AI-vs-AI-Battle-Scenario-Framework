@@ -15,7 +15,7 @@ This is a customizeable mission framework to be used in the Eden editor. It allo
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.3/AI-vs-AI-Battle-Scenario-Template-1.4.3.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.4/AI-vs-AI-Battle-Scenario-Template-1.4.4.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -511,13 +511,13 @@ Made on v1.4.1
 <summary>Force Through Gamemode [SP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.3/ForceThroughMissions.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.4/ForceThroughMissions.zip)
 
 This is the source for these missions: https://steamcommunity.com/workshop/filedetails/?id=2427506774
 
 This scenario demonstrates the possibility to add additional logic to the scenarios right in the editor without having to modify the scripts themselves. Look for the **missionLocationChangerLogic** object and expressions in the **Spawn AI** modules.
 
-Made on v1.4.3
+Made on v1.4.4
 
 Editing tutorial:
 https://www.youtube.com/watch?v=kwI_mhtQ6OI
@@ -571,7 +571,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
-1.4.4 (YYYY-MM-DD)
+1.4.4 (2026-02-16)
 <ul>
 <li>Allow syncing triggers to placers to define their area.</li>
 <li>Update the camp compositions to make stationary soldiers stay standing up.</li>
