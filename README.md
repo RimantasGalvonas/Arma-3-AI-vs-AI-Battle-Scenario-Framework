@@ -571,6 +571,12 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
+1.4.5 (YYYY-MM-DD)
+<ul>
+<li>Make proximity penalties less strict half the time</li>
+</ul>
+</li>
+<li>
 1.4.4 (2026-02-16)
 <ul>
 <li>Allow syncing triggers to placers to define their area.</li>

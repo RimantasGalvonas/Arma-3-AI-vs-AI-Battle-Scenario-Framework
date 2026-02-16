@@ -58,7 +58,8 @@ if (_groupHasVehicles == true) then {
 
 
     if (_distance > _minFlankingDistance) then {
-        _occupiedVantagePoints = [_group] call Rimsiakas_fnc_collectWeightedAttackingFromPos;
+        private _attackPosWeighingParams = selectRandom [[_group, 250, 0.6], [_group, 300, 0.35]];
+        private _occupiedVantagePoints = _attackPosWeighingParams call Rimsiakas_fnc_collectWeightedAttackingFromPos;
 
 
         // Find a good place to attack from and advance onto the enemy from that position
