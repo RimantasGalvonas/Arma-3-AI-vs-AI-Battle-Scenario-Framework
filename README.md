@@ -573,7 +573,8 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>
 1.4.5 (YYYY-MM-DD)
 <ul>
-<li>Make proximity penalties less strict half the time</li>
+<li>Make proximity penalties less strict half the time.</li>
+<li>Penalize attack positions that require going off to the side.</li>
 </ul>
 </li>
 <li>

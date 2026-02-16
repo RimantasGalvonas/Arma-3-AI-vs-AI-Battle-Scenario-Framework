@@ -52,6 +52,13 @@ for "_radius" from _minDistance to _maxDistance step _checkInterval do {
         private _nearestTerrainObjects = nearestTerrainObjects [_checkPos, _suitableCoverClasses, _checkInterval, false];
         private _score = (count (_nearestTerrainObjects) + 0.5) min 10;
 
+
+        private _anglePenaltyMultiplier = abs ([_targetDirection, _attackerPosition getDir _checkPos] call BIS_fnc_getAngleDelta) / 135;
+        _anglePenaltyMultiplier = _anglePenaltyMultiplier * ((_attackerPosition distance2D _checkPos) min 300) / 300;
+        _anglePenaltyMultiplier = 1 - _anglePenaltyMultiplier;
+        _score = _score * _anglePenaltyMultiplier;
+
+
         // Adjust score by distance to positions-to-avoid
         if ((count _positionsToAvoid) > 0) then {
             _proximityPenaltyDivisor = [_checkPos, _positionsToAvoid, 2.5] call Rimsiakas_fnc_getProximityToAvoidedPositionsPenaltyDivisor;

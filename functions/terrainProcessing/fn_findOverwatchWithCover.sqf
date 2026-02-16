@@ -122,9 +122,15 @@ for "_radius" from _minDistance to _maxDistance step _coverGroupingRadius do {
         if (count _coverAroundThisPos > 0) then {
             private _score = count _coverAroundThisPos;
 
+            private _anglePenaltyMultiplier = abs ([_targetDirection, _attackerPosition getDir _checkPos] call BIS_fnc_getAngleDelta) / 135;
+            _anglePenaltyMultiplier = _anglePenaltyMultiplier * ((_attackerPosition distance2D _checkPos) min 300) / 300;
+            _anglePenaltyMultiplier = 1 - _anglePenaltyMultiplier;
+            _score = _score * _anglePenaltyMultiplier;
+
             private _positionData = createHashMap;
             _positionData set ["pos", _checkPos];
             _positionData set ["nearbyCoveredPositions", _coverAroundThisPos];
+            _positionData set ["_anglePenaltyMultiplier", _anglePenaltyMultiplier];
             _positionData set ["score", _score];
 
             _validPositions append [_positionData];
@@ -178,6 +184,7 @@ if ((count _positionsToAvoid) > 0) then {
         if (_proximityPenaltyDivisor > 1) then {
             private _score = (_x get "score") / _proximityPenaltyDivisor;
             _x set ["score", _score];
+            _x set ["proximityPenaltyDivisor", _proximityPenaltyDivisor];
             _validPositions set [_forEachIndex, _x];
         };
     } forEach _validPositions;
