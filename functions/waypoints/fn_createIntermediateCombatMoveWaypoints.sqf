@@ -17,15 +17,18 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
     private _intermediatePosition = nil;
     private _dir = _lastPos getDir _destination;
     private _waypointCondition = "true";
+    private _startingPosCheck = false;
+    private _waitAtThisPos = false;
 
 
     if (_checkStartingPos && {_lastPos isEqualTo _startingPos}) then {
         // Create the first waypoint at the current position so after receiving intel it checks if the current position is good to attack the target from.
         _intermediatePosition = _startingPos getPos [3, _dir];
-        _preferablePosition = _intermediatePosition;
+        _startingPosCheck = true;
     } else {
         _intermediatePosition = _lastPos getPos [_waypointStepDistance, _dir];
     };
+
 
     private _maxEngagementDistance = (([_enemyPos] call Rimsiakas_fnc_getMinMaxFlankingDistance) select 1) min (([_intermediatePosition] call Rimsiakas_fnc_getMinMaxFlankingDistance) select 1);
 
@@ -33,13 +36,22 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
     // If within engagement distance, try to find a position from which the target is visible, preferably with cover
     if (_withinEngangementDistance) then {
-        private _vantagePointData = [_intermediatePosition, _destination, _waypointStepDistance / 1.5] call Rimsiakas_fnc_findOverwatchWithCover;
+        private "_vantagePointData";
+
+        if (!_startingPosCheck) then {
+            _vantagePointData = [_intermediatePosition, _destination, _waypointStepDistance / 1.5] call Rimsiakas_fnc_findOverwatchWithCover;
+        } else {
+            _vantagePointData = [_intermediatePosition, _destination, 30] call Rimsiakas_fnc_findOverwatchWithCover;
+        };
+
 
         if (!isNil "_vantagePointData") then {
             _preferablePosition = _vantagePointData get "pos";
 
             if ((count (_vantagePointData get "nearbyCoveredPositions")) > ((count units _group) * 0.75)) then {
-                // This is an advantageous position so stay there until the target is dealt with or can't be seen anymore
+                _waitAtThisPos = true;
+
+                // This position has good cover so stay there until the target is dealt with or can't be seen anymore
                 // Do the check every 15 seconds to give time for the group to notice the enemy upon arriving to the waypoint
                 _waypointCondition = "
                     private _group = group this;
@@ -52,7 +64,14 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
 
 
 
-    // Couldn't find a higher position, so look for an area with cover
+    if (_startingPosCheck && {!_waitAtThisPos}) then {
+        _lastPos = _intermediatePosition;
+
+        continue;
+    };
+
+
+
     if (isNil "_preferablePosition") then {
         _preferablePosition = selectBestPlaces[_intermediatePosition, (_waypointStepDistance / 2), "houses + trees + hills + (waterDepth interpolate [1.1, 1.5, 0, -500])", 5, 1];
         _preferablePosition = (_preferablePosition select 0) select 0;
