@@ -70,9 +70,11 @@ while {_distance > (_waypointStepDistance * 1.5)} do {
             _preferablePosition = _backupPreferablePosition;
         };
 
+        _preferablePosition set [2, 0]; // AGLToASL requires height, one of these cases produces a position without one.
+
         _waypointStatement = "[group this] call Rimsiakas_fnc_updateAttackingFromPos;";
 
-        private _intermediateWaypoint = _group addWayPoint [_preferablePosition, 1];
+        private _intermediateWaypoint = _group addWayPoint [AGLToASL _preferablePosition, -1];
         _intermediateWaypoint setWaypointType "MOVE";
         _intermediateWaypoint setWaypointStatements [_waypointCondition, _waypointStatement];
 

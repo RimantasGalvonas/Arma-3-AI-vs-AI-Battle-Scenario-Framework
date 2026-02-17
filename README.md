@@ -575,6 +575,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <ul>
 <li>Make proximity penalties less strict half the time.</li>
 <li>Penalize attack positions that require going off to the side.</li>
+<li>Prevent waypoints from being placed behind the group.</li>
 </ul>
 </li>
 <li>
