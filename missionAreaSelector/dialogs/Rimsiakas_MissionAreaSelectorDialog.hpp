@@ -1,6 +1,7 @@
-#define RIGHT_SIDE_X	(31)
-#define FLARE_ELEMENTS_Y	(7)
-#define ENVIRONMENT_ELEMENTS_Y	(11.5)
+#define RIGHT_SIDE_X (31)
+#define INTEL_GRID_ELEMENTS_Y (2.5)
+#define FLARE_ELEMENTS_Y (7)
+#define ENVIRONMENT_ELEMENTS_Y (11.5)
 
 class Rimsiakas_MissionAreaSelectorDialog
 {
@@ -71,7 +72,7 @@ class Rimsiakas_MissionAreaSelectorDialog
     {
         idc = 101000;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
-        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = INTEL_GRID_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
         h = 3.5 * GUI_GRID_H;
     };
@@ -82,7 +83,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "Intel Grid:";
         tooltip = "The resolution of colored squares on the map hinting the enemy locations.";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
-        y = 3 * GUI_GRID_H + GUI_GRID_Y;
+        y = (0.5 + INTEL_GRID_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -93,7 +94,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "-";
         action = "['down'] call Rimsiakas_fnc_handleIntelGridButton;";
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
-        y = 4 * GUI_GRID_H + GUI_GRID_Y;
+        y = (1.5 + INTEL_GRID_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
     }
@@ -104,7 +105,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "";
         tooltip = "The size of colored squares on the map hinting the enemy locations.";
         x = (2 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
-        y = 4.2 * GUI_GRID_H + GUI_GRID_Y;
+        y = (1.7 + INTEL_GRID_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 4 * GUI_GRID_H + GUI_GRID_Y;
         h = 1 * GUI_GRID_W;
     }
@@ -115,7 +116,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "+";
         action = "['up'] call Rimsiakas_fnc_handleIntelGridButton;";
         x = (6.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
-        y = 4 * GUI_GRID_H + GUI_GRID_Y;
+        y = (1.5 + INTEL_GRID_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
     }

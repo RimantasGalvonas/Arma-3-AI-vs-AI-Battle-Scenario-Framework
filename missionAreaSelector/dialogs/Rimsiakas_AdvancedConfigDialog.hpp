@@ -1,3 +1,7 @@
+#define RIGHT_SIDE_X (31)
+#define PATROL_RADIUS_ELEMENTS_Y (2.5)
+#define INTEL_RESPONSE_ELEMENTS_Y (6.5)
+
 class Rimsiakas_AdvancedConfigDialog
 {
     idd = 46424;
@@ -55,8 +59,8 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusFrame: RscFrame
     {
         idc = 201000;
-        x = 31 * GUI_GRID_W + GUI_GRID_X;
-        y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+        x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
+        y = PATROL_RADIUS_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
         h = 3 * GUI_GRID_H;
     };
@@ -65,8 +69,8 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 201001;
         text = "Patrol Radius:";
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 3 * GUI_GRID_H + GUI_GRID_Y;
+        x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (0.5 + PATROL_RADIUS_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -74,8 +78,8 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusValue: RscText
     {
         idc = 201002;
-        x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 4 * GUI_GRID_H + GUI_GRID_Y;
+        x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (1.5 + PATROL_RADIUS_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
     };
@@ -84,7 +88,7 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 202000;
         x = 31 * GUI_GRID_W + GUI_GRID_X;
-        y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+        y = INTEL_RESPONSE_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
         h = 16 * GUI_GRID_H;
     };
@@ -93,8 +97,8 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 202001;
         text = "Intel Response Dist.";
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 7 * GUI_GRID_H + GUI_GRID_Y;
+        x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (0.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -103,8 +107,8 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 202002;
         text = "Infantry";
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+        x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (2 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -112,8 +116,8 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryValue: RscEdit
     {
         idc = 202003;
-        x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+        x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (3 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
         tooltip = "Maximum distance to target at which infantry groups will respond to intel about the enemy location.";
@@ -123,8 +127,8 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 202004;
         text = "Vehicles";
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 11 * GUI_GRID_H + GUI_GRID_Y;
+        x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (4.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -132,8 +136,8 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceVehiclesValue: RscEdit
     {
         idc = 202005;
-        x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 12 * GUI_GRID_H + GUI_GRID_Y;
+        x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (5.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
         tooltip = "Maximum distance to target at which mounted groups will respond to intel about the enemy location.";
@@ -143,8 +147,8 @@ class Rimsiakas_AdvancedConfigDialog
     {
         idc = 202006;
         text = "Air";
-        x = 31.5 * GUI_GRID_W + GUI_GRID_X;
-        y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+        x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (7 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 7.5 * GUI_GRID_W;
         h = 0.5 * GUI_GRID_H;
     };
@@ -152,8 +156,8 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceAirValue: RscEdit
     {
         idc = 202007;
-        x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
+        x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (8 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
         tooltip = "Maximum distance to target at which air assets will respond to intel about the enemy location.";
@@ -164,8 +168,8 @@ class Rimsiakas_AdvancedConfigDialog
         idc = 202099;
         action = "call Rimsiakas_fnc_confirmAdvancedParams;";
         text = "Apply";
-        x = 32 * GUI_GRID_W + GUI_GRID_X;
-        y = 20 * GUI_GRID_H + GUI_GRID_Y;
+        x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
+        y = (13.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
         tooltip = "Apply the input field values.";
     };
