@@ -31,4 +31,7 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
     [_pos, "main"] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
 }];
 
+_map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
+ctrlMapAnimCommit _map;
+
 lbSetCurSel [101502, patrolCenter getVariable ["flaresLevel", 0]];
