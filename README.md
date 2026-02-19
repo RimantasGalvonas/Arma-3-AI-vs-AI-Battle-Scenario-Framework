@@ -381,9 +381,9 @@ Here are some things to keep in mind when using this template to create multipla
 </details>
 
 <details>
-<summary>Adding extra logic with triggers or init fields</summary>
+<summary>Adding Extra Logic With Triggers Or Init Fields</summary>
 
-## Adding extra logic with triggers or init fields
+## Adding Extra Logic With Triggers Or Init Fields
 <ul>
 <li>
 <details>
@@ -477,6 +477,32 @@ _group setVariable ["ignoreIntel", true];
 </ul>
 </details>
 
+<details>
+<summary>Extending With Custom Scripts</summary>
+
+## Extending With Custom Scripts
+You should use the **mission** directory to add your own scripts.
+
+The framework currently uses these default files:
+<ul>
+<li>Description.ext</li>
+<li>initPlayerLocal.sqf</li>
+<li>initPlayerServer.sqf</li>
+<li>initServer.sqf</li>
+<li>onPlayerRespawn.sqf</li>
+</ul>
+
+To add to these scripts without modifying the framework, you can add "extension" files in the **mission** directory. For example:
+- **mission/initPlayerLocal_pre.sqf** - contents of your file be inserted at the start of **initPlayerLocal.sqf**.
+- **mission/initPlayerLocal_post.sqf** - contents of your file be inserted at the start of **initPlayerLocal.sqf**.
+- **mission/initPlayerLocal.sqf** - **initPlayerLocal.sqf** will be replaced by the contents your file.
+
+Additionally, if you want to insert your own code into the **CfgFunctions** section of **Description.ext**, you can create a **mission\Description_functions.hpp** file.  
+
+
+<br>
+</details>
+
 # Example missions
 Extract these to Documents/Arma 3/missions/ and open with the Eden editor.
 
@@ -557,8 +583,9 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
-1.4.5 (YYYY-MM-DD)
+1.5.0 (YYYY-MM-DD)
 <ul>
+<li>Make the framework more extendable.</li>
 <li>Make proximity penalties less strict half the time.</li>
 <li>Penalize attack positions that require going off to the side.</li>
 <li>Don't create waypoint at current location unless it's actually a good position.</li>

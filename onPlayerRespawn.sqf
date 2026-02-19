@@ -1,3 +1,11 @@
+#if __has_include("mission\onPlayerRespawn_pre.sqf")
+    #include "mission\onPlayerRespawn_pre.sqf"
+#endif
+
+#if __has_include("mission\onPlayerRespawn_pre.sqf")
+    #include "mission\onPlayerRespawn_pre.sqf"
+#else
+
 params ["_newUnit", "_oldUnit", "_respawn", "_respawnDelay"];
 
 
@@ -16,3 +24,9 @@ if (!(_newUnit getVariable ["CHVD_initialized", false])) then {
     call CHVD_fnc_init;
     _newUnit setVariable ["CHVD_initialized", true];
 };
+
+#endif
+
+#if __has_include("mission\onPlayerRespawn_post.sqf")
+    #include "mission\onPlayerRespawn_post.sqf"
+#endif

@@ -1,3 +1,11 @@
+#if __has_include("mission\initPlayerLocal_pre.sqf")
+    #include "mission\initPlayerLocal_pre.sqf"
+#endif
+
+#if __has_include("mission\initPlayerLocal.sqf")
+    #include "mission\initPlayerLocal.sqf"
+#else
+
 sleep 0.1; // Small delay required because otherwise the Initializing... screen and validation hints are not shown.
 
 if (isNull findDisplay 46421) then { // Check to make sure the mission selector dialog is not already opened
@@ -74,3 +82,9 @@ player addEventHandler ["Killed", {
 
 
 cutText ["", "BLACK IN", 1];
+
+#endif
+
+#if __has_include("mission\initPlayerLocal_post.sqf")
+    #include "mission\initPlayerLocal_post.sqf"
+#endif

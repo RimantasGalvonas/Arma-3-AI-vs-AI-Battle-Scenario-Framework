@@ -1,3 +1,11 @@
+#if __has_include("mission\initPlayerServer_pre.sqf")
+    #include "mission\initPlayerServer_pre.sqf"
+#endif
+
+#if __has_include("mission\initPlayerServer.sqf")
+    #include "mission\initPlayerServer.sqf"
+#else
+
 params ["_playerUnit", "_didJIP"];
 
 waitUntil {(!isNil "Rimsiakas_missionInitialized" && {Rimsiakas_missionInitialized == true})};
@@ -29,3 +37,9 @@ if (count _syncedHighCommandModules > 0) then {
         }
     } forEach _subordinates;
 };
+
+#endif
+
+#if __has_include("mission\initPlayerServer_post.sqf")
+    #include "mission\initPlayerServer_post.sqf"
+#endif
