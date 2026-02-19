@@ -1,9 +1,5 @@
 Rimsiakas_missionAreaPreviewProcessId = [] spawn {
-    if (!createDialog "Rimsiakas_MissionAreaPreviewDialog") exitWith {
-        hint "Couldn't open the mission area preview";
-    };
-
-
+    createDialog "Rimsiakas_MissionAreaPreviewDialog";
 
     // Border dots
     private _middlePos = getPos patrolCenter;
@@ -83,10 +79,9 @@ Rimsiakas_missionAreaPreviewProcessId = [] spawn {
         cameraEffectEnableHUD true;
 
         waitUntil {camCommitted Rimsiakas_missionAreaPreviewCamera};
+
+        if (_angle == 360) then {
+            _angle = 0;
+        };
     };
-
-
-    sleep 3;
-
-    call Rimsiakas_fnc_terminateMissionAreaPreview;
 };

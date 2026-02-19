@@ -3,6 +3,7 @@ class Rimsiakas_MissionAreaPreviewDialog
     idd = 46422;
     movingEnabled = false;
     enableSimulation = true;
+    onUnload = "call Rimsiakas_fnc_terminateMissionAreaPreview";
 
     controls[] =
     {
