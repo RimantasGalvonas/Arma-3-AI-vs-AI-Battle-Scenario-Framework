@@ -577,6 +577,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Penalize attack positions that require going off to the side.</li>
 <li>Don't create waypoint at current location unless it's actually a good position.</li>
 <li>Fix incorrect behavior when pressing Esc in mission location preview.</li>
+<li>Add a compass arrow icons in mission location preview.</li>
 </ul>
 </li>
 <li>

@@ -39,6 +39,9 @@ Rimsiakas_missionAreaPreviewProcessId = [] spawn {
         "Draw3D",
         {
             private _dotPositions = _thisArgs select 0;
+            private _middlePos = _thisArgs select 1;
+            private _radius = _thisArgs select 2;
+
             {
                 private _dotPosAboveGround = +_x; // The plus sign copies the array instead of referencing. This is so the next line doesn't change the coordinate of the actual position.
                 _dotPosAboveGround set [2, (_x select 2) + 1];
@@ -50,8 +53,13 @@ Rimsiakas_missionAreaPreviewProcessId = [] spawn {
 
                 drawIcon3D ["\A3\ui_f\data\map\markers\military\dot_CA.paa", _color, _x, 1, 1, 0];
             } forEach _dotPositions;
+
+            if (!isNil "Rimsiakas_missionAreaPreviewCamera") then {
+                drawIcon3D ["\A3\ui_f\data\map\markers\military\arrow2_CA.paa", [1, 0, 0, 0.5], _middlePos getPos [(_radius / 10), 0], 1, 1, getDir Rimsiakas_missionAreaPreviewCamera, "N"];
+                drawIcon3D ["\A3\ui_f\data\map\markers\military\arrow2_CA.paa", [0, 0, 5, 0.5], _middlePos getPos [(_radius / 10), 180], 1, 1, (180 + getDir Rimsiakas_missionAreaPreviewCamera) mod 360, "S"];
+            };
         },
-        [_dotPositions]
+        [_dotPositions, _middlePos, _radius]
     ];
 
 
