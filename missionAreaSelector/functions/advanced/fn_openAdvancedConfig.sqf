@@ -23,7 +23,7 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
     [_pos, "advanced"] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
 }];
 
-_map ctrlMapAnimAdd [0, 0.25, getMarkerPos "missionAreaMarker"];
+_map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
 
 if (!isServer) then {
@@ -48,5 +48,5 @@ waitUntil {isNull findDisplay 46424};
 waitUntil {!isNull findDisplay 46421};
 _dialog = findDisplay 46421;
 _map = _dialog displayCtrl 9999;
-_map ctrlMapAnimAdd [0, 0.25, getMarkerPos "missionAreaMarker"];
+_map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
