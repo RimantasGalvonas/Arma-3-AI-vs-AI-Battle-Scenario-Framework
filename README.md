@@ -336,19 +336,6 @@ To enter high command mode, press **Left Ctrl+Space**.
 </details>
 
 <details>
-<summary>AI Revive Script Configuration</summary>
-
-## AI Revive Script Configuration
-This mission template has the [Grimes Simple Revive](https://github.com/kcgrimes/grimes-simple-revive) script integrated.
-
-To enable it, change the **G_Revive_System** and **G_Briefing** values to **true** in the **G_Revive_init.sqf** file.
-
-There are more configurations in there and they are well documented by the comments in the file. Adjust them to your liking.
-
-<br>
-</details>
-
-<details>
 <summary>Dynamic Mission Area</summary>
 
 ## Dynamic Mission Area
@@ -557,10 +544,9 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 - [Steam](https://steamcommunity.com/app/107410/discussions/18/3104638636520370752/)
 
 # Credits
-So far this mission uses these scripts from other developers:
+Currently, this framework uses these scripts from other developers:
 
 - [CH View Distance Script by Champ-1](https://www.armaholic.com/page.php?id=27390)
-- [Grimes Simple Revive](https://github.com/kcgrimes/grimes-simple-revive)
 
 Thanks!
 
@@ -578,6 +564,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Don't create waypoint at current location unless it's actually a good position.</li>
 <li>Fix incorrect behavior when pressing Esc in mission location preview.</li>
 <li>Add a compass arrow icons in mission location preview.</li>
+<li>Remove the Grimes Simple Revive integration.</li>
 </ul>
 </li>
 <li>

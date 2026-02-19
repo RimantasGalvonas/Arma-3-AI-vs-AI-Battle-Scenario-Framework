@@ -43,12 +43,6 @@ if (typeName _groupConfig == "ARRAY") then {
 
 
 
-if (G_Revive_System == true) then {
-    (units _newGroup) spawn G_fnc_initNewAI;
-};
-
-
-
 if ("Support" in ([_newGroup] call Rimsiakas_fnc_getVehicleClassesInGroup)) then {
     _newGroup setVariable ["ignoreIntel", true];
     private _waypoint = _newGroup addWaypoint [(getPos leader _newGroup), 0];
