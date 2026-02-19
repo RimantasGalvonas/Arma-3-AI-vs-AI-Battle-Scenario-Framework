@@ -1,3 +1,11 @@
+#if __has_include("mission\initServer_pre.sqf")
+    #include "mission\initServer_pre.sqf"
+#endif
+
+#if __has_include("mission\initServer.sqf")
+    #include "mission\initServer.sqf"
+#else
+
 Rimsiakas_missionValidationResult = ([] call Rimsiakas_fnc_validator);
 publicVariable "Rimsiakas_missionValidationResult";
 if ((count Rimsiakas_missionValidationResult) > 0) exitWith {};
@@ -90,3 +98,9 @@ addMissionEventHandler ["HandleDisconnect", {
 
 Rimsiakas_missionInitialized = true;
 publicVariable "Rimsiakas_missionInitialized";
+
+#endif
+
+#if __has_include("mission\initServer_post.sqf")
+    #include "mission\initServer_post.sqf"
+#endif

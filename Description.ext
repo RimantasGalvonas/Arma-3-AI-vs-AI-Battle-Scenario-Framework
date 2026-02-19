@@ -1,3 +1,11 @@
+#if __has_include("mission\Description_pre.ext")
+    #include "mission\Description_pre.ext"
+#endif
+
+#if __has_include("mission\Description.ext")
+    #include "mission\Description.ext"
+#else
+
 #include "CHVD\dialog.hpp"
 
 #include "missionAreaSelector\dialogs.hpp"
@@ -6,7 +14,12 @@ respawnOnStart = -1;
 
 class CfgFunctions
 {
+    #if __has_include("mission\Description_functions.hpp")
+        #include "mission\Description_functions.hpp"
+    #endif
+
     #include "CHVD\CfgFunctions.hpp"
+
     class Rimsiakas
     {
         class general
@@ -108,3 +121,9 @@ class CfgFunctions
         #include "missionAreaSelector\functions.hpp"
     };
 };
+
+#endif
+
+#if __has_include("mission\Description_post.ext")
+    #include "mission\Description_post.ext"
+#endif
