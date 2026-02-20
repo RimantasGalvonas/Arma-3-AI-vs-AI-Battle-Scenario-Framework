@@ -63,12 +63,11 @@ class CfgFunctions
             class revealFriendlyGroupsOnMap {};
         }
 
-        class unitPlacement
+        class placers
         {
-            file = "functions\unitPlacement";
+            file = "functions\placers";
             class teleportSquadToRandomPosition {};
             class placer {};
-            class squadSpawner {};
             class calculateRequiredAreaForGroup {};
             class spawnCamp {};
             class getCamps {};
@@ -76,6 +75,16 @@ class CfgFunctions
             class findRoad {};
             class findNearestLand {};
             class getVehicleClassesInGroup {};
+        };
+
+        class spawners
+        {
+            file = "functions\spawners";
+            class spawner {};
+            class initializeSpawner {};
+            class selectGroupToSpawn {};
+            class spawnGroup {};
+            class assignHighCommanderToSpawnedGroup {};
         };
 
         class rewrites

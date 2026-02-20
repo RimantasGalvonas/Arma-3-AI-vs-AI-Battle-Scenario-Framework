@@ -81,6 +81,17 @@ if (count _areaTriggers > 0) then {
 
 
 
+// Spawners
+{
+    if (_x getVariable "logicType" == "spawner") then {
+        _randomPos = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
+        _x setPos _randomPos;
+        [_x, _placer] call Rimsiakas_fnc_initializeSpawner;
+    };
+} forEach (_placer getVariable "spawners");
+
+
+
 // Units from groups variable
 {
     [_placer, _x] call Rimsiakas_fnc_squadSpawner;
