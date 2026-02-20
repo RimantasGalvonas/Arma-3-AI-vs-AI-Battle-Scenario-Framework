@@ -113,67 +113,129 @@ You may repeat these steps to make as many placers as you want.
 ## Configuring Placers To Place Units
 This randomizes the location of units within the radius defined in the placer and continuously creates waypoints to make the units patrol the mission area.
 
-There are two ways of doing this:
-<ol>
-<li>
-<details>
-<summary><b>Syncing units (Recommended)</b></summary>
-<br>
-The simplest way to make a placer spawn units is to place units or vehicles in the editor and sync them to the placer.
-<br><br>
+The simplest way to make a placer spawn units is to place units or vehicles in the editor and sync them to the **placer**.
+
 Sync only one unit from the group, not the entire group. Doing otherwise would still work but it forces redundant calculations and makes initialization much slower.
-<br><br>
 
-Other things that can be synced to placers:
-- **Respawn Position** Module
-- **Spawn AI** Module
-- **Spawn AI: Spawnpoint** Module
-- Objects
-<br><br>
-</details>
-</li>
-<li>
-<details>
-<summary><b>Group variable</b></summary>
+If you want to spawn new units rather than randomize the location of editor-placed units, see **Configuring Spawners** below.
 
-This method is more complex to setup but it has its uses. This makes the placer spawn new units rather than relocate those that were already created in the editor, meaning you could, for example, activate this placer at some later point in the mission to spawn reinforcements (see the <b>Adding extra logic with triggers or init fields</b> section below).
-<br><br>
-
-Add this to the placer's init box:
-<pre>
-this setVariable ["groups", [
-    (<b>GROUP_CONFIG</b>),
-    (<b>GROUP_CONFIG</b>),
-    (<b>GROUP_CONFIG</b>)
-]];
-</pre>
-
-Then do one or both of the following:
-<ol>
-<li>
-<b>Use predefined group configs</b>
-
-Replace <b>GROUP_CONFIG</b> with a group config path which can be found in the Eden editor <b>Tools -> Config Viewer</b>. Find <b>cfgGroups</b> on the left. Select the one you want and copy it from <b>Config Path</b> in the bottom of the screen. It should look something like this:<br>
-<b>configFile >>"CfgGroups" >> "Indep" >> "IND_E_F" >> "Infantry" >> "I_E_InfTeam"</b><br>
-You may add as many as you want. Add duplicates if you want more of the same group.
-</li>
-<li>
-<b>Create custom groups</b>
-
-You may also create custom groups out of individual units by replacing **(GROUP_CONFIG)** with for example:
-<pre>
-["<b>B_Truck_01_ammo_F</b>", "<b>B_Truck_01_Repair_F</b>"]
-</pre>
-These <b>names in bold</b> can be found by hovering over a unit placed in the Eden editor or in **configFile >> "CfgVehicles"**
-</li>
-</ol>
-</details>
-</li>
-</ol>
 <br>
 </details>
 
 Optional:
+
+<details>
+<summary>Configuring Spawners</summary>
+
+## Configuring Spawners
+
+**Spawners** allow you to spawn new groups within a **placer's** area. It partially mimics the functionality of Arma's **Spawn AI** module.
+<br><br>
+
+<ol>
+<li>
+Create a <b>Logic Entity</b>. Give it a name, for example <b>spawner_1</b>.
+</li>
+<li>
+Assign this <b>spawner</b> to one of the <b>placers</b> by adding this to the <b>placer's</b> <b>init</b> field:
+<pre>
+this setVariable ["spawners", [<b>spawner_1</b>]];
+</pre>
+</li>
+<li>
+Configure the <b>spawner</b> by setting variables for it in its <b>init</b> field. Example configuration:
+<pre>
+this setVariable ["logicType", "spawner"];
+this setVariable ["maxUnitsPerGroup", 8];
+this setVariable ["spawnRate", 10];
+this setVariable ["maxUnits", 20];
+
+private _pool1 = [
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons",
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad"
+];
+
+private _pool2 = [
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Mechanized" >> "BUS_MechInfSquad",
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized" >> "BUS_MotInf_Team",
+    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized" >> "BUS_MotInf_Reinforce"
+];
+
+this setVariable ["groupPools", [_pool1, 10, _pool2, 5]];
+
+this setVariable [
+    "callback",
+    {
+        params ["_group", "_spawner", "_placer"];
+        {addSwitchableUnit _x;} forEach units _group;
+        [_placer] call Rimsiakas_fnc_placer;
+    }
+];
+</pre>
+<ul>
+<br>
+Explanation:
+<br><br>
+<li>
+<pre>
+this setVariable ["maxUnitsPerGroup", 8];
+</pre>
+If you set this variable, groups with the amount of soldiers exceeding this number are trimmed down to the desired size.
+<br><br>
+</li>
+<li>
+<pre>
+this setVariable ["spawnRate", 10];
+this setVariable ["maxUnits", 20];
+</pre>
+If you set these variables, it makes the <b>spawner</b> spawn new groups continuously every <b>spawnRate</b> seconds until the number of units spawned by this <b>spawner</b> reaches <b>maxUnits</b>. It then pauses and waits until some of the spawned units die before reactivating.
+<br><br>
+</li>
+<li>
+<pre>
+private _pool1 = [
+    ...
+];
+
+private _pool2 = [
+...
+];
+
+this setVariable ["groupPools", [_pool1, 10, _pool2, 5]];
+</pre>
+You must define at least one <b>pool</b> per spawner.
+
+
+One of the pools will be randomly selected according to assigned weights. (See [selectRandomWeighted](https://community.bistudio.com/wiki/selectRandomWeighted) for the `[_pool1, 66, _pool2, 33]` syntax explanation ).
+Then one of the groups from that pool will be randomly selected to spawn.
+So in this example the spawner is configured to spawn one of three infantry groups ~<b>66</b>% of the time and one of three mounted groups ~<b>33</b>% of the time, every <b>10</b> seconds until <b>20</b> spawned units limit is reached.
+
+You may also create custom groups out of individual units:
+<pre>
+private _pool1 = [
+    ["B_Truck_01_ammo_F", "B_Truck_01_Repair_F"]
+];
+</pre>
+</li>
+<li>
+<pre>
+this setVariable [
+    "callback",
+    {
+        params ["_group", "_spawner", "_placer"];
+        {addSwitchableUnit _x;} forEach units _group;
+        [_placer] call Rimsiakas_fnc_placer;
+    }
+];
+</pre>
+This allows you to run some code after the group is spawned. The spawned group, the spawner and the placer that the spawner is associated with, are passed as arguments to the function you provide here.
+</li>
+</ul>
+</li>
+</ol>
+<br><br>
+</details>
 
 <details>
 <summary>Configuring Placers To Place Other Placers</summary>
@@ -585,7 +647,8 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>
 1.5.0 (YYYY-MM-DD)
 <ul>
-<li>Make the framework more extendable.</li>
+<li>More powerful group spawning functionality.</li>
+<li>Support for extension scripts.</li>
 <li>Make proximity penalties less strict half the time.</li>
 <li>Penalize attack positions that require going off to the side.</li>
 <li>Don't create waypoint at current location unless it's actually a good position.</li>

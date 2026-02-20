@@ -1,3 +1,9 @@
+params [["_units", nil]];
+
+if (isNil "_units") then {
+    _units = allUnits;
+};
+
 {
     private _unit = _x;
 
@@ -6,4 +12,4 @@
     } forEach (_unit targets [false, 0, [blufor, opfor, independent]]);
 
     _unit enableAI "all"; // Re-enable AI disabled by disableAIWhileLoading function
-} forEach allUnits;
+} forEach _units;

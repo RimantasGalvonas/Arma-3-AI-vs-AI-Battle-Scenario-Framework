@@ -58,9 +58,11 @@ _getIncompleteParts = {
         } foreach synchronizedObjects _placer;
     } forEach _placers;
 
-    if (_hasProperlyConfiguredPlacers == false) exitWith {
-        _incompleteParts;
-    };
+    // if (_hasProperlyConfiguredPlacers == false) exitWith {
+    //     _incompleteParts;
+    // };
+
+    // TODO: check subplacers, this doesn't see inside them
 
     _incompleteParts deleteAt 0;
 
