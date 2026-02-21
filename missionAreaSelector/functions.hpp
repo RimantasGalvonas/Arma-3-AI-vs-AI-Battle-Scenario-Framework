@@ -46,3 +46,12 @@ class intelGrid
     class handleIntelGridButton {};
     class refreshIntelGridValue {};
 }
+
+class missionAreaSelectorFactionConfig
+{
+    file = "missionAreaSelector\functions\factions";
+
+    class openFactionConfig {};
+    class spawnerSelected {};
+    class inputChanged {};
+}
