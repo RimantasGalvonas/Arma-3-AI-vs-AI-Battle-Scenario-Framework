@@ -1,10 +1,18 @@
 class Rimsiakas_Button: RscButton
 {
     h = 1.5 * GUI_GRID_H;
+    w = 5.5 * GUI_GRID_W;
     colorBackground[] = {0.1,0.1,0.1,1};
     colorShadow[] = {0,0,0,1};
     offsetX = 1 * pixelW;
     offsetY = 1 * pixelH;
+}
+
+class Rimsiakas_ButtonSmall: Rimsiakas_Button
+{
+    sizeEx = 0.03;
+    h = 1 * GUI_GRID_W;
+    w = 3 * GUI_GRID_W;
 }
 
 class Rimsiakas_MainBackground: RscText

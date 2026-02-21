@@ -177,7 +177,6 @@ class Rimsiakas_AdvancedConfigDialog
     class Rimsiakas_AdvancedConfigDialog_BottomButton: Rimsiakas_Button
     {
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
     }
 
     class Rimsiakas_AdvancedConfigDialog_BackButton: Rimsiakas_AdvancedConfigDialog_BottomButton

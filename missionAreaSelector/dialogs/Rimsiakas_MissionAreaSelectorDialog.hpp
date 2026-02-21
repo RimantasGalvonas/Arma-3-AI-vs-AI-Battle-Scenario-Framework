@@ -45,7 +45,8 @@ class Rimsiakas_MissionAreaSelectorDialog
         Rimsiakas_EnvironmentConfigurationDialog_ConfirmButton,
         Rimsiakas_MissionAreaSelectorDialog_PreviewButton,
         Rimsiakas_MissionAreaSelectorDialog_AdvancedConfigButton,
-        Rimsiakas_MissionAreaSelectorDialog_AiConfigButton
+        Rimsiakas_MissionAreaSelectorDialog_AiConfigButton,
+        Rimsiakas_MissionAreaSelectorDialog_FactionConfigButton,
     };
 
     class Rimsiakas_MissionAreaSelectorDialog_MainBackground: Rimsiakas_MainBackground
@@ -104,9 +105,10 @@ class Rimsiakas_MissionAreaSelectorDialog
         idc = 101003;
         text = "";
         tooltip = "The size of colored squares on the map hinting the enemy locations.";
+        style = ST_CENTER;
         x = (2 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.7 + INTEL_GRID_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
-        w = 4 * GUI_GRID_H + GUI_GRID_Y;
+        w = 2.7 * GUI_GRID_H + GUI_GRID_Y;
         h = 1 * GUI_GRID_W;
     }
 
@@ -339,7 +341,6 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "Confirm";
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
     };
 
     class Rimsiakas_MissionAreaSelectorDialog_PreviewButton: Rimsiakas_Button
@@ -349,7 +350,6 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "Preview";
         x = 6.5 * GUI_GRID_W + GUI_GRID_X;
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
     };
 
     class Rimsiakas_MissionAreaSelectorDialog_AdvancedConfigButton: Rimsiakas_Button
@@ -369,6 +369,15 @@ class Rimsiakas_MissionAreaSelectorDialog
         text = "AI Config";
         x = 20.5 * GUI_GRID_W + GUI_GRID_X;
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
-        w = 5.5 * GUI_GRID_W;
+    };
+
+    class Rimsiakas_MissionAreaSelectorDialog_FactionConfigButton: Rimsiakas_Button
+    {
+        idc = 209004;
+        action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};"
+        text = "Faction Config";
+        x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+        y = 23 * GUI_GRID_H + GUI_GRID_Y;
+        w = 6.5 * GUI_GRID_W;
     };
 }

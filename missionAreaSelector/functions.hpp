@@ -46,3 +46,22 @@ class intelGrid
     class handleIntelGridButton {};
     class refreshIntelGridValue {};
 }
+
+class missionAreaSelectorFactionConfig
+{
+    file = "missionAreaSelector\functions\factions";
+
+    class openFactionsConfig {};
+    class populateSpawnerTreeFactionsConfig {};
+    class spawnerSelectedFactionsConfig {};
+    class inputChangedFactionsConfig {};
+    class addGroupFactionsConfig {};
+    class removeGroupFactionsConfig {};
+    class populatePoolGroupsFactionsConfig {};
+    class populateGroupsConfigTreeGroupsFactionsConfig {};
+    class confirmFactionsConfig {};
+    class resetFactionsConfig {};
+    class getSelectedSpawnerAndPoolFactionsConfig {};
+    class clearAllPoolsFactionsConfig {};
+    class addPoolFactionsConfig {};
+}
