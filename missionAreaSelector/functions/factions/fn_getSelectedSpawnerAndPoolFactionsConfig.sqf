@@ -7,7 +7,7 @@ private _selectedSpawnerData = (Rimsiakas_workingSpawnersData get "spawners") ge
 
 private _result = createHashMap;
 
-_result set ["spawner", createHashMapFromArray [["index", _spawnerIndex], ["data", _selectedSpawnerData]]];
+_result set ["spawner", createHashMapFromArray [["index", _spawnerIndex], ["data", _selectedSpawnerData], ["name", _selectedSpawnerName]]];
 
 if (count _spawnerSelectionPath == 2) then {
     private _poolIndex = _spawnerSelectionPath select 1;

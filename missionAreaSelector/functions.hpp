@@ -63,6 +63,7 @@ class missionAreaSelectorFactionConfig
     class getSelectedSpawnerAndPoolFactionsConfig {};
     class clearAllPoolsFactionsConfig {};
     class addPoolFactionsConfig {};
+    class createMarkersForSpawners {};
 }
 
 class missionAreaSelectorFactionPresets

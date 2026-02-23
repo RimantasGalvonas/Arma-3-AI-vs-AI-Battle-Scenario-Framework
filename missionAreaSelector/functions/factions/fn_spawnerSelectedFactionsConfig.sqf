@@ -42,3 +42,17 @@ if (isNil {_selected get "pool"}) then {
     _spawnerPropertiesControlGroup ctrlShow false;
     _groupsConfigControlGroup ctrlShow true;
 };
+
+
+
+{
+    _x setMarkerColorLocal "colorRed"
+} forEach Rimsiakas_markersForSpawners;
+
+_markerName = "spawnerMarker" + ((_selected get "spawner") get "name");
+_markerName setMarkerColorLocal "colorBlue";
+
+_map = displayCtrl 409999;
+_map ctrlMapAnimAdd [1, 0.5, getMarkerPos _markerName];
+
+ctrlMapAnimCommit _map;

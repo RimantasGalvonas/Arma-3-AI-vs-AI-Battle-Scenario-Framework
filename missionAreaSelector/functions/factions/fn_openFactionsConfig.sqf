@@ -18,7 +18,14 @@
     _map = displayCtrl 409999;
     _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
     ctrlMapAnimCommit _map;
+    [] call Rimsiakas_fnc_createMarkersForSpawners;
 
+    [] spawn {
+        waitUntil {isNull findDisplay 46423};
+        {
+            deleteMarkerLocal _x
+        } forEach Rimsiakas_markersForSpawners;
+    };
 
 
     private _spawnersTree = displayCtrl 401002;
