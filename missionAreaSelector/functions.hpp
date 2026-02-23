@@ -60,8 +60,18 @@ class missionAreaSelectorFactionConfig
     class populatePoolGroupsFactionsConfig {};
     class populateGroupsConfigTreeGroupsFactionsConfig {};
     class confirmFactionsConfig {};
-    class resetFactionsConfig {};
     class getSelectedSpawnerAndPoolFactionsConfig {};
     class clearAllPoolsFactionsConfig {};
     class addPoolFactionsConfig {};
+}
+
+class missionAreaSelectorFactionPresets
+{
+    file = "missionAreaSelector\functions\factionPresets";
+
+    class openFactionPresets {};
+    class loadFactionPreset {};
+    class deleteFactionPreset {};
+    class saveFactionPreset {};
+    class factionPresetSelected {};
 }

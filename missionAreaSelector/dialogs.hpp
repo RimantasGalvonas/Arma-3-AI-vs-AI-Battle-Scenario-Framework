@@ -21,6 +21,7 @@ import RscXListBox;
 #include "dialogs\Rimsiakas_MissionAreaPreviewDialog.hpp"
 #include "dialogs\Rimsiakas_MissionAreaSelectorDialog.hpp"
 #include "dialogs\Rimsiakas_FactionsConfigDialog.hpp"
+#include "dialogs\Rimsiakas_FactionPresetsDialog.hpp"
 
 // Control id rules:
 // Mission area map has a reserved 9999 id

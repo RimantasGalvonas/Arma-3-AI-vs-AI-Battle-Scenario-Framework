@@ -1,7 +1,7 @@
 [] spawn {
-    private _spawners = entities "LOGIC" select {_x getVariable ["logicType", ""] == "spawner"};
-
     waitUntil {!isNull findDisplay 46423};
+
+    private _spawners = entities "LOGIC" select {_x getVariable ["logicType", ""] == "spawner"};
 
     private _spawnerPropertiesControlGroup = displayCtrl 402001;
     private _poolPropertiesControlGroup = displayCtrl 403001;
@@ -17,7 +17,6 @@
 
     _map = displayCtrl 409999;
     _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
-    // TODO: markers on map
     ctrlMapAnimCommit _map;
 
 
@@ -76,12 +75,6 @@
 
         _collectedSpawners set [str _spawner, _spawnerData];
     } forEach _spawners;
-
-
-
-    if (isNil "Rimsiakas_initialSpawnersData") then {
-        Rimsiakas_initialSpawnersData = +Rimsiakas_lastSavedSpawnersData;
-    };
 
     Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData;
 

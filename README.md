@@ -648,6 +648,7 @@ If you publish a scenario based on this template, please mention me in the credi
 1.5.0 (YYYY-MM-DD)
 <ul>
 <li>More powerful group spawning functionality.</li>
+<li>Spawner configuration GUI.</li>
 <li>Support for extension scripts.</li>
 <li>Make proximity penalties less strict half the time.</li>
 <li>Penalize attack positions that require going off to the side.</li>

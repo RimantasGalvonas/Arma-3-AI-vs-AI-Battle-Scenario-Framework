@@ -27,7 +27,7 @@ class Rimsiakas_FactionsConfigDialog
         Rimsiakas_FactionsConfigDialog_GroupsConfigControlGroup,
         Rimsiakas_FactionsConfigDialog_ConfirmButton,
         Rimsiakas_FactionsConfigDialog_CancelButton,
-        Rimsiakas_FactionsConfigDialog_RevertDefaultsButton
+        Rimsiakas_FactionsConfigDialog_FactionPresetsButton
     };
 
     class Rimsiakas_FactionsConfigDialog_TextInput: RscEdit
@@ -147,7 +147,7 @@ class Rimsiakas_FactionsConfigDialog
         x = MARGIN * GUI_GRID_W + GUI_GRID_X;
         y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
         w = COLUMN_WIDTH * GUI_GRID_W;
-        h = 18 * GUI_GRID_H;
+        h = 10.5 * GUI_GRID_H;
 
         class Controls
         {
@@ -403,17 +403,17 @@ class Rimsiakas_FactionsConfigDialog
     class Rimsiakas_FactionsConfigDialog_CancelButton: Rimsiakas_FactionsConfigDialog_BottomButton
     {
         idc = 409001;
-        action = "[] call Rimsiakas_fnc_resetFactionsConfig; closeDialog 2;";
+        action = "Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData; closeDialog 2;";
         text = "Cancel";
         x = 6.5 * GUI_GRID_W + GUI_GRID_X;
     };
 
-    class Rimsiakas_FactionsConfigDialog_RevertDefaultsButton: Rimsiakas_FactionsConfigDialog_BottomButton
+    class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_FactionsConfigDialog_BottomButton
     {
         idc = 409002;
-        action = "[true] call Rimsiakas_fnc_resetFactionsConfig; closeDialog 2;";
-        text = "Revert to default";
+        action = "[] spawn {createDialog 'Rimsiakas_FactionPresetsDialog';};"
+        text = "Presets";
         x = 12.5 * GUI_GRID_W + GUI_GRID_X;
-        w = 6.5 * GUI_GRID_W;
+        w = 5.5 * GUI_GRID_W;
     };
 }
