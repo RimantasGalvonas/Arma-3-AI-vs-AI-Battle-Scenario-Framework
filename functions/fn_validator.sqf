@@ -1,68 +1,13 @@
 _getIncompleteParts = {
     private _placers = [];
     private _hasProperlyConfiguredPlacers = false;
-    private _incompleteParts = ["Mission Area Setup", "Unit Placer Setup", "Configuring Placers To Place Units"];
+    private _incompleteParts = ["Mission Area Setup"];
 
 
 
     if (isNil "patrolCenter" || {isNil {patrolCenter getVariable "patrolRadius"}}) exitWith {
         _incompleteParts;
     };
-
-    _incompleteParts deleteAt 0;
-
-
-
-    {
-        if (
-            (_x getVariable ["logicType", ""]) == "placer" && {!isNil {_x getVariable "minSpawnRadius"} &&{!isNil {_x getVariable "maxSpawnRadius"}}}
-        ) then {
-            _placers append [_x];
-        };
-
-    } forEach (synchronizedObjects patrolCenter);
-
-    if ((count _placers) == 0) exitWith {
-        _incompleteParts;
-    };
-
-    _incompleteParts deleteAt 0;
-
-
-
-    {
-        _placer = _x;
-
-        if (!isNil {_placer getVariable "groups"} && {count(_placer getVariable "groups") > 0}) exitWith {
-            _hasProperlyConfiguredPlacers = true;
-        };
-
-        if (!isNil {_placer getVariable "camps"} && {count(_placer getVariable "camps") > 0}) exitWith {
-            _hasProperlyConfiguredPlacers = true;
-        };
-
-        {
-            _syncedUnit = _x;
-            _syncedGroup = nil;
-
-            if (_syncedUnit isKindOf "landVehicle") then {
-                _syncedUnit = (crew _x) select 0;
-            };
-            if (_syncedUnit isKindOf "man") then {
-                _syncedGroup = group _syncedUnit;
-            };
-
-            if (!isNil {_syncedGroup}) exitWith {
-                _hasProperlyConfiguredPlacers = true;
-            };
-        } foreach synchronizedObjects _placer;
-    } forEach _placers;
-
-    // if (_hasProperlyConfiguredPlacers == false) exitWith {
-    //     _incompleteParts;
-    // };
-
-    // TODO: check subplacers, this doesn't see inside them
 
     _incompleteParts deleteAt 0;
 
