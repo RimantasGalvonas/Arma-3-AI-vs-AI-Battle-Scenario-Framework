@@ -22,7 +22,6 @@ This is a customizeable mission framework to be used in the Eden editor. It allo
 8. Follow the **Mission Setup** instructions below.
 
 # Mission Setup
-Mandatory:
 <details>
 <summary>Mission Area Setup</summary>
 
@@ -121,8 +120,6 @@ If you want to spawn new units rather than randomize the location of editor-plac
 
 <br>
 </details>
-
-Optional:
 
 <details>
 <summary>Configuring Spawners</summary>
@@ -537,6 +534,9 @@ _group setVariable ["ignoreIntel", true];
 </details>
 </li>
 </ul>
+
+
+<br>
 </details>
 
 <details>
@@ -656,6 +656,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Fix incorrect behavior when pressing Esc in mission location preview.</li>
 <li>Add a compass arrow icons in mission location preview.</li>
 <li>Remove the Grimes Simple Revive integration.</li>
+<li>Allow joining groups from the allied side</li>
 </ul>
 </li>
 <li>
