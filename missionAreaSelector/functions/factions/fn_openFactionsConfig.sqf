@@ -85,6 +85,12 @@
 
     Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData;
 
+    if (isNil "Rimsiakas_initialSpawnersData") then {
+        Rimsiakas_initialSpawnersData = +Rimsiakas_lastSavedSpawnersData;
+
+        [] call Rimsiakas_fnc_generateDefaultPreset;
+    };
+
 
 
     [] call Rimsiakas_fnc_populateSpawnerTreeFactionsConfig;

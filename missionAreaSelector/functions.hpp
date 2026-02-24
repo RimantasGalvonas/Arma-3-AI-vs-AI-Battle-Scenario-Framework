@@ -75,4 +75,5 @@ class missionAreaSelectorFactionPresets
     class deleteFactionPreset {};
     class saveFactionPreset {};
     class factionPresetSelected {};
+    class generateDefaultPreset {};
 }
