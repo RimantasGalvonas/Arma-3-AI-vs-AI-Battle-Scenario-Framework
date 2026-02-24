@@ -82,10 +82,12 @@ private _scaleObjectPlacementFunc = {
                 _object setVariable ["maxSpawnRadius", _maxSpawnRadius * _scale, true];
             };
 
+            private _objectsToMoveAlong = _object getVariable ["childPlacers", []];
+            _objectsToMoveAlong append (_object getVariable ["spawners", []]);
 
             {
                 [_x, _scale] call _scaleObjectPlacementFunc;
-            } forEach (_object getVariable ["childPlacers", []]);
+            } forEach _objectsToMoveAlong;
         };
     };
 };

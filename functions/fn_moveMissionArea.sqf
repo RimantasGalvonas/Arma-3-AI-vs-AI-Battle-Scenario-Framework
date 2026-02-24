@@ -62,9 +62,12 @@ private _moveObjectFunc = {
         _object setDir ((getDir _object) + _rotation);
 
         if (typeOf _object == "LOGIC" && {_object getVariable "logicType" == "placer"}) then {
+            private _objectsToMoveAlong = _object getVariable ["childPlacers", []];
+            _objectsToMoveAlong append (_object getVariable ["spawners", []]);
+
             {
                 [_x, _oldMissionPos, _newMissionPos, _rotation] call _moveObjectFunc;
-            } forEach (_object getVariable ["childPlacers", []]);
+            } forEach _objectsToMoveAlong;
         };
     };
 };
