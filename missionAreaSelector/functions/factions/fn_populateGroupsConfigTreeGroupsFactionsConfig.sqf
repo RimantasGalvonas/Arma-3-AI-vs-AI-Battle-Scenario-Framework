@@ -35,3 +35,5 @@ private _groupsConfigTree = displayCtrl 404004;
         } forEach ("true" configClasses _faction);
     } forEach ("true" configClasses _side);
 } forEach ("true" configClasses (configFile >> "cfgGroups"));
+
+Rimsiakas_groupsConfigTreePopulated = true;

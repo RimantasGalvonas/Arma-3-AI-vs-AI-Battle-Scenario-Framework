@@ -88,5 +88,8 @@
 
 
     [] call Rimsiakas_fnc_populateSpawnerTreeFactionsConfig;
-    [] call Rimsiakas_fnc_populateGroupsConfigTreeGroupsFactionsConfig;
+
+    if (isNil "Rimsiakas_groupsConfigTreePopulated") then { // never changes, do it once
+        [] call Rimsiakas_fnc_populateGroupsConfigTreeGroupsFactionsConfig;
+    };
 };

@@ -4,6 +4,10 @@ private _maxUnitsPerGroup = _spawner getVariable ["maxUnitsPerGroup", 0];
 
 private _groupsPool = selectRandomWeighted (_spawner getVariable ["groupPools", []]);
 
+if (count _groupsPool == 0) exitWith {
+    [];
+};
+
 private _groupConfig = selectRandom _groupsPool;
 
 // Convert from group config to units array
