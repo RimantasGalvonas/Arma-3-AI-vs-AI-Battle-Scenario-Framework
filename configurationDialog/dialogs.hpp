@@ -22,3 +22,4 @@ import RscXListBox;
 #include "dialogs\Rimsiakas_MainConfigDialog.hpp"
 #include "dialogs\Rimsiakas_FactionsConfigDialog.hpp"
 #include "dialogs\Rimsiakas_FactionPresetsDialog.hpp"
+#include "dialogs\Rimsiakas_CustomGroupDialog.hpp"

@@ -65,6 +65,7 @@ class configurationDialogFactionConfig
     class addPoolFactionsConfig {};
     class createMarkersForSpawners {};
     class groupConfigSelectedFactionsConfig {};
+    class addCustomGroupFactionsConfig {};
 }
 
 class configurationDialogFactionPresets

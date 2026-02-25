@@ -1,6 +1,8 @@
 #include "..\..\elementIds.hpp"
 
-private _spawnerList = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLSTREE_IDC;
+private _factionConfigDialog = findDisplay FACTIONS_CONFIG_IDD;
+
+private _spawnerList = _factionConfigDialog displayCtrl FACTIONS_CONFIG_SPAWNERPOOLSTREE_IDC;
 
 private _spawnerSelectionPath = (tvSelection _spawnerList) select 0;
 private _spawnerIndex = _spawnerSelectionPath select 0;

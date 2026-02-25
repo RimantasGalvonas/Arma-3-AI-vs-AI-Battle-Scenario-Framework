@@ -366,7 +366,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 2 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-                h = 14.5 * GUI_GRID_H;
+                h = 13.5 * GUI_GRID_H;
                 multiselectEnabled = 1;
                 onTreeSelChanged = "_this call Rimsiakas_fnc_groupConfigSelectedFactionsConfig;"
                 onTreeDblClick = "[] call Rimsiakas_fnc_addGroupFactionsConfig;";
@@ -378,9 +378,19 @@ class Rimsiakas_FactionsConfigDialog
                 idc = FACTIONS_CONFIG_ADDGROUPBUTTON_IDC;
                 text = "Add selected";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
-                y = 17 * GUI_GRID_H + GUI_GRID_Y;
+                y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 action = "[] call Rimsiakas_fnc_addGroupFactionsConfig;";
+            }
+
+            class Rimsiakas_FactionsConfigDialog_AddCustomGroupButton: Rimsiakas_ButtonSmall
+            {
+                idc = FACTIONS_CONFIG_ADDCUSTOMGROUPBUTTON_IDC;
+                text = "Add custom";
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 17 * GUI_GRID_H + GUI_GRID_Y;
+                w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
+                action = "[] spawn {createDialog 'Rimsiakas_CustomGroupDialog';};";
             }
         };
     };

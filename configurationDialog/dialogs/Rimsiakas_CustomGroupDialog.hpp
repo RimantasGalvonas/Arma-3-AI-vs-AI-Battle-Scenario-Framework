@@ -1,0 +1,108 @@
+class Rimsiakas_CustomGroupDialog
+{
+    idd = CUSTOM_GROUP_FORM_IDD;
+    movingEnabled = false;
+    enableSimulation = true;
+
+    controlsBackground[]=
+    {
+        Rimsiakas_CustomGroupDialog_Background,
+    };
+
+    controls[]=
+    {
+        Rimsiakas_CustomGroupDialog_ControlGroup
+    };
+
+    class Rimsiakas_CustomGroupDialog_Background: RscText
+    {
+        idc = CUSTOM_GROUP_FORM_BACKGROUND_IDC;
+        x = 0 * GUI_GRID_W + GUI_GRID_X;
+        y = 5 * GUI_GRID_H + GUI_GRID_Y;
+        w = 40 * GUI_GRID_W;
+        h = 10 * GUI_GRID_H;
+        colorBackground[] = {0.15,0.15,0.15,0.9};
+    };
+
+    class Rimsiakas_CustomGroupDialog_ControlGroup: RscControlsGroup
+    {
+        idc = CUSTOM_GROUP_FORM_CONTROLGROUP_IDC;
+        x = 0 * GUI_GRID_W + GUI_GRID_X;
+        y = 5 * GUI_GRID_H + GUI_GRID_Y;
+        w = 40 * GUI_GRID_W;
+        h = 10 * GUI_GRID_H;
+
+        class Controls
+        {
+            class Rimsiakas_CustomGroupDialog_Instruction1: RscText
+            {
+                idc = -1;
+                text = "Enter the config class names for the custom group in a JSON array format. For example:";
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 39 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+                sizeEx = 0.035;
+            };
+
+            class Rimsiakas_CustomGroupDialog_Instruction2: RscText
+            {
+                idc = -1;
+                text = "[""B_LSV_01_armed_F"",""B_MRAP_01_hmg_F""]";
+                font = "EtelkaMonospacePro";
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 39 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+                sizeEx = 0.03;
+            };
+
+            class Rimsiakas_CustomGroupDialog_Instruction3: RscText
+            {
+                idc = -1;
+                text = "Vehicles will be spawned with crew.";
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 39 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+                sizeEx = 0.035;
+            };
+
+            class Rimsiakas_CustomGroupDialog_Input: RscEdit
+            {
+                idc = CUSTOM_GROUP_FORM_INPUT_IDC;
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 4 * GUI_GRID_H + GUI_GRID_Y;
+                w = 39 * GUI_GRID_W;
+                h = 3.5 * GUI_GRID_H;
+                style = ST_MULTI;
+                sizeEx = 0.03;
+                font = "EtelkaMonospacePro";
+            };
+
+            class Rimsiakas_CustomGroupDialog_ConfirmButton: RscButton
+            {
+                idc = CUSTOM_GROUP_FORM_CONFIRMBUTTON_IDC;
+                text = "Confirm";
+                action = "[] call Rimsiakas_fnc_addCustomGroupFactionsConfig;";
+
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 8 * GUI_GRID_H + GUI_GRID_Y;
+                w = 5 * GUI_GRID_W;
+                h = 1.5 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_CustomGroupDialog_CancelButton: RscButton
+            {
+                idc = CUSTOM_GROUP_FORM_CANCELBUTTON_IDC;
+                text = "Cancel";
+                action = "closeDialog 2;";
+
+                x = 6 * GUI_GRID_W + GUI_GRID_X;
+                y = 8 * GUI_GRID_H + GUI_GRID_Y;
+                w = 5 * GUI_GRID_W;
+                h = 1.5 * GUI_GRID_H;
+            };
+        };
+    };
+}
