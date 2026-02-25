@@ -1,19 +1,19 @@
-class missionAreaSelectorGeneral
+class configurationDialogGeneral
 {
-    file = "missionAreaSelector\functions";
+    file = "configurationDialog\functions";
 
-    class openMissionAreaSelector {};
+    class openMissionConfigurationDialog {};
     class previewMissionArea {};
     class terminateMissionAreaPreview {};
-    class initMissionAreaSelection {};
+    class initAdminMissionConfiguration {};
     class handleMapClick {};
     class updateMissionAreaSelectionMarker {};
     class confirmMissionAreaSelection {};
 }
 
-class missionAreaSelectorAdvanced
+class configurationDialogAdvanced
 {
-    file = "missionAreaSelector\functions\advanced";
+    file = "configurationDialog\functions\advanced";
 
     class openAdvancedConfig {};
     class refreshAdvancedConfigInfo {};
@@ -23,17 +23,17 @@ class missionAreaSelectorAdvanced
     class handleTransformButton {};
 }
 
-class missionAreaSelectorEnvironment
+class configurationDialogEnvironment
 {
-    file = "missionAreaSelector\functions\environment";
+    file = "configurationDialog\functions\environment";
 
     class populateEnvConfigFields {};
     class confirmEnvConfig {};
 }
 
-class missionAreaSelectorAI
+class configurationDialogAI
 {
-    file = "missionAreaSelector\functions\ai";
+    file = "configurationDialog\functions\ai";
 
     class populateAiConfigFields {};
     class confirmAiConfig {};
@@ -41,15 +41,15 @@ class missionAreaSelectorAI
 
 class intelGrid
 {
-    file = "missionAreaSelector\functions\intelGrid";
+    file = "configurationDialog\functions\intelGrid";
 
     class handleIntelGridButton {};
     class refreshIntelGridValue {};
 }
 
-class missionAreaSelectorFactionConfig
+class configurationDialogFactionConfig
 {
-    file = "missionAreaSelector\functions\factions";
+    file = "configurationDialog\functions\factions";
 
     class openFactionsConfig {};
     class populateSpawnerTreeFactionsConfig {};
@@ -66,9 +66,9 @@ class missionAreaSelectorFactionConfig
     class createMarkersForSpawners {};
 }
 
-class missionAreaSelectorFactionPresets
+class configurationDialogFactionPresets
 {
-    file = "missionAreaSelector\functions\factionPresets";
+    file = "configurationDialog\functions\factionPresets";
 
     class openFactionPresets {};
     class loadFactionPreset {};

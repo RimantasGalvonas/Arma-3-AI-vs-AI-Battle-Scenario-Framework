@@ -23,7 +23,7 @@ sleep 0.1;
 // Mission area selector
 if (patrolCenter getVariable ["dynamic", false]) then {
     if (hasInterface) then {
-        [] call Rimsiakas_fnc_initMissionAreaSelection;
+        [] call Rimsiakas_fnc_initAdminMissionConfiguration;
     } else {
         Rimsiakas_loggedInAdmin = nil;
         while {isNil "Rimsiakas_loggedInAdmin"} do {
@@ -35,10 +35,10 @@ if (patrolCenter getVariable ["dynamic", false]) then {
             } forEach allPlayers;
         };
 
-        remoteExec ["Rimsiakas_fnc_initMissionAreaSelection", Rimsiakas_loggedInAdmin];
+        remoteExec ["Rimsiakas_fnc_initAdminMissionConfiguration", Rimsiakas_loggedInAdmin];
     };
 
-    waitUntil {!isNil "Rimsiakas_missionAreaSelected"};
+    waitUntil {!isNil "Rimsiakas_missionConfigured"};
 };
 
 

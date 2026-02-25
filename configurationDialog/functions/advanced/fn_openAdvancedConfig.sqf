@@ -1,7 +1,7 @@
 if (!createDialog "Rimsiakas_AdvancedConfigDialog") exitWith {
     hint "Couldn't open the mission area selector, using predefined position";
 
-    Rimsiakas_missionAreaSelected = true;
+    Rimsiakas_missionConfigured = true;
 };
 
 

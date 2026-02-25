@@ -8,7 +8,7 @@
 
 #include "CHVD\dialog.hpp"
 
-#include "missionAreaSelector\dialogs.hpp"
+#include "configurationDialog\dialogs.hpp"
 
 class CfgFunctions
 {
@@ -125,7 +125,7 @@ class CfgFunctions
             class serverHandleGroupTakeOverRequest {};
         };
 
-        #include "missionAreaSelector\functions.hpp"
+        #include "configurationDialog\functions.hpp"
     };
 };
 

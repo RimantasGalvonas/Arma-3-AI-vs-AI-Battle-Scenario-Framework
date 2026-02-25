@@ -3,7 +3,7 @@
 #define FLARE_ELEMENTS_Y (7)
 #define ENVIRONMENT_ELEMENTS_Y (11.5)
 
-class Rimsiakas_MissionAreaSelectorDialog
+class Rimsiakas_MainConfigDialog
 {
     idd = 46421;
     movingEnabled = false;
@@ -12,55 +12,55 @@ class Rimsiakas_MissionAreaSelectorDialog
 
     controlsBackground[]=
     {
-        Rimsiakas_MissionAreaSelectorDialog_MainBackground,
-        Rimsiakas_MissionAreaSelectorDialog_Heading,
-        Rimsiakas_MissionAreaSelectorDialog_IntelGridFrame,
-        Rimsiakas_MissionAreaSelectorDialog_IntelGridLabel,
-        Rimsiakas_MissionAreaSelectorDialog_IntelGridValue,
-        Rimsiakas_MissionAreaSelectorDialog_FlareFrame,
-        Rimsiakas_MissionAreaSelectorDialog_FlareLabel,
-        Rimsiakas_MissionAreaSelectorDialog_EnvironmentFrame,
-        Rimsiakas_EnvironmentConfigurationDialog_DateLabel,
-        Rimsiakas_EnvironmentConfigurationDialog_DateSeparator1,
-        Rimsiakas_EnvironmentConfigurationDialog_DateSeparator2,
-        Rimsiakas_EnvironmentConfigurationDialog_TimeLabel,
-        Rimsiakas_EnvironmentConfigurationDialog_TimeSeparator,
-        Rimsiakas_EnvironmentConfigurationDialog_OvercastLabel,
-        Rimsiakas_EnvironmentConfigurationDialog_FogLabel
+        Rimsiakas_MainConfigDialog_MainBackground,
+        Rimsiakas_MainConfigDialog_Heading,
+        Rimsiakas_MainConfigDialog_Intel_GridFrame,
+        Rimsiakas_MainConfigDialog_Intel_GridLabel,
+        Rimsiakas_MainConfigDialog_Intel_GridValue,
+        Rimsiakas_MainConfigDialog_Flare_Frame,
+        Rimsiakas_MainConfigDialog_Flare_Label,
+        Rimsiakas_MainConfigDialog_Env_Frame,
+        Rimsiakas_MainConfigDialog_Env_DateLabel,
+        Rimsiakas_MainConfigDialog_Env_DateSeparator1,
+        Rimsiakas_MainConfigDialog_Env_DateSeparator2,
+        Rimsiakas_MainConfigDialog_Env_TimeLabel,
+        Rimsiakas_MainConfigDialog_Env_TimeSeparator,
+        Rimsiakas_MainConfigDialog_Env_OvercastLabel,
+        Rimsiakas_MainConfigDialog_Env_FogLabel
     };
     controls[]=
     {
-        Rimsiakas_MissionAreaSelectorDialog_ConfirmButton,
-        Rimsiakas_MissionAreaSelectorDialog_Map,
-        Rimsiakas_MissionAreaSelectorDialog_IntelGridDecrease,
-        Rimsiakas_MissionAreaSelectorDialog_IntelGridIncrease,
-        Rimsiakas_MissionAreaSelectorDialog_FlareField,
-        Rimsiakas_EnvironmentConfigurationDialog_YearField,
-        Rimsiakas_EnvironmentConfigurationDialog_MonthField,
-        Rimsiakas_EnvironmentConfigurationDialog_DayField,
-        Rimsiakas_EnvironmentConfigurationDialog_HourField,
-        Rimsiakas_EnvironmentConfigurationDialog_MinuteField,
-        Rimsiakas_EnvironmentConfigurationDialog_OvercastField,
-        Rimsiakas_EnvironmentConfigurationDialog_FogField,
-        Rimsiakas_EnvironmentConfigurationDialog_ConfirmButton,
-        Rimsiakas_MissionAreaSelectorDialog_PreviewButton,
-        Rimsiakas_MissionAreaSelectorDialog_AdvancedConfigButton,
-        Rimsiakas_MissionAreaSelectorDialog_AiConfigButton,
-        Rimsiakas_MissionAreaSelectorDialog_FactionConfigButton,
+        Rimsiakas_MainConfigDialog_ConfirmButton,
+        Rimsiakas_MainConfigDialog_Map,
+        Rimsiakas_MainConfigDialog_Intel_GridDecrease,
+        Rimsiakas_MainConfigDialog_Intel_GridIncrease,
+        Rimsiakas_MainConfigDialog_Flare_Field,
+        Rimsiakas_MainConfigDialog_Env_YearField,
+        Rimsiakas_MainConfigDialog_Env_MonthField,
+        Rimsiakas_MainConfigDialog_Env_DayField,
+        Rimsiakas_MainConfigDialog_Env_HourField,
+        Rimsiakas_MainConfigDialog_Env_MinuteField,
+        Rimsiakas_MainConfigDialog_Env_OvercastField,
+        Rimsiakas_MainConfigDialog_Env_FogField,
+        Rimsiakas_MainConfigDialog_Env_ConfirmButton,
+        Rimsiakas_MainConfigDialog_PreviewButton,
+        Rimsiakas_MainConfigDialog_AdvancedConfigButton,
+        Rimsiakas_MainConfigDialog_AiConfigButton,
+        Rimsiakas_MainConfigDialog_FactionConfigButton,
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_MainBackground: Rimsiakas_MainBackground
+    class Rimsiakas_MainConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
          idc = 100000;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_Heading: Rimsiakas_Heading
+    class Rimsiakas_MainConfigDialog_Heading: Rimsiakas_Heading
     {
         idc = 100001;
         text = "Click on the map to select the mission area";
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_Map: RscMapControl
+    class Rimsiakas_MainConfigDialog_Map: RscMapControl
     {
         idc = 9999;
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
@@ -69,7 +69,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 20 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_IntelGridFrame: RscFrame
+    class Rimsiakas_MainConfigDialog_Intel_GridFrame: RscFrame
     {
         idc = 101000;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
@@ -78,7 +78,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 3.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_IntelGridLabel: RscText
+    class Rimsiakas_MainConfigDialog_Intel_GridLabel: RscText
     {
         idc = 101001;
         text = "Intel Grid:";
@@ -89,7 +89,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 0.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_IntelGridDecrease: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_Intel_GridDecrease: Rimsiakas_Button
     {
         idc = 101002;
         text = "-";
@@ -100,7 +100,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     }
 
-    class Rimsiakas_MissionAreaSelectorDialog_IntelGridValue: RscText
+    class Rimsiakas_MainConfigDialog_Intel_GridValue: RscText
     {
         idc = 101003;
         text = "";
@@ -112,7 +112,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_W;
     }
 
-    class Rimsiakas_MissionAreaSelectorDialog_IntelGridIncrease: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_Intel_GridIncrease: Rimsiakas_Button
     {
         idc = 101004;
         text = "+";
@@ -123,7 +123,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     }
 
-    class Rimsiakas_MissionAreaSelectorDialog_FlareFrame: RscFrame
+    class Rimsiakas_MainConfigDialog_Flare_Frame: RscFrame
     {
         idc = 101500;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
@@ -132,7 +132,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 3.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_FlareLabel: RscText
+    class Rimsiakas_MainConfigDialog_Flare_Label: RscText
     {
         idc = 101501;
         text = "Flare Illumination:";
@@ -142,7 +142,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 0.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_FlareField: RscCombo
+    class Rimsiakas_MainConfigDialog_Flare_Field: RscCombo
     {
         idc = 101502;
         tooltip = "How strongly to illuminate the battlefield at night.";
@@ -177,7 +177,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_EnvironmentFrame: RscFrame
+    class Rimsiakas_MainConfigDialog_Env_Frame: RscFrame
     {
         idc = 102000;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
@@ -186,7 +186,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 11 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_DateLabel: RscText
+    class Rimsiakas_MainConfigDialog_Env_DateLabel: RscText
     {
         idc = 102001;
         text = "Date:";
@@ -196,7 +196,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 0.5 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_YearField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_YearField: RscEdit
     {
         idc = 102002;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -206,7 +206,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         maxChars = 4;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_DateSeparator1: RscText
+    class Rimsiakas_MainConfigDialog_Env_DateSeparator1: RscText
     {
         idc = 102003;
         text = "-";
@@ -216,7 +216,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_MonthField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_MonthField: RscEdit
     {
         idc = 102004;
         x = (3.9 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -226,7 +226,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         maxChars = 2;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_DateSeparator2: RscText
+    class Rimsiakas_MainConfigDialog_Env_DateSeparator2: RscText
     {
         idc = 102005;
         text = "-";
@@ -236,7 +236,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_DayField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_DayField: RscEdit
     {
         idc = 102006;
         x = (6 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -246,7 +246,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         maxChars = 2;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_TimeLabel: RscText
+    class Rimsiakas_MainConfigDialog_Env_TimeLabel: RscText
     {
         idc = 102007;
         text = "Time:";
@@ -256,7 +256,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_HourField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_HourField: RscEdit
     {
         idc = 102008;
         x = (3.9 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -266,7 +266,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         maxChars = 2;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_TimeSeparator: RscText
+    class Rimsiakas_MainConfigDialog_Env_TimeSeparator: RscText
     {
         idc = 102009;
         text = ":";
@@ -276,7 +276,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_MinuteField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_MinuteField: RscEdit
     {
         idc = 102010;
         x = (6 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -286,7 +286,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         maxChars = 2;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_OvercastLabel: RscText
+    class Rimsiakas_MainConfigDialog_Env_OvercastLabel: RscText
     {
         idc = 102011;
         text = "Overcast %:";
@@ -296,7 +296,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_OvercastField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_OvercastField: RscEdit
     {
         idc = 102012;
         x = (5.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -305,7 +305,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_FogLabel: RscText
+    class Rimsiakas_MainConfigDialog_Env_FogLabel: RscText
     {
         idc = 102013;
         text = "Fog %:";
@@ -315,7 +315,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_FogField: RscEdit
+    class Rimsiakas_MainConfigDialog_Env_FogField: RscEdit
     {
         idc = 102014;
         x = (5.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -324,7 +324,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         h = 1 * GUI_GRID_H;
     };
 
-    class Rimsiakas_EnvironmentConfigurationDialog_ConfirmButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_Env_ConfirmButton: Rimsiakas_Button
     {
         idc = 102099;
         text = "Apply";
@@ -334,7 +334,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         w = 6.5 * GUI_GRID_W;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_ConfirmButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_ConfirmButton: Rimsiakas_Button
     {
         idc = 109000;
         action = "call Rimsiakas_fnc_confirmMissionAreaSelection";
@@ -343,7 +343,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_PreviewButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_PreviewButton: Rimsiakas_Button
     {
         idc = 209001;
         action = "[] call Rimsiakas_fnc_previewMissionArea";
@@ -352,7 +352,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_AdvancedConfigButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_AdvancedConfigButton: Rimsiakas_Button
     {
         idc = 209003;
         action = "[] spawn {call Rimsiakas_fnc_openAdvancedConfig;};";
@@ -362,7 +362,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         w = 7.5 * GUI_GRID_W;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_AiConfigButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_AiConfigButton: Rimsiakas_Button
     {
         idc = 209004;
         action = "[] spawn {createDialog 'Rimsiakas_AiConfigurationDialog';};"
@@ -371,7 +371,7 @@ class Rimsiakas_MissionAreaSelectorDialog
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
     };
 
-    class Rimsiakas_MissionAreaSelectorDialog_FactionConfigButton: Rimsiakas_Button
+    class Rimsiakas_MainConfigDialog_FactionConfigButton: Rimsiakas_Button
     {
         idc = 209004;
         action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};"

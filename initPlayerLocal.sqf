@@ -31,9 +31,9 @@ if ((count Rimsiakas_missionValidationResult) > 0) exitWith {
 };
 
 
-if (patrolCenter getVariable ["dynamic", false] && {!isServer && {isNil "Rimsiakas_missionAreaSelected" || {!Rimsiakas_missionAreaSelected}}}) then {
+if (patrolCenter getVariable ["dynamic", false] && {!isServer && {isNil "Rimsiakas_missionConfigured" || {!Rimsiakas_missionConfigured}}}) then {
     cutText ["Waiting for the host to select the mission location.\n(On dedicated servers this requires an admin to login or be elected.)", "BLACK FADED", 3600, false];
-    waitUntil {!isNil "Rimsiakas_missionAreaSelected" && {Rimsiakas_missionAreaSelected}};
+    waitUntil {!isNil "Rimsiakas_missionConfigured" && {Rimsiakas_missionConfigured}};
     cutText ["Initializing...", "BLACK FADED", 3600, false];
 };
 
