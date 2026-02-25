@@ -1,6 +1,6 @@
 class Rimsiakas_AiConfigurationDialog
 {
-    idd = 46425;
+    idd = AI_CONFIG_DIALOG_IDD;
     movingEnabled = false;
     enableSimulation = true;
 
@@ -30,7 +30,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_Background: RscText
     {
-        idc = 300000;
+        idc = AI_CONFIG_DIALOG_BACKGROUND_IDC;
         x = 9.5 * GUI_GRID_W + GUI_GRID_X;
         y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 19.5 * GUI_GRID_W;
@@ -40,7 +40,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_PatrolFormationLabel: RscText
     {
-        idc = 300001;
+        idc = AI_CONFIG_DIALOG_PATROLFORMATIONLABEL_IDC;
         text = "Patrol formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 1 * GUI_GRID_H + GUI_GRID_Y;
@@ -114,7 +114,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_PatrolFormation: Rimsiakas_AiConfigurationDialog_Formation
     {
-        idc = 300002;
+        idc = AI_CONFIG_DIALOG_PATROLFORMATION_IDC;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 2 * GUI_GRID_H + GUI_GRID_Y;
         tooltip = "Group will use this formation while looking for targets or while moving towards their target";
@@ -122,7 +122,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackFormationLabel: RscText
     {
-        idc = 300003;
+        idc = AI_CONFIG_DIALOG_ATTACKFORMATIONLABEL_IDC;
         text = "Attack formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 4 * GUI_GRID_H + GUI_GRID_Y;
@@ -132,7 +132,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackFormation: Rimsiakas_AiConfigurationDialog_Formation
     {
-        idc = 300004;
+        idc = AI_CONFIG_DIALOG_ATTACKFORMATION_IDC;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 5 * GUI_GRID_H + GUI_GRID_Y;
         tooltip = "Group will switch to this formation when within engagement distance to their target";
@@ -140,7 +140,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_MovementSpeedModeLabel: RscText
     {
-        idc = 300005;
+        idc = AI_CONFIG_DIALOG_MOVEMENTSPEEDMODELABEL_IDC;
         text = "Group movement speed:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 7 * GUI_GRID_H + GUI_GRID_Y;
@@ -150,7 +150,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_MovementSpeedMode: RscCombo
     {
-        idc = 300006;
+        idc = AI_CONFIG_DIALOG_MOVEMENTSPEEDMODE_IDC;
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 8 * GUI_GRID_H + GUI_GRID_Y;
         w = 18.5 * GUI_GRID_W;
@@ -182,7 +182,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackSpeedOverrideLabel: RscText
     {
-        idc = 300007;
+        idc = AI_CONFIG_DIALOG_ATTACKSPEEDOVERRIDELABEL_IDC;
         text = "Force normal attack speed:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 10 * GUI_GRID_H + GUI_GRID_Y;
@@ -192,7 +192,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AttackSpeedOverride: RscCheckBox
     {
-        idc = 300008;
+        idc = AI_CONFIG_DIALOG_ATTACKSPEEDOVERRIDE_IDC;
         x = 19.5 * GUI_GRID_W + GUI_GRID_X;
         y = 10 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -203,7 +203,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AllowGroupJoiningLabel: RscText
     {
-        idc = 300009;
+        idc = AI_CONFIG_DIALOG_ALLOWGROUPJOININGLABEL_IDC;
         text = "Allow last man to join new group:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 12 * GUI_GRID_H + GUI_GRID_Y;
@@ -213,7 +213,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_AllowGroupJoining: RscCheckBox
     {
-        idc = 300010;
+        idc = AI_CONFIG_DIALOG_ALLOWGROUPJOINING_IDC;
         x = 21.5 * GUI_GRID_W + GUI_GRID_X;
         y = 12 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -224,7 +224,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ForceKeepFormationLabel: RscText
     {
-        idc = 300011;
+        idc = AI_CONFIG_DIALOG_FORCEKEEPFORMATIONLABEL_IDC;
         text = "Force keeping formation:";
         x = 10 * GUI_GRID_W + GUI_GRID_X;
         y = 14 * GUI_GRID_H + GUI_GRID_Y;
@@ -234,7 +234,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ForceKeepFormation: RscCheckBox
     {
-        idc = 300012;
+        idc = AI_CONFIG_DIALOG_FORCEKEEPFORMATION_IDC;
         x = 19 * GUI_GRID_W + GUI_GRID_X;
         y = 14 * GUI_GRID_H + GUI_GRID_Y;
         w = 1 * GUI_GRID_W;
@@ -245,7 +245,7 @@ class Rimsiakas_AiConfigurationDialog
 
     class Rimsiakas_AiConfigurationDialog_ConfirmButton: RscButton
     {
-        idc = 3000099;
+        idc = AI_CONFIG_DIALOG_CONFIRMBUTTON_IDC;
         text = "Confirm";
         action = "call Rimsiakas_fnc_confirmAiConfig";
 

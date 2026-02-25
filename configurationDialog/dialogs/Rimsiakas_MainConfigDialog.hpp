@@ -5,7 +5,7 @@
 
 class Rimsiakas_MainConfigDialog
 {
-    idd = 46421;
+    idd = MAIN_CONFIG_DIALOG_IDD;
     movingEnabled = false;
     enableSimulation = true;
     onLoad = "call Rimsiakas_fnc_populateEnvConfigFields; call Rimsiakas_fnc_refreshIntelGridValue";
@@ -51,18 +51,18 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
-         idc = 100000;
+         idc = MAIN_CONFIG_DIALOG_BACKGROUND_IDC;
     };
 
     class Rimsiakas_MainConfigDialog_Heading: Rimsiakas_Heading
     {
-        idc = 100001;
+        idc = MAIN_CONFIG_DIALOG_HEADING_IDC;
         text = "Click on the map to select the mission area";
     };
 
     class Rimsiakas_MainConfigDialog_Map: RscMapControl
     {
-        idc = 9999;
+        idc = MAIN_CONFIG_DIALOG_MAP_IDC;
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
         y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 30 * GUI_GRID_W;
@@ -71,7 +71,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Intel_GridFrame: RscFrame
     {
-        idc = 101000;
+        idc = MAIN_CONFIG_DIALOG_INTEL_GRID_FRAME_IDC;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
         y = INTEL_GRID_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
@@ -80,7 +80,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Intel_GridLabel: RscText
     {
-        idc = 101001;
+        idc = MAIN_CONFIG_DIALOG_INTEL_GRID_LABEL_IDC;
         text = "Intel Grid:";
         tooltip = "The resolution of colored squares on the map hinting the enemy locations.";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -91,7 +91,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Intel_GridDecrease: Rimsiakas_Button
     {
-        idc = 101002;
+        idc = MAIN_CONFIG_DIALOG_INTEL_GRID_DECREASE_IDC;
         text = "-";
         action = "['down'] call Rimsiakas_fnc_handleIntelGridButton;";
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -102,7 +102,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Intel_GridValue: RscText
     {
-        idc = 101003;
+        idc = MAIN_CONFIG_DIALOG_INTEL_GRID_VALUE_IDC;
         text = "";
         tooltip = "The size of colored squares on the map hinting the enemy locations.";
         style = ST_CENTER;
@@ -114,7 +114,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Intel_GridIncrease: Rimsiakas_Button
     {
-        idc = 101004;
+        idc = MAIN_CONFIG_DIALOG_INTEL_GRID_INCREASE_IDC;
         text = "+";
         action = "['up'] call Rimsiakas_fnc_handleIntelGridButton;";
         x = (6.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -125,7 +125,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Flare_Frame: RscFrame
     {
-        idc = 101500;
+        idc = MAIN_CONFIG_DIALOG_INTEL_FLARE_FRAME_IDC;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
         y = (FLARE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
@@ -134,7 +134,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Flare_Label: RscText
     {
-        idc = 101501;
+        idc = MAIN_CONFIG_DIALOG_INTEL_FLARE_LABEL_IDC;
         text = "Flare Illumination:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (0.5 + FLARE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -144,7 +144,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Flare_Field: RscCombo
     {
-        idc = 101502;
+        idc = MAIN_CONFIG_DIALOG_INTEL_FLARE_FIELD_IDC;
         tooltip = "How strongly to illuminate the battlefield at night.";
         class Items
         {
@@ -179,7 +179,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_Frame: RscFrame
     {
-        idc = 102000;
+        idc = MAIN_CONFIG_DIALOG_ENV_FRAME_IDC;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
         y = (ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
@@ -188,7 +188,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_DateLabel: RscText
     {
-        idc = 102001;
+        idc = MAIN_CONFIG_DIALOG_ENV_DATELABEL_IDC;
         text = "Date:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (0.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -198,7 +198,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_YearField: RscEdit
     {
-        idc = 102002;
+        idc = MAIN_CONFIG_DIALOG_ENV_YEARFIELD_IDC;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 2.3 * GUI_GRID_W;
@@ -208,7 +208,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_DateSeparator1: RscText
     {
-        idc = 102003;
+        idc = MAIN_CONFIG_DIALOG_ENV_DATESEPARATOR1_IDC;
         text = "-";
         x = (3.1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -218,7 +218,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_MonthField: RscEdit
     {
-        idc = 102004;
+        idc = MAIN_CONFIG_DIALOG_ENV_MONTHFIELD_IDC;
         x = (3.9 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1.5 * GUI_GRID_W;
@@ -228,7 +228,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_DateSeparator2: RscText
     {
-        idc = 102005;
+        idc = MAIN_CONFIG_DIALOG_ENV_DATESEPARATOR2_IDC;
         text = "-";
         x = (5.2 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -238,7 +238,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_DayField: RscEdit
     {
-        idc = 102006;
+        idc = MAIN_CONFIG_DIALOG_ENV_DAYFIELD_IDC;
         x = (6 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1.5 * GUI_GRID_W;
@@ -248,7 +248,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_TimeLabel: RscText
     {
-        idc = 102007;
+        idc = MAIN_CONFIG_DIALOG_ENV_TIMELABEL_IDC;
         text = "Time:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (3 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -258,7 +258,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_HourField: RscEdit
     {
-        idc = 102008;
+        idc = MAIN_CONFIG_DIALOG_ENV_HOURFIELD_IDC;
         x = (3.9 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (3 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1.5 * GUI_GRID_W;
@@ -268,7 +268,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_TimeSeparator: RscText
     {
-        idc = 102009;
+        idc = MAIN_CONFIG_DIALOG_ENV_TIMESEPARATOR_IDC;
         text = ":";
         x = (5.2 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (3 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -278,7 +278,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_MinuteField: RscEdit
     {
-        idc = 102010;
+        idc = MAIN_CONFIG_DIALOG_ENV_MINUTEFIELD_IDC;
         x = (6 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (3 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 1.5 * GUI_GRID_W;
@@ -288,7 +288,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_OvercastLabel: RscText
     {
-        idc = 102011;
+        idc = MAIN_CONFIG_DIALOG_ENV_OVERCASTLABEL_IDC;
         text = "Overcast %:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (4.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -298,7 +298,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_OvercastField: RscEdit
     {
-        idc = 102012;
+        idc = MAIN_CONFIG_DIALOG_ENV_OVERCASTFIELD_IDC;
         x = (5.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (4.5 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 2 * GUI_GRID_W;
@@ -307,7 +307,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_FogLabel: RscText
     {
-        idc = 102013;
+        idc = MAIN_CONFIG_DIALOG_ENV_FOGLABEL_IDC;
         text = "Fog %:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (6 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -317,7 +317,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_FogField: RscEdit
     {
-        idc = 102014;
+        idc = MAIN_CONFIG_DIALOG_ENV_FOGFIELD_IDC;
         x = (5.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (6 + ENVIRONMENT_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 2 * GUI_GRID_W;
@@ -326,7 +326,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_Env_ConfirmButton: Rimsiakas_Button
     {
-        idc = 102099;
+        idc = MAIN_CONFIG_DIALOG_ENV_CONFIRMBUTTON_IDC;
         text = "Apply";
         action = "call Rimsiakas_fnc_confirmEnvConfig";
         x = 32 * GUI_GRID_W + GUI_GRID_X;
@@ -336,7 +336,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_ConfirmButton: Rimsiakas_Button
     {
-        idc = 109000;
+        idc = MAIN_CONFIG_DIALOG_CONFIRMBUTTON_IDC;
         action = "call Rimsiakas_fnc_confirmMissionAreaSelection";
         text = "Confirm";
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
@@ -345,7 +345,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_PreviewButton: Rimsiakas_Button
     {
-        idc = 209001;
+        idc = MAIN_CONFIG_DIALOG_PREVIEWBUTTON_IDC;
         action = "[] call Rimsiakas_fnc_previewMissionArea";
         text = "Preview";
         x = 6.5 * GUI_GRID_W + GUI_GRID_X;
@@ -354,7 +354,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_AdvancedConfigButton: Rimsiakas_Button
     {
-        idc = 209003;
+        idc = MAIN_CONFIG_DIALOG_ADVANCEDCONFIGBUTTON_IDC;
         action = "[] spawn {call Rimsiakas_fnc_openAdvancedConfig;};";
         text = "Advanced Config";
         x = 12.5 * GUI_GRID_W + GUI_GRID_X;
@@ -364,7 +364,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_AiConfigButton: Rimsiakas_Button
     {
-        idc = 209004;
+        idc = MAIN_CONFIG_DIALOG_AICONFIGBUTTON_IDC;
         action = "[] spawn {createDialog 'Rimsiakas_AiConfigurationDialog';};"
         text = "AI Config";
         x = 20.5 * GUI_GRID_W + GUI_GRID_X;
@@ -373,7 +373,7 @@ class Rimsiakas_MainConfigDialog
 
     class Rimsiakas_MainConfigDialog_FactionConfigButton: Rimsiakas_Button
     {
-        idc = 209004;
+        idc = MAIN_CONFIG_DIALOG_FACTIONCONFIGBUTTON_IDC;
         action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};"
         text = "Faction Config";
         x = 26.5 * GUI_GRID_W + GUI_GRID_X;

@@ -13,6 +13,7 @@ import RscPictureKeepAspect;
 import RscXListBox;
 
 
+#include "elementIds.hpp"
 #include "\a3\ui_f\hpp\definecommoncolors.inc"
 #include "\a3\ui_f\hpp\defineresincl.inc"
 #include "commonElements.hpp"
@@ -22,9 +23,3 @@ import RscXListBox;
 #include "dialogs\Rimsiakas_MainConfigDialog.hpp"
 #include "dialogs\Rimsiakas_FactionsConfigDialog.hpp"
 #include "dialogs\Rimsiakas_FactionPresetsDialog.hpp"
-
-// Control id rules:
-// Mission area map has a reserved 9999 id
-// Everything in the configurationDialogDialog is 10YYXX where YY is a section
-// Everything in the AdvancedConfigDialog is 20YYXX where YY is a section
-// Everything in the AiConfigurationDialog is 30XXXX

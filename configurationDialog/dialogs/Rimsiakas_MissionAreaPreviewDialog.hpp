@@ -9,9 +9,6 @@ class Rimsiakas_MissionAreaPreviewDialog
     {
         BackToSelectionButton
     };
-    ////////////////////////////////////////////////////////
-    // GUI EDITOR OUTPUT START (by Rimantas, v1.063, #Lydoby)
-    ////////////////////////////////////////////////////////
 
     class BackToSelectionButton: RscButton
     {
@@ -23,7 +20,4 @@ class Rimsiakas_MissionAreaPreviewDialog
         h = 2 * GUI_GRID_H;
         action = "call Rimsiakas_fnc_terminateMissionAreaPreview";
     };
-    ////////////////////////////////////////////////////////
-    // GUI EDITOR OUTPUT END
-    ////////////////////////////////////////////////////////
 }

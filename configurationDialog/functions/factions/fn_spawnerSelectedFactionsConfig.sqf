@@ -1,19 +1,21 @@
+#include "..\..\elementIds.hpp"
+
 params ["_control", "_path"];
 
 if (count _path == 0) exitWith {};
 
-private _secondColumnFrame = displayCtrl 402000;
-private _spawnerPropertiesControlGroup = displayCtrl 402001;
-private _poolPropertiesControlGroup = displayCtrl 403001;
-private _groupsConfigControlGroup = displayCtrl 404001;
+private _secondColumnFrame = displayCtrl FACTIONS_CONFIG_DIALOG_SECONDCOLUMNFRAME_IDC;
+private _spawnerPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERDETAILSCONTROLGROUP_IDC;
+private _poolPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_POOLDETAILSCONTROLGROUP_IDC;
+private _groupsConfigControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_GROUPSCONFIGCONTROLGROUP_IDC;
 
 private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPoolFactionsConfig;
 
 if (isNil {_selected get "pool"}) then {
     private _spawnerData = (_selected get "spawner") get "data";
-    private _maxUnitsPerGroupField = displayCtrl 402003;
-    private _maxUnitsField = displayCtrl 402005;
-    private _spawnRateField = displayCtrl 402007;
+    private _maxUnitsPerGroupField = displayCtrl FACTIONS_CONFIG_DIALOG_MAXUNITSPERGROUP_IDC;
+    private _maxUnitsField = displayCtrl FACTIONS_CONFIG_DIALOG_MAXUNITS_IDC;
+    private _spawnRateField = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNRATE_IDC;
 
     private _maxUnitsPerGroup = _spawnerData getOrDefault ["maxUnitsPerGroup", []];
     private _maxUnits = _spawnerData getOrDefault ["maxUnits", []];
@@ -28,7 +30,7 @@ if (isNil {_selected get "pool"}) then {
     _poolPropertiesControlGroup ctrlShow false;
     _groupsConfigControlGroup ctrlShow false;
 } else {
-    private _poolWeightField = displayCtrl 403003;
+    private _poolWeightField = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERPOOLWEIGHT_IDC;
 
     private _poolData = (_selected get "pool") get "data";
 
@@ -52,7 +54,7 @@ if (isNil {_selected get "pool"}) then {
 _markerName = "spawnerMarker" + ((_selected get "spawner") get "name");
 _markerName setMarkerColorLocal "colorBlue";
 
-_map = displayCtrl 409999;
+_map = displayCtrl FACTIONS_CONFIG_DIALOG_MAP_IDC;
 _map ctrlMapAnimAdd [1, 0.5, getMarkerPos _markerName];
 
 ctrlMapAnimCommit _map;

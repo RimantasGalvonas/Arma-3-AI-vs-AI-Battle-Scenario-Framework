@@ -1,5 +1,7 @@
+#include "..\..\elementIds.hpp"
+
 [] spawn {
-    waitUntil {!isNull findDisplay 46426};
+    waitUntil {!isNull findDisplay FACTION_PRESETS_DIALOG_IDD};
 
     private _presets = missionProfileNamespace getVariable ["Rimsiakas_factionPresets", createHashMap];
 

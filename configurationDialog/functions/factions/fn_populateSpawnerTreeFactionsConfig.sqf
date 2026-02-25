@@ -1,6 +1,8 @@
+#include "..\..\elementIds.hpp"
+
 _sortedSpawnerKeys = [keys (Rimsiakas_workingSpawnersData get "spawners"), [], {_x}, "ASCEND"] call BIS_fnc_sortBy;
 
-private _spawnersTree = displayCtrl 401002;
+private _spawnersTree = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERPOOLSTREE_IDC;
 
 private _lastSelection = (tvSelection _spawnersTree) select 0;
 

@@ -1,6 +1,8 @@
+#include "..\..\elementIds.hpp"
+
 params ["_selectedPool"];
 
-private _poolGroupsList = displayCtrl 403005;
+private _poolGroupsList = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERPOOLGROUPS_IDC;
 
 lbClear _poolGroupsList;
 

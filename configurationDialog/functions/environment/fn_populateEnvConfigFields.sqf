@@ -1,13 +1,15 @@
+#include "..\..\elementIds.hpp"
+
 [] spawn {
-    waitUntil {!isNull findDisplay 46421};
+    waitUntil {!isNull findDisplay MAIN_CONFIG_DIALOG_IDD};
 
     _now = date;
 
-    ctrlSetText [102002, str (_now select 0)];
-    ctrlSetText [102004, str (_now select 1)];
-    ctrlSetText [102006, str (_now select 2)];
-    ctrlSetText [102008, str (_now select 3)];
-    ctrlSetText [102010, str (_now select 4)];
-    ctrlSetText [102012, str (round (overcast * 100))];
-    ctrlSetText [102014, str (round (fog * 100))];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_YEARFIELD_IDC, str (_now select 0)];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_MONTHFIELD_IDC, str (_now select 1)];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_DAYFIELD_IDC, str (_now select 2)];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_HOURFIELD_IDC, str (_now select 3)];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_MINUTEFIELD_IDC, str (_now select 4)];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_OVERCASTFIELD_IDC, str (round (overcast * 100))];
+    ctrlSetText [MAIN_CONFIG_DIALOG_ENV_FOGFIELD_IDC, str (round (fog * 100))];
 };

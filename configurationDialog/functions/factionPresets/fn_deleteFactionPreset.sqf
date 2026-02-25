@@ -1,4 +1,7 @@
-private _presetListControl = displayCtrl 500002;
+#include "..\..\elementIds.hpp"
+
+private _presetListControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETLIST_IDC;
+private _presetNameControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETNAME_IDC;
 
 private _presetName = _presetListControl lbText (lbCurSel _presetListControl);
 
@@ -18,5 +21,7 @@ _savedPresetData set ["preset", Rimsiakas_workingSpawnersData];
 _savedPresets deleteAt _presetName;
 missionProfileNamespace setVariable ["Rimsiakas_factionPresets", _savedPresets];
 saveMissionProfileNamespace;
+
+_presetNameControl ctrlSetText "";
 
 [] call Rimsiakas_fnc_openFactionPresets;

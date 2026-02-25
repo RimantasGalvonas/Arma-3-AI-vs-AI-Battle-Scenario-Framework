@@ -1,3 +1,5 @@
+#include "configurationDialog\elementIds.hpp"
+
 #if __has_include("mission\initPlayerLocal_pre.sqf")
     #include "mission\initPlayerLocal_pre.sqf"
 #endif
@@ -8,7 +10,7 @@
 
 sleep 0.1; // Small delay required because otherwise the Initializing... screen and validation hints are not shown.
 
-if (isNull findDisplay 46421) then { // Check to make sure the mission selector dialog is not already opened
+if (isNull findDisplay MAIN_CONFIG_DIALOG_IDD) then { // Check to make sure the mission selector dialog is not already opened
     cutText ["Initializing...", "BLACK FADED", 3600, false];
 };
 

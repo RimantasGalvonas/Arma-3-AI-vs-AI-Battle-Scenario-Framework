@@ -1,10 +1,12 @@
+#include "..\..\elementIds.hpp"
+
 call Rimsiakas_fnc_createMarkersForSyncedObjects;
 
 [] spawn {
-    waitUntil {!isNull findDisplay 46424};
+    waitUntil {!isNull findDisplay ADVANCED_CONFIG_DIALOG_IDD};
 
-    ctrlSetText [201002, str (patrolCenter getVariable "patrolRadius")];
-    ctrlSetText [202003, str (patrolCenter getVariable "maxInfantryResponseDistance")];
-    ctrlSetText [202005, str (patrolCenter getVariable "maxVehicleResponseDistance")];
-    ctrlSetText [202007, str (patrolCenter getVariable "maxAirResponseDistance")];
+    ctrlSetText [ADVANCED_CONFIG_DIALOG_PATROLRADIUSVALUE_IDC, str (patrolCenter getVariable "patrolRadius")];
+    ctrlSetText [ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEINFANTRYVALUE_IDC, str (patrolCenter getVariable "maxInfantryResponseDistance")];
+    ctrlSetText [ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEVEHICLESVALUE_IDC, str (patrolCenter getVariable "maxVehicleResponseDistance")];
+    ctrlSetText [ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEAIRVALUE_IDC, str (patrolCenter getVariable "maxAirResponseDistance")];
 };

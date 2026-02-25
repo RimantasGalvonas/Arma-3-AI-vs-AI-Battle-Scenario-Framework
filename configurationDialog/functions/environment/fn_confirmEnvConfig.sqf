@@ -1,13 +1,15 @@
+#include "..\..\elementIds.hpp"
+
 _newDate = [];
 
-_newDate append [parseNumber (ctrlText 102002)];
-_newDate append [parseNumber (ctrlText 102004)];
-_newDate append [parseNumber (ctrlText 102006)];
-_newDate append [parseNumber (ctrlText 102008)];
-_newDate append [parseNumber (ctrlText 102010)];
+_newDate append [parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_YEARFIELD_IDC)];
+_newDate append [parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_MONTHFIELD_IDC)];
+_newDate append [parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_DAYFIELD_IDC)];
+_newDate append [parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_HOURFIELD_IDC)];
+_newDate append [parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_MINUTEFIELD_IDC)];
 
 [_newDate] remoteExecCall ["setDate", 2];
 
-[0, parseNumber (ctrlText 102012) / 100] remoteExecCall ["setOvercast", 2];
-[0, parseNumber (ctrlText 102014) / 100] remoteExecCall ["setFog", 2];
+[0, parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_OVERCASTFIELD_IDC) / 100] remoteExecCall ["setOvercast", 2];
+[0, parseNumber (ctrlText MAIN_CONFIG_DIALOG_ENV_FOGFIELD_IDC) / 100] remoteExecCall ["setFog", 2];
 remoteExecCall ["forceWeatherChange", 2];

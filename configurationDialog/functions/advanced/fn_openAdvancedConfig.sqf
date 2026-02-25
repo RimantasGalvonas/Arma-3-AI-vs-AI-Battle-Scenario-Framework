@@ -1,3 +1,5 @@
+#include "..\..\elementIds.hpp"
+
 if (!createDialog "Rimsiakas_AdvancedConfigDialog") exitWith {
     hint "Couldn't open the mission area selector, using predefined position";
 
@@ -6,13 +8,13 @@ if (!createDialog "Rimsiakas_AdvancedConfigDialog") exitWith {
 
 
 
-waitUntil {!isNull findDisplay 46424};
+waitUntil {!isNull findDisplay ADVANCED_CONFIG_DIALOG_IDD};
 
 call Rimsiakas_fnc_refreshAdvancedConfigInfo;
 
-_dialog = findDisplay 46424;
+_dialog = findDisplay ADVANCED_CONFIG_DIALOG_IDD;
 
-_map = _dialog displayCtrl 9999;
+_map = _dialog displayCtrl MAIN_CONFIG_DIALOG_MAP_IDC;
 
 _map ctrlAddEventHandler ["MouseButtonClick", {
     _ctrl = _this select 0;
@@ -30,7 +32,7 @@ if (!isServer) then {
     // This script runs on a client which sends mission location changes to the dedicated server.
     // There's no way to know when the server has received and processed the mission location changes so this needs to be refreshed constantly.
     [] spawn {
-        while {!isNull findDisplay 46424} do {
+        while {!isNull findDisplay ADVANCED_CONFIG_DIALOG_IDD} do {
             call Rimsiakas_fnc_createMarkersForSyncedObjects;
             sleep 0.3;
         };
@@ -38,15 +40,15 @@ if (!isServer) then {
 };
 
 
-waitUntil {isNull findDisplay 46424};
+waitUntil {isNull findDisplay ADVANCED_CONFIG_DIALOG_IDD};
 
 {
     deleteMarkerLocal _x
 } forEach Rimsiakas_markersForSyncedObjectsDebugging;
 
 
-waitUntil {!isNull findDisplay 46421};
-_dialog = findDisplay 46421;
-_map = _dialog displayCtrl 9999;
+waitUntil {!isNull findDisplay MAIN_CONFIG_DIALOG_IDD};
+_dialog = findDisplay MAIN_CONFIG_DIALOG_IDD;
+_map = _dialog displayCtrl MAIN_CONFIG_DIALOG_MAP_IDC;
 _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;

@@ -1,4 +1,6 @@
-private _control = displayCtrl 404004;
+#include "..\..\elementIds.hpp"
+
+private _control = displayCtrl FACTIONS_CONFIG_DIALOG_GROUPSCONFIGTREE_IDC;
 
 private _selectionPaths = tvSelection _control;
 

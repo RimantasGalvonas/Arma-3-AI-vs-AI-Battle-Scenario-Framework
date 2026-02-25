@@ -1,13 +1,15 @@
+#include "..\..\elementIds.hpp"
+
 [] spawn {
-    waitUntil {!isNull findDisplay 46423};
+    waitUntil {!isNull findDisplay FACTIONS_CONFIG_DIALOG_IDD};
 
     private _spawners = entities "LOGIC" select {_x getVariable ["logicType", ""] == "spawner"};
 
-    private _spawnerPropertiesControlGroup = displayCtrl 402001;
-    private _poolPropertiesControlGroup = displayCtrl 403001;
-    private _groupsConfigControlGroup = displayCtrl 404001;
-    private _addGroupButton = displayCtrl 404005;
-    private _greenforAlliesField = displayCtrl 400503;
+    private _spawnerPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERDETAILSCONTROLGROUP_IDC;
+    private _poolPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_POOLDETAILSCONTROLGROUP_IDC;
+    private _groupsConfigControlGroup = displayCtrl FACTIONS_CONFIG_DIALOG_GROUPSCONFIGCONTROLGROUP_IDC;
+    private _addGroupButton = displayCtrl FACTIONS_CONFIG_DIALOG_ADDGROUPBUTTON_IDC;
+    private _greenforAlliesField = displayCtrl FACTIONS_CONFIG_DIALOG_GREENFORALLIES_IDC;
     _spawnerPropertiesControlGroup ctrlShow false;
     _poolPropertiesControlGroup ctrlShow false;
     _groupsConfigControlGroup ctrlShow false;
@@ -15,20 +17,20 @@
 
 
 
-    _map = displayCtrl 409999;
+    _map = displayCtrl FACTIONS_CONFIG_DIALOG_MAP_IDC;
     _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
     ctrlMapAnimCommit _map;
     [] call Rimsiakas_fnc_createMarkersForSpawners;
 
     [] spawn {
-        waitUntil {isNull findDisplay 46423};
+        waitUntil {isNull findDisplay FACTIONS_CONFIG_DIALOG_IDD};
         {
             deleteMarkerLocal _x
         } forEach Rimsiakas_markersForSpawners;
     };
 
 
-    private _spawnersTree = displayCtrl 401002;
+    private _spawnersTree = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERPOOLSTREE_IDC;
 
     Rimsiakas_lastSavedSpawnersData = createHashMap;
     private _collectedSpawners = createHashMap;

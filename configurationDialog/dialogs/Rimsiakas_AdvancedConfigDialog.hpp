@@ -4,7 +4,7 @@
 
 class Rimsiakas_AdvancedConfigDialog
 {
-    idd = 46424;
+    idd = ADVANCED_CONFIG_DIALOG_IDD;
     movingEnabled = false;
     enableSimulation = true;
 
@@ -38,18 +38,18 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
-         idc = 200000;
+         idc = ADVANCED_CONFIG_DIALOG_MAINBACKGROUND_IDC;
     };
 
     class Rimsiakas_AdvancedConfigDialog_Heading: Rimsiakas_Heading
     {
-        idc = 200001;
+        idc = ADVANCED_CONFIG_DIALOG_HEADING_IDC;
         text = "Advanced configuration";
     };
 
     class Rimsiakas_AdvancedConfigDialog_Map: RscMapControl
     {
-        idc = 9999;
+        idc = ADVANCED_CONFIG_DIALOG_MAP_IDC;
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
         y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
         w = 30 * GUI_GRID_W;
@@ -58,7 +58,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusFrame: RscFrame
     {
-        idc = 201000;
+        idc =ADVANCED_CONFIG_DIALOG_PATROLRADIUSFRAME_IDC;
         x = RIGHT_SIDE_X * GUI_GRID_W + GUI_GRID_X;
         y = PATROL_RADIUS_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
@@ -67,7 +67,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusLabel: RscText
     {
-        idc = 201001;
+        idc = ADVANCED_CONFIG_DIALOG_PATROLRADIUSLABEL_IDC;
         text = "Patrol Radius:";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (0.5 + PATROL_RADIUS_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -77,7 +77,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_PatrolRadiusValue: RscText
     {
-        idc = 201002;
+        idc = ADVANCED_CONFIG_DIALOG_PATROLRADIUSVALUE_IDC;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (1.5 + PATROL_RADIUS_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
@@ -86,7 +86,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceFrame: RscFrame
     {
-        idc = 202000;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEFRAME_IDC;
         x = 31 * GUI_GRID_W + GUI_GRID_X;
         y = INTEL_RESPONSE_ELEMENTS_Y * GUI_GRID_H + GUI_GRID_Y;
         w = 8.5 * GUI_GRID_W;
@@ -95,7 +95,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceLabel: RscText
     {
-        idc = 202001;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCELABEL_IDC;
         text = "Intel Response Dist.";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (0.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -105,7 +105,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryLabel: RscText
     {
-        idc = 202002;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEINFANTRYLABEL_IDC;
         text = "Infantry";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (2 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -115,7 +115,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceInfantryValue: RscEdit
     {
-        idc = 202003;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEINFANTRYVALUE_IDC;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (3 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
@@ -125,7 +125,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceVehiclesLabel: RscText
     {
-        idc = 202004;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEVEHICLESLABEL_IDC;
         text = "Vehicles";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (4.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -135,7 +135,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceVehiclesValue: RscEdit
     {
-        idc = 202005;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEVEHICLESVALUE_IDC;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (5.5 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
@@ -145,7 +145,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceAirLabel: RscText
     {
-        idc = 202006;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEAIRLABEL_IDC;
         text = "Air";
         x = (0.5 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (7 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
@@ -155,7 +155,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_IntelResponseDistanceAirValue: RscEdit
     {
-        idc = 202007;
+        idc = ADVANCED_CONFIG_DIALOG_INTELRESPONSEDISTANCEAIRVALUE_IDC;
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
         y = (8 + INTEL_RESPONSE_ELEMENTS_Y) * GUI_GRID_H + GUI_GRID_Y;
         w = 6.5 * GUI_GRID_W;
@@ -165,7 +165,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_ApplyParamsBtn: Rimsiakas_Button
     {
-        idc = 202099;
+        idc = ADVANCED_CONFIG_DIALOG_APPLYPARAMSBTN_IDC;
         action = "call Rimsiakas_fnc_confirmAdvancedParams;";
         text = "Apply";
         x = (1 + RIGHT_SIDE_X) * GUI_GRID_W + GUI_GRID_X;
@@ -181,7 +181,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_BackButton: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
-        idc = 209000;
+        idc = ADVANCED_CONFIG_DIALOG_BACKBUTTON_IDC;
         action = "closeDialog 1;";
         text = "Back";
         x = 0.5 * GUI_GRID_W + GUI_GRID_X;
@@ -189,7 +189,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_RotateCCW: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
-        idc = 209001;
+        idc = ADVANCED_CONFIG_DIALOG_ROTATECCW_IDC;
         action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
         text = "Rotate CCW";
         x = 6.5 * GUI_GRID_W + GUI_GRID_X;
@@ -197,7 +197,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_RotateCW: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
-        idc = 209002;
+        idc = ADVANCED_CONFIG_DIALOG_ROTATECW_IDC;
         action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
         text = "Rotate CW";
         x = 12.5 * GUI_GRID_W + GUI_GRID_X;
@@ -205,7 +205,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_ScaleDown: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
-        idc = 209003;
+        idc = ADVANCED_CONFIG_DIALOG_SCALEDOWN_IDC;
         action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
         text = "Scale-";
         x = 18.5 * GUI_GRID_W + GUI_GRID_X;
@@ -213,7 +213,7 @@ class Rimsiakas_AdvancedConfigDialog
 
     class Rimsiakas_AdvancedConfigDialog_ScaleUp: Rimsiakas_AdvancedConfigDialog_BottomButton
     {
-        idc = 209004;
+        idc = ADVANCED_CONFIG_DIALOG_SCALEUP_IDC;
         action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
         text = "Scale+";
         x = 24.5 * GUI_GRID_W + GUI_GRID_X;

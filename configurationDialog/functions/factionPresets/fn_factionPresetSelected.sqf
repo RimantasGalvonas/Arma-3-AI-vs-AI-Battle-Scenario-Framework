@@ -1,7 +1,9 @@
-private _presetListControl = displayCtrl 500002;
-private _presetNameControl = displayCtrl 500003;
-private _saveButton = displayCtrl 500004;
-private _deleteButton = displayCtrl 509002;
+#include "..\..\elementIds.hpp"
+
+private _presetListControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETLIST_IDC;
+private _presetNameControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETNAME_IDC;
+private _saveButton = displayCtrl FACTION_PRESETS_DIALOG_SAVEBUTTON_IDC;
+private _deleteButton = displayCtrl FACTION_PRESETS_DIALOG_DELETEBUTTON_IDC;
 
 private _presetName = _presetListControl lbText (lbCurSel _presetListControl);
 

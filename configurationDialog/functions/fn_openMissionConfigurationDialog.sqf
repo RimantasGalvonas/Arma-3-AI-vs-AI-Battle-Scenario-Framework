@@ -1,3 +1,5 @@
+#include "..\elementIds.hpp"
+
 closeDialog 1;
 
 if (!createDialog "Rimsiakas_MainConfigDialog") exitWith {
@@ -15,11 +17,11 @@ createMarkerLocal ["missionAreaMarker", getPos patrolCenter];
 "missionAreaMarker" setMarkerBrushLocal "DiagGrid";
 "missionAreaMarker" setMarkerSizeLocal [_missionAreaSize, _missionAreaSize];
 
-waitUntil {!isNull findDisplay 46421};
+waitUntil {!isNull findDisplay MAIN_CONFIG_DIALOG_IDD};
 
-_dialog = findDisplay 46421;
+_dialog = findDisplay MAIN_CONFIG_DIALOG_IDD;
 
-_map = _dialog displayCtrl 9999;
+_map = _dialog displayCtrl MAIN_CONFIG_DIALOG_MAP_IDC;
 
 _map ctrlAddEventHandler ["MouseButtonClick", {
     _ctrl = _this select 0;
@@ -34,4 +36,4 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
 
-lbSetCurSel [101502, patrolCenter getVariable ["flaresLevel", 0]];
+lbSetCurSel [MAIN_CONFIG_DIALOG_INTEL_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];
