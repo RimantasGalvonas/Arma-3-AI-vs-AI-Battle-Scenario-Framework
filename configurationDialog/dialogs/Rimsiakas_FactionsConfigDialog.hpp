@@ -12,8 +12,8 @@ class Rimsiakas_FactionsConfigDialog
     {
         Rimsiakas_FactionsConfigDialog_MainBackground,
         Rimsiakas_FactionsConfigDialog_Heading,
-        Rimsiakas_FactionsConfigDialog_GreenforLineFrame,
-        Rimsiakas_FactionsConfigDialog_FirstColumnFrame, // Frames are in here rather than in control groups because otherwise the appearance gets messed up somehow
+        Rimsiakas_FactionsConfigDialog_GreenforLineFrame, // Frames are in here rather than in control groups because otherwise the appearance gets messed up somehow
+        Rimsiakas_FactionsConfigDialog_FirstColumnFrame,
         Rimsiakas_FactionsConfigDialog_SecondColumnFrame,
         Rimsiakas_FactionsConfigDialog_ThirdColumnFrame
     };
@@ -25,9 +25,7 @@ class Rimsiakas_FactionsConfigDialog
         Rimsiakas_FactionsConfigDialog_SpawnerDetailsControlGroup,
         Rimsiakas_FactionsConfigDialog_PoolDetailsControlGroup,
         Rimsiakas_FactionsConfigDialog_GroupsConfigControlGroup,
-        Rimsiakas_FactionsConfigDialog_ConfirmButton,
-        Rimsiakas_FactionsConfigDialog_CancelButton,
-        Rimsiakas_FactionsConfigDialog_FactionPresetsButton
+        Rimsiakas_FactionsConfigDialog_Buttons_ControlGroup
     };
 
     class Rimsiakas_FactionsConfigDialog_TextInput: RscEdit
@@ -39,11 +37,6 @@ class Rimsiakas_FactionsConfigDialog
         h = 1 * GUI_GRID_H;
         onEditChanged = "_this call Rimsiakas_fnc_inputChangedFactionsConfig"
     };
-
-    class Rimsiakas_FactionsConfigDialog_BottomButton: Rimsiakas_Button
-    {
-        y = 23 * GUI_GRID_H + GUI_GRID_Y;
-    }
 
     class Rimsiakas_FactionsConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
@@ -391,29 +384,44 @@ class Rimsiakas_FactionsConfigDialog
             }
         };
     };
-
-    class Rimsiakas_FactionsConfigDialog_ConfirmButton: Rimsiakas_FactionsConfigDialog_BottomButton
+    
+    class Rimsiakas_FactionsConfigDialog_Buttons_ControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_CONFIRMBUTTON_IDC;
-        action = "[] call Rimsiakas_fnc_confirmFactionsConfig; closeDialog 1;";
-        text = "Confirm";
-        x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-    };
+        idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CONTROLGROUP_IDC;
+        x = 0.5 * GUI_GRID_W;
+        y = 23 * GUI_GRID_H + GUI_GRID_Y;
+        w = 40 * COLUMN_WIDTH * GUI_GRID_W;
+        h = 2 * GUI_GRID_H;
 
-    class Rimsiakas_FactionsConfigDialog_CancelButton: Rimsiakas_FactionsConfigDialog_BottomButton
-    {
-        idc = FACTIONS_CONFIG_DIALOG_CANCELBUTTON_IDC;
-        action = "Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData; closeDialog 2;";
-        text = "Cancel";
-        x = 6.5 * GUI_GRID_W + GUI_GRID_X;
-    };
+        class Controls
+        {
+            class Rimsiakas_FactionsConfigDialog_ConfirmButton: Rimsiakas_Button
+            {
+                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CONFIRM_IDC;
+                action = "[] call Rimsiakas_fnc_confirmFactionsConfig; closeDialog 1;";
+                text = "Confirm";
+                x = 0 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            };
 
-    class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_FactionsConfigDialog_BottomButton
-    {
-        idc = FACTIONS_CONFIG_DIALOG_FACTIONPRESETSBUTTON_IDC;
-        action = "[] spawn {createDialog 'Rimsiakas_FactionPresetsDialog';};"
-        text = "Presets";
-        x = 12.5 * GUI_GRID_W + GUI_GRID_X;
-        w = 5.5 * GUI_GRID_W;
-    };
+            class Rimsiakas_FactionsConfigDialog_CancelButton: Rimsiakas_Button
+            {
+                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CANCEL_IDC;
+                action = "Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData; closeDialog 2;";
+                text = "Cancel";
+                x = 6 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_Button
+            {
+                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_FACTIONPRESETS_IDC;
+                action = "[] spawn {createDialog 'Rimsiakas_FactionPresetsDialog';};"
+                text = "Presets";
+                x = 12 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                w = 5.5 * GUI_GRID_W;
+            };
+        }
+    }
 }

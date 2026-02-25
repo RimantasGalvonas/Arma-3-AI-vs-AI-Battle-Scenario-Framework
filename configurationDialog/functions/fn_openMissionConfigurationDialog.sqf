@@ -36,4 +36,4 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
 
-lbSetCurSel [MAIN_CONFIG_DIALOG_INTEL_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];
+lbSetCurSel [MAIN_CONFIG_DIALOG_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];
