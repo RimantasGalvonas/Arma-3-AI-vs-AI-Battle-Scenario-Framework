@@ -17,12 +17,10 @@ switch (_action) do
     default {};
 };
 
-["advanced"] call Rimsiakas_fnc_updateMissionAreaSelectionMarker;
-
 if (!isMultiplayer || {hasInterface}) then {
-    call Rimsiakas_fnc_refreshAdvancedConfigInfo;
+    call Rimsiakas_fnc_afterMissionAreaTransform;
 } else {
     if (!isNil "Rimsiakas_loggedInAdmin") then {
-        remoteExec ["Rimsiakas_fnc_refreshAdvancedConfigInfo", Rimsiakas_loggedInAdmin];
+        remoteExec ["Rimsiakas_fnc_afterMissionAreaTransform", Rimsiakas_loggedInAdmin];
     };
 };

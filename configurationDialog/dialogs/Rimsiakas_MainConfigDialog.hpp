@@ -11,13 +11,16 @@ class Rimsiakas_MainConfigDialog
     {
         Rimsiakas_MainConfigDialog_MainBackground,
         Rimsiakas_MainConfigDialog_Heading,
+        Rimsiakas_MainConfigDialog_Map,
         Rimsiakas_MainConfigDialog_IntelGrid_Frame, // Frames are in here rather than in control groups because otherwise the appearance gets messed up somehow
         Rimsiakas_MainConfigDialog_Flare_Frame,
         Rimsiakas_MainConfigDialog_Env_Frame
     };
     controls[]=
     {
-        Rimsiakas_MainConfigDialog_Map,
+        Rimsiakas_MainConfigDialog_PatrolRadiusLabel,
+        Rimsiakas_MainConfigDialog_PatrolRadiusValue,
+        Rimsiakas_MainConfigDialog_Map_ControlGroup,
         Rimsiakas_MainConfigDialog_IntelGrid_ControlGroup,
         Rimsiakas_MainConfigDialog_Flare_ControlGroup,
         Rimsiakas_MainConfigDialog_Env_ControlGroup,
@@ -43,6 +46,88 @@ class Rimsiakas_MainConfigDialog
         w = 30 * GUI_GRID_W;
         h = 20 * GUI_GRID_H;
     };
+
+    class Rimsiakas_MainConfigDialog_PatrolRadiusLabel: RscText
+    {
+        idc = MAIN_CONFIG_DIALOG_PATROLRADIUSLABEL_IDC;
+        text = "Mission area width:";
+        x = 1 * GUI_GRID_W + GUI_GRID_X;
+        y = 3 * GUI_GRID_H + GUI_GRID_Y;
+        w = 7.5 * GUI_GRID_W;
+        h = 1 * GUI_GRID_H;
+        colorBackground[] = {0.1,0.1,0.1,1};
+        sizeEx = 0.03;
+    };
+
+    class Rimsiakas_MainConfigDialog_PatrolRadiusValue: RscText
+    {
+        idc = MAIN_CONFIG_DIALOG_PATROLRADIUSVALUE_IDC;
+        x = 6.5 * GUI_GRID_W + GUI_GRID_X;
+        y = 3 * GUI_GRID_H + GUI_GRID_Y;
+        w = 6.5 * GUI_GRID_W;
+        h = 1 * GUI_GRID_H;
+        sizeEx = 0.03;
+    };
+
+    class Rimsiakas_MainConfigDialog_Map_ControlGroup: RscControlsGroup
+    {
+        idc = MAIN_CONFIG_DIALOG_MAP_CONTROLGROUP_IDC;
+        x = 1 * GUI_GRID_W + GUI_GRID_X;
+        y = 21 * GUI_GRID_H + GUI_GRID_Y;
+        w = 25 * GUI_GRID_W;
+        h = 2 * GUI_GRID_H;
+
+        class Controls
+        {
+            class Rimsiakas_MainConfigDialog_Map_RotateCCW: Rimsiakas_ButtonSmall
+            {
+                idc = MAIN_CONFIG_DIALOG_MAP_ROTATECCW_IDC;
+                action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                text = "Rotate CCW";
+                x = 0 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                w = 4 * GUI_GRID_W;
+            };
+
+            class Rimsiakas_MainConfigDialog_Map_RotateCW: Rimsiakas_ButtonSmall
+            {
+                idc = MAIN_CONFIG_DIALOG_MAP_ROTATECW_IDC;
+                action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                text = "Rotate CW";
+                x = 5 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                w = 4 * GUI_GRID_W;
+            };
+
+            class Rimsiakas_MainConfigDialog_Map_ScaleDown: Rimsiakas_ButtonSmall
+            {
+                idc = MAIN_CONFIG_DIALOG_MAP_SCALEDOWN_IDC;
+                action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                text = "Scale-";
+                x = 10 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_MainConfigDialog_Map_ScaleUp: Rimsiakas_ButtonSmall
+            {
+                idc = MAIN_CONFIG_DIALOG_MAP_SCALEUP_IDC;
+                action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                text = "Scale+";
+                x = 14 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_MainConfigDialog_Map_ToggleEntities: Rimsiakas_ButtonSmall
+            {
+                idc = MAIN_CONFIG_DIALOG_MAP_TOGGLEENTITIES_IDC;
+                action = "[] call Rimsiakas_fnc_toggleMapEntities;";
+                text = "Toggle entities";
+                x = 18 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                w = 5 * GUI_GRID_W;
+            };
+        };
+    }
 
     class Rimsiakas_MainConfigDialog_IntelGrid_Frame: RscFrame
     {
@@ -374,22 +459,12 @@ class Rimsiakas_MainConfigDialog
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
             };
 
-            class Rimsiakas_MainConfigDialog_AdvancedConfigButton: Rimsiakas_Button
-            {
-                idc = MAIN_CONFIG_DIALOG_BUTTONS_ADVANCEDCONFIG_IDC;
-                action = "[] spawn {call Rimsiakas_fnc_openAdvancedConfig;};";
-                text = "Advanced Config";
-                x = 12 * GUI_GRID_W + GUI_GRID_X;
-                y = 0 * GUI_GRID_H + GUI_GRID_Y;
-                w = 7.5 * GUI_GRID_W;
-            };
-
             class Rimsiakas_MainConfigDialog_AiConfigButton: Rimsiakas_Button
             {
                 idc = MAIN_CONFIG_DIALOG_BUTTONS_AICONFIG_IDC;
                 action = "[] spawn {createDialog 'Rimsiakas_AiConfigurationDialog';};"
                 text = "AI Config";
-                x = 20 * GUI_GRID_W + GUI_GRID_X;
+                x = 12 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
             };
 
@@ -398,7 +473,7 @@ class Rimsiakas_MainConfigDialog
                 idc = MAIN_CONFIG_DIALOG_BUTTONS_FACTIONCONFIG_IDC;
                 action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};"
                 text = "Faction Config";
-                x = 26 * GUI_GRID_W + GUI_GRID_X;
+                x = 18 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
                 w = 6.5 * GUI_GRID_W;
             };

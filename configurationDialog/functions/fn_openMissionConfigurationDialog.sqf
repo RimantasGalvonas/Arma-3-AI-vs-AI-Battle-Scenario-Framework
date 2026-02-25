@@ -17,9 +17,13 @@ createMarkerLocal ["missionAreaMarker", getPos patrolCenter];
 "missionAreaMarker" setMarkerBrushLocal "DiagGrid";
 "missionAreaMarker" setMarkerSizeLocal [_missionAreaSize, _missionAreaSize];
 
+
+
 waitUntil {!isNull findDisplay MAIN_CONFIG_DIALOG_IDD};
 
 _dialog = findDisplay MAIN_CONFIG_DIALOG_IDD;
+
+
 
 _map = _dialog displayCtrl MAIN_CONFIG_DIALOG_MAP_IDC;
 
@@ -30,10 +34,13 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
     _pos = _ctrl ctrlMapScreenToWorld [_x, _y];
 
-    [_pos, "main"] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
+    [_pos] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
 }];
 
 _map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
 ctrlMapAnimCommit _map;
 
+
+
+ctrlSetText [MAIN_CONFIG_DIALOG_PATROLRADIUSVALUE_IDC, str ((patrolCenter getVariable "patrolRadius") * 2)];
 lbSetCurSel [MAIN_CONFIG_DIALOG_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];

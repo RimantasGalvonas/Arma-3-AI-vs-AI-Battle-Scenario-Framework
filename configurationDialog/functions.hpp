@@ -6,21 +6,21 @@ class configurationDialogGeneral
     class previewMissionArea {};
     class terminateMissionAreaPreview {};
     class initAdminMissionConfiguration {};
-    class handleMapClick {};
-    class updateMissionAreaSelectionMarker {};
     class confirmMissionAreaSelection {};
 }
 
-class configurationDialogAdvanced
+class configurationDialogMissionAreaTransform
 {
-    file = "configurationDialog\functions\advanced";
+    file = "configurationDialog\functions\missionAreaTransform";
 
-    class openAdvancedConfig {};
-    class refreshAdvancedConfigInfo {};
-    class confirmAdvancedParams{};
+    class afterMissionAreaTransform {};
     class createMarkersForSyncedObjects {};
-    class scaleObjectPlacement {};
+    class deleteMarkersForSyncedObjects {};
+    class handleMapClick {};
     class handleTransformButton {};
+    class scaleObjectPlacement {};
+    class updateMissionAreaSelectionMarker {};
+    class toggleMapEntities {};
 }
 
 class configurationDialogEnvironment

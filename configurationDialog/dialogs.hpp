@@ -17,7 +17,6 @@ import RscXListBox;
 #include "\a3\ui_f\hpp\definecommoncolors.inc"
 #include "\a3\ui_f\hpp\defineresincl.inc"
 #include "commonElements.hpp"
-#include "dialogs\Rimsiakas_AdvancedConfigDialog.hpp"
 #include "dialogs\Rimsiakas_AiConfigurationDialog.hpp"
 #include "dialogs\Rimsiakas_MissionAreaPreviewDialog.hpp"
 #include "dialogs\Rimsiakas_MainConfigDialog.hpp"

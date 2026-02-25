@@ -1,6 +1,19 @@
-if (isNil "Rimsiakas_markersForSyncedObjectsDebugging") then {
-    Rimsiakas_markersForSyncedObjectsDebugging = [];
+#include "..\..\elementIds.hpp";
+
+if (isNil "Rimsiakas_showMapEntities" || { !Rimsiakas_showMapEntities }) exitWith {};
+
+if (isNil "Rimsiakas_syncedObjectsMarkers") then {
+    Rimsiakas_syncedObjectsMarkers = [];
 };
+
+if (isNil "Rimsiakas_deleteSyncedObjectMarkersWhenClosedProcess") then {
+    Rimsiakas_deleteSyncedObjectMarkersWhenClosedProcess = [] spawn {
+        waitUntil {isNull (findDisplay MAIN_CONFIG_DIALOG_IDD)};
+        [] call Rimsiakas_fnc_deleteMarkersForSyncedObjects;
+    };
+};
+
+
 
 private _colorNames = [];
 
@@ -27,7 +40,7 @@ private _drawPlacerDebugMarkers = {
         _dotMarkerName setMarkerColorLocal _color;
         _dotMarkerName setMarkerTypeLocal "mil_dot";
         _dotMarkerName setMarkerTextLocal (str _placer);
-        Rimsiakas_markersForSyncedObjectsDebugging append [_dotMarkerName];
+        Rimsiakas_syncedObjectsMarkers append [_dotMarkerName];
     } else {
         _dotMarkerName setMarkerPosLocal _placerPos;
     };
@@ -47,7 +60,7 @@ private _drawPlacerDebugMarkers = {
             _maxSpawnMarkerName setMarkerBrushLocal "Border";
             _maxSpawnMarkerName setMarkerSizeLocal [_maxSpawnRadius, _maxSpawnRadius];
             _maxSpawnMarkerName setMarkerTextLocal (str _placer);
-            Rimsiakas_markersForSyncedObjectsDebugging append [_maxSpawnMarkerName];
+            Rimsiakas_syncedObjectsMarkers append [_maxSpawnMarkerName];
 
             if ((_minSpawnRadius) > 0) then {
                 createMarkerLocal [_minSpawnMarkerName, _placerPos];
@@ -55,7 +68,7 @@ private _drawPlacerDebugMarkers = {
                 _minSpawnMarkerName setMarkerColorLocal _color;
                 _minSpawnMarkerName setMarkerBrushLocal "Border";
                 _minSpawnMarkerName setMarkerSizeLocal [_minSpawnRadius, _minSpawnRadius];
-                Rimsiakas_markersForSyncedObjectsDebugging append [_minSpawnMarkerName];
+                Rimsiakas_syncedObjectsMarkers append [_minSpawnMarkerName];
             };
         } else {
             _maxSpawnMarkerName setMarkerPosLocal _placerPos;
@@ -80,7 +93,7 @@ private _drawPlacerDebugMarkers = {
             _connectionMarkerName setMarkerColorLocal _color;
             _connectionMarkerName setMarkerShapeLocal "POLYLINE";
             _connectionMarkerName setMarkerPolylineLocal [_placerPos select 0, _placerPos select 1, (getPos _x) select 0, (getPos _x) select 1];
-            Rimsiakas_markersForSyncedObjectsDebugging append [_connectionMarkerName];
+            Rimsiakas_syncedObjectsMarkers append [_connectionMarkerName];
         } else {
             _connectionMarkerName setMarkerPosLocal _placerPos;
             _connectionMarkerName setMarkerPolylineLocal [_placerPos select 0, _placerPos select 1, (getPos _x) select 0, (getPos _x) select 1];
@@ -108,13 +121,13 @@ _synchronizedTriggers = (synchronizedObjects patrolCenter) select {(typeOf _x) f
         _areaMarkerName setMarkerColorLocal _color;
         _areaMarkerName setMarkerBrushLocal "SolidBorder";
         _areaMarkerName setMarkerAlphaLocal 0.6;
-        Rimsiakas_markersForSyncedObjectsDebugging append [_areaMarkerName];
+        Rimsiakas_syncedObjectsMarkers append [_areaMarkerName];
 
         createMarkerLocal [_dotMarkerName, getPos _x];
         _dotMarkerName setMarkerColorLocal _color;
         _dotMarkerName setMarkerTypeLocal "mil_dot";
         _dotMarkerName setMarkerTextLocal (str _x);
-        Rimsiakas_markersForSyncedObjectsDebugging append [_dotMarkerName];
+        Rimsiakas_syncedObjectsMarkers append [_dotMarkerName];
     };
 
     [_areaMarkerName, _x, true] call BIS_fnc_markerToTrigger;
