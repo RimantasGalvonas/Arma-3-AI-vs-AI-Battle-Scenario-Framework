@@ -19,13 +19,13 @@ createMarkerLocal ["missionAreaMarker", getPos patrolCenter];
 
 
 
-waitUntil {!isNull findDisplay MAIN_CONFIG_DIALOG_IDD};
+waitUntil {!isNull findDisplay MAIN_CONFIG_IDD};
 
-_dialog = findDisplay MAIN_CONFIG_DIALOG_IDD;
+_dialog = findDisplay MAIN_CONFIG_IDD;
 
 
 
-_map = _dialog displayCtrl MAIN_CONFIG_DIALOG_MAP_IDC;
+_map = _dialog displayCtrl MAIN_CONFIG_MAP_IDC;
 
 _map ctrlAddEventHandler ["MouseButtonClick", {
     _ctrl = _this select 0;
@@ -42,5 +42,5 @@ ctrlMapAnimCommit _map;
 
 
 
-ctrlSetText [MAIN_CONFIG_DIALOG_PATROLRADIUSVALUE_IDC, str ((patrolCenter getVariable "patrolRadius") * 2)];
-lbSetCurSel [MAIN_CONFIG_DIALOG_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];
+ctrlSetText [MAIN_CONFIG_PATROLRADIUSVALUE_IDC, str ((patrolCenter getVariable "patrolRadius") * 2)];
+lbSetCurSel [MAIN_CONFIG_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];

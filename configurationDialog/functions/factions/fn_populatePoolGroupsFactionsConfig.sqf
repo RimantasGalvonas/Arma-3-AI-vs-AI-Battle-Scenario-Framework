@@ -2,7 +2,7 @@
 
 params ["_selectedPool"];
 
-private _poolGroupsList = displayCtrl FACTIONS_CONFIG_DIALOG_SPAWNERPOOLGROUPS_IDC;
+private _poolGroupsList = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLGROUPS_IDC;
 
 lbClear _poolGroupsList;
 

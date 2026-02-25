@@ -14,7 +14,7 @@ if (!isNil {_selected get "pool"}) exitWith {
 
     switch (ctrlIDC _control) do
     {
-        case FACTIONS_CONFIG_DIALOG_SPAWNERPOOLWEIGHT_IDC: {
+        case FACTIONS_CONFIG_SPAWNERPOOLWEIGHT_IDC: {
             _selectedPoolData set ["weight", _value];
         };
     };
@@ -23,13 +23,13 @@ if (!isNil {_selected get "pool"}) exitWith {
 
 switch (ctrlIDC _control) do
 {
-    case FACTIONS_CONFIG_DIALOG_MAXUNITSPERGROUP_IDC: {
+    case FACTIONS_CONFIG_MAXUNITSPERGROUP_IDC: {
         _selectedSpawnerData set ["maxUnitsPerGroup", _value];
     };
-    case FACTIONS_CONFIG_DIALOG_MAXUNITS_IDC: {
+    case FACTIONS_CONFIG_MAXUNITS_IDC: {
         _selectedSpawnerData set ["maxUnits", _value];
     };
-    case FACTIONS_CONFIG_DIALOG_SPAWNRATE_IDC: {
+    case FACTIONS_CONFIG_SPAWNRATE_IDC: {
         _selectedSpawnerData set ["spawnRate", _value];
     };
 };

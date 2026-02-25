@@ -1,7 +1,7 @@
 #include "..\..\elementIds.hpp"
 
-private _presetListControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETLIST_IDC;
-private _presetNameControl = displayCtrl FACTION_PRESETS_DIALOG_PRESETNAME_IDC;
+private _presetListControl = displayCtrl FACTION_PRESETS_PRESETLIST_IDC;
+private _presetNameControl = displayCtrl FACTION_PRESETS_PRESETNAME_IDC;
 
 private _presetName = _presetListControl lbText (lbCurSel _presetListControl);
 

@@ -10,7 +10,7 @@
 
 sleep 0.1; // Small delay required because otherwise the Initializing... screen and validation hints are not shown.
 
-if (isNull findDisplay MAIN_CONFIG_DIALOG_IDD) then { // Check to make sure the mission selector dialog is not already opened
+if (isNull findDisplay MAIN_CONFIG_IDD) then { // Check to make sure the mission selector dialog is not already opened
     cutText ["Initializing...", "BLACK FADED", 3600, false];
 };
 

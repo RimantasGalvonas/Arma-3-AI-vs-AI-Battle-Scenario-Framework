@@ -1,6 +1,6 @@
 #include "..\..\elementIds.hpp"
 
-private _groupsConfigTree = displayCtrl FACTIONS_CONFIG_DIALOG_GROUPSCONFIGTREE_IDC;
+private _groupsConfigTree = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGTREE_IDC;
 
 {
     if (configName _x == "Empty") then {

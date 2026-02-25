@@ -1,6 +1,6 @@
 #include "..\elementIds.hpp"
 
-patrolCenter setVariable ['flaresLevel', parseNumber lbData [MAIN_CONFIG_DIALOG_FLARE_FIELD_IDC, lbCurSel MAIN_CONFIG_DIALOG_FLARE_FIELD_IDC]];
+patrolCenter setVariable ['flaresLevel', parseNumber lbData [MAIN_CONFIG_FLARE_FIELD_IDC, lbCurSel MAIN_CONFIG_FLARE_FIELD_IDC]];
 
 closeDialog 1;
 

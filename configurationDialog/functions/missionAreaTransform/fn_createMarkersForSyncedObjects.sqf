@@ -8,7 +8,7 @@ if (isNil "Rimsiakas_syncedObjectsMarkers") then {
 
 if (isNil "Rimsiakas_deleteSyncedObjectMarkersWhenClosedProcess") then {
     Rimsiakas_deleteSyncedObjectMarkersWhenClosedProcess = [] spawn {
-        waitUntil {isNull (findDisplay MAIN_CONFIG_DIALOG_IDD)};
+        waitUntil {isNull (findDisplay MAIN_CONFIG_IDD)};
         [] call Rimsiakas_fnc_deleteMarkersForSyncedObjects;
     };
 };

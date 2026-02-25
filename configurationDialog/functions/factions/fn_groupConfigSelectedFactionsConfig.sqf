@@ -2,7 +2,7 @@
 
 params ["_control", "_selectionPath"];
 
-private _addButton = displayCtrl FACTIONS_CONFIG_DIALOG_ADDGROUPBUTTON_IDC;
+private _addButton = displayCtrl FACTIONS_CONFIG_ADDGROUPBUTTON_IDC;
 
 _addButton ctrlEnable false;
 

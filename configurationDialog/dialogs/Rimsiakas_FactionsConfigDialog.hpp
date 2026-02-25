@@ -3,7 +3,7 @@
 
 class Rimsiakas_FactionsConfigDialog
 {
-    idd = FACTIONS_CONFIG_DIALOG_IDD;
+    idd = FACTIONS_CONFIG_IDD;
     movingEnabled = false;
     enableSimulation = true;
     onLoad = "call Rimsiakas_fnc_openFactionsConfig";
@@ -40,18 +40,18 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_MainBackground: Rimsiakas_MainBackground
     {
-         idc = FACTIONS_CONFIG_DIALOG_MAINBACKGROUND_IDC;
+         idc = FACTIONS_CONFIG_MAINBACKGROUND_IDC;
     };
 
     class Rimsiakas_FactionsConfigDialog_Heading: Rimsiakas_Heading
     {
-        idc = FACTIONS_CONFIG_DIALOG_HEADING_IDC;
+        idc = FACTIONS_CONFIG_HEADING_IDC;
         text = "Faction config";
     };
 
     class Rimsiakas_FactionsConfigDialog_GreenforLineFrame: RscFrame
     {
-        idc = FACTIONS_CONFIG_DIALOG_GREENFORLINEFRAME_IDC;
+        idc = FACTIONS_CONFIG_GREENFORLINEFRAME_IDC;
 
         x = MARGIN * GUI_GRID_W;
         y = 2.5 * GUI_GRID_H;
@@ -62,7 +62,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_GreenforControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_GREENFORCONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_GREENFORCONTROLGROUP_IDC;
 
         x = MARGIN * GUI_GRID_W;
         y = 2.5 * GUI_GRID_H;
@@ -73,7 +73,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_GreenforAlliesLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_GREENFORALLIESLABEL_IDC;
+                idc = FACTIONS_CONFIG_GREENFORALLIESLABEL_IDC;
                 text = "GREENFOR allied with:";
                 sizeEx = 0.035;
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -84,7 +84,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_GreenforAllies: RscXListBox
             {
-                idc = FACTIONS_CONFIG_DIALOG_GREENFORALLIES_IDC;
+                idc = FACTIONS_CONFIG_GREENFORALLIES_IDC;
                 sizeEx = 0.035;
                 x = MARGIN * 2 * GUI_GRID_W * 8.5 + GUI_GRID_X;
                 y = 0.25 * GUI_GRID_H + GUI_GRID_Y;
@@ -117,7 +117,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_FirstColumnFrame: RscFrame
     {
-        idc = FACTIONS_CONFIG_DIALOG_FIRSTCOLUMNFRAME_IDC;
+        idc = FACTIONS_CONFIG_FIRSTCOLUMNFRAME_IDC;
         x = MARGIN * GUI_GRID_W;
         y = 4.5 * GUI_GRID_H;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -127,7 +127,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_Map: RscMapControl // Can't be put in the controlsGroup according to the docs
     {
-        idc = FACTIONS_CONFIG_DIALOG_MAP_IDC; // Different ID than the other ones because this map is not responsible for moving things around
+        idc = FACTIONS_CONFIG_MAP_IDC; // Different ID than the other ones because this map is not responsible for moving things around
         x = 1 * GUI_GRID_W + GUI_GRID_X;
         y = 15 * GUI_GRID_H + GUI_GRID_Y;
         w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
@@ -136,7 +136,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_SpawnerPoolsControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_SPAWNERPOOLSCONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_SPAWNERPOOLSCONTROLGROUP_IDC;
         x = MARGIN * GUI_GRID_W + GUI_GRID_X;
         y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -146,7 +146,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolsTree: RscTreeSearch
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNERPOOLSTREE_IDC;
+                idc = FACTIONS_CONFIG_SPAWNERPOOLSTREE_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -160,7 +160,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_SecondColumnFrame: RscFrame
     {
-        idc = FACTIONS_CONFIG_DIALOG_SECONDCOLUMNFRAME_IDC;
+        idc = FACTIONS_CONFIG_SECONDCOLUMNFRAME_IDC;
         x = (MARGIN * 2 + COLUMN_WIDTH) * GUI_GRID_W;
         y = 4.15 * GUI_GRID_H;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -171,7 +171,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_SpawnerDetailsControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_SPAWNERDETAILSCONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_SPAWNERDETAILSCONTROLGROUP_IDC;
         x = (MARGIN * 2 + COLUMN_WIDTH) * GUI_GRID_W;
         y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -181,7 +181,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_MaxUnitsPerGroupLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_MAXUNITSPERGROUPLABEL_IDC;
+                idc = FACTIONS_CONFIG_MAXUNITSPERGROUPLABEL_IDC;
                 text = "Max units per group:";
                 sizeEx = 0.035;
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -192,14 +192,14 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_MaxUnitsPerGroup: Rimsiakas_FactionsConfigDialog_TextInput
             {
-                idc = FACTIONS_CONFIG_DIALOG_MAXUNITSPERGROUP_IDC;
+                idc = FACTIONS_CONFIG_MAXUNITSPERGROUP_IDC;
                 tooltip = "Groups with the amount of soldiers exceeding this number are trimmed down to the desired size.";
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
             };
 
             class Rimsiakas_FactionsConfigDialog_MaxUnitsLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_MAXUNITSLABEL_IDC;
+                idc = FACTIONS_CONFIG_MAXUNITSLABEL_IDC;
                 text = "Max units:";
                 sizeEx = 0.035;
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -210,14 +210,14 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_MaxUnits: Rimsiakas_FactionsConfigDialog_TextInput
             {
-                idc = FACTIONS_CONFIG_DIALOG_MAXUNITS_IDC;
+                idc = FACTIONS_CONFIG_MAXUNITS_IDC;
                 tooltip = "Spawner will pause when it has this number of alive spawned units.";
                 y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
             };
 
             class Rimsiakas_FactionsConfigDialog_SpawnRateLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNRATELABEL_IDC;
+                idc = FACTIONS_CONFIG_SPAWNRATELABEL_IDC;
                 text = "Spawn Rate:";
                 sizeEx = 0.035;
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -228,14 +228,14 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_SpawnRate: Rimsiakas_FactionsConfigDialog_TextInput
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNRATE_IDC;
+                idc = FACTIONS_CONFIG_SPAWNRATE_IDC;
                 tooltip = "Time delay (seconds) between spawns.";
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             };
 
             class Rimsiakas_FactionsConfigDialog_AddPoolButton: Rimsiakas_ButtonSmall
             {
-                idc = FACTIONS_CONFIG_DIALOG_ADDPOOLBUTTON_IDC;
+                idc = FACTIONS_CONFIG_ADDPOOLBUTTON_IDC;
                 text = "Add pool";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 4 * GUI_GRID_H + GUI_GRID_Y;
@@ -244,7 +244,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_ClearPoolsButton: Rimsiakas_ButtonSmall
             {
-                idc = FACTIONS_CONFIG_DIALOG_CLEARPOOLSBUTTON_IDC;
+                idc = FACTIONS_CONFIG_CLEARPOOLSBUTTON_IDC;
                 text = "Clear all pools";
                 x = (MARGIN + 3.5) * GUI_GRID_W + GUI_GRID_X;
                 y = 4 * GUI_GRID_H + GUI_GRID_Y;
@@ -256,7 +256,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_PoolDetailsControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_POOLDETAILSCONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_POOLDETAILSCONTROLGROUP_IDC;
         x = (MARGIN * 2 + COLUMN_WIDTH) * GUI_GRID_W;
         y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -266,7 +266,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolWeightLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNERPOOLWEIGHTLABEL_IDC;
+                idc = FACTIONS_CONFIG_SPAWNERPOOLWEIGHTLABEL_IDC;
                 text = "Pool selection weight:";
                 sizeEx = 0.035;
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -277,14 +277,14 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolWeight: Rimsiakas_FactionsConfigDialog_TextInput
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNERPOOLWEIGHT_IDC;
+                idc = FACTIONS_CONFIG_SPAWNERPOOLWEIGHT_IDC;
                 tooltip = "Relative likelihood of spawning a group from this pool. A higher value means the spawner will pick groups to spawn from this pool more frequently.";
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
             };
 
             class Rimsiakas_FactionsConfigDialog_PoolDetailsLabel: RscText
             {
-                idc = FACTIONS_CONFIG_DIALOG_POOLDETAILSLABEL_IDC;
+                idc = FACTIONS_CONFIG_POOLDETAILSLABEL_IDC;
                 sizeEx = 0.035;
                 text = "Groups in pool:";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -295,7 +295,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolGroups: RscListBox
             {
-                idc = FACTIONS_CONFIG_DIALOG_SPAWNERPOOLGROUPS_IDC;
+                idc = FACTIONS_CONFIG_SPAWNERPOOLGROUPS_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -307,7 +307,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_RemoveGroupButton: Rimsiakas_ButtonSmall
             {
-                idc = FACTIONS_CONFIG_DIALOG_REMOVEGROUPBUTTON_IDC;
+                idc = FACTIONS_CONFIG_REMOVEGROUPBUTTON_IDC;
                 text = "Remove selected";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 17 * GUI_GRID_H + GUI_GRID_Y;
@@ -320,7 +320,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_ThirdColumnFrame: RscFrame
     {
-        idc = FACTIONS_CONFIG_DIALOG_THIRDCOLUMNFRAME_IDC;
+        idc = FACTIONS_CONFIG_THIRDCOLUMNFRAME_IDC;
         x = (MARGIN * 3 + COLUMN_WIDTH * 2) * GUI_GRID_W;
         y = 4.5 * GUI_GRID_H;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -329,7 +329,7 @@ class Rimsiakas_FactionsConfigDialog
 
     class Rimsiakas_FactionsConfigDialog_GroupsConfigControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_GROUPSCONFIGCONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_GROUPSCONFIGCONTROLGROUP_IDC;
         x = (MARGIN * 3 + COLUMN_WIDTH * 2) * GUI_GRID_W;
         y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
         w = COLUMN_WIDTH * GUI_GRID_W;
@@ -339,7 +339,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_GroupsConfigSearch: RscEdit
             {
-                idc = FACTIONS_CONFIG_DIALOG_GROUPSCONFIGSEARCH_IDC;
+                idc = FACTIONS_CONFIG_GROUPSCONFIGSEARCH_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -350,7 +350,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_GroupsConfigSearchIcon: RscPictureKeepAspect
             {
-                idc = FACTIONS_CONFIG_DIALOG_GROUPSCONFIGSEARCHICON_IDC;
+                idc = FACTIONS_CONFIG_GROUPSCONFIGSEARCHICON_IDC;
                 x = (COLUMN_WIDTH - MARGIN - 1) * GUI_GRID_W;
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = 1 * GUI_GRID_W;
@@ -360,7 +360,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_GroupsConfigTree: RscTreeSearch
             {
-                idc = FACTIONS_CONFIG_DIALOG_GROUPSCONFIGTREE_IDC;
+                idc = FACTIONS_CONFIG_GROUPSCONFIGTREE_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -370,12 +370,12 @@ class Rimsiakas_FactionsConfigDialog
                 multiselectEnabled = 1;
                 onTreeSelChanged = "_this call Rimsiakas_fnc_groupConfigSelectedFactionsConfig;"
                 onTreeDblClick = "[] call Rimsiakas_fnc_addGroupFactionsConfig;";
-                idcSearch = FACTIONS_CONFIG_DIALOG_GROUPSCONFIGSEARCH_IDC;
+                idcSearch = FACTIONS_CONFIG_GROUPSCONFIGSEARCH_IDC;
             };
 
             class Rimsiakas_FactionsConfigDialog_AddGroupButton: Rimsiakas_ButtonSmall
             {
-                idc = FACTIONS_CONFIG_DIALOG_ADDGROUPBUTTON_IDC;
+                idc = FACTIONS_CONFIG_ADDGROUPBUTTON_IDC;
                 text = "Add selected";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 17 * GUI_GRID_H + GUI_GRID_Y;
@@ -387,7 +387,7 @@ class Rimsiakas_FactionsConfigDialog
     
     class Rimsiakas_FactionsConfigDialog_Buttons_ControlGroup: RscControlsGroup
     {
-        idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CONTROLGROUP_IDC;
+        idc = FACTIONS_CONFIG_BUTTONS_CONTROLGROUP_IDC;
         x = 0.5 * GUI_GRID_W;
         y = 23 * GUI_GRID_H + GUI_GRID_Y;
         w = 40 * COLUMN_WIDTH * GUI_GRID_W;
@@ -397,7 +397,7 @@ class Rimsiakas_FactionsConfigDialog
         {
             class Rimsiakas_FactionsConfigDialog_ConfirmButton: Rimsiakas_Button
             {
-                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CONFIRM_IDC;
+                idc = FACTIONS_CONFIG_BUTTONS_CONFIRM_IDC;
                 action = "[] call Rimsiakas_fnc_confirmFactionsConfig; closeDialog 1;";
                 text = "Confirm";
                 x = 0 * GUI_GRID_W + GUI_GRID_X;
@@ -406,7 +406,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_CancelButton: Rimsiakas_Button
             {
-                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_CANCEL_IDC;
+                idc = FACTIONS_CONFIG_BUTTONS_CANCEL_IDC;
                 action = "Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData; closeDialog 2;";
                 text = "Cancel";
                 x = 6 * GUI_GRID_W + GUI_GRID_X;
@@ -415,7 +415,7 @@ class Rimsiakas_FactionsConfigDialog
 
             class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_Button
             {
-                idc = FACTIONS_CONFIG_DIALOG_BUTTONS_FACTIONPRESETS_IDC;
+                idc = FACTIONS_CONFIG_BUTTONS_FACTIONPRESETS_IDC;
                 action = "[] spawn {createDialog 'Rimsiakas_FactionPresetsDialog';};"
                 text = "Presets";
                 x = 12 * GUI_GRID_W + GUI_GRID_X;
