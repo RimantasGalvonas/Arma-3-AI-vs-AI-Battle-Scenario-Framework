@@ -12,7 +12,15 @@ private _group = createGroup [_side, true];
 
 {
     private _tempUnitPosition = (getPos _spawner) findEmptyPosition [2, 200, _x]; // Simple starting position. The full placement logic happens in Rimsiakas_fnc_teleportSquadToRandomPosition
-    private _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call BIS_fnc_spawnVehicle;
+
+    private "_spawnedUnit";
+
+    if ((getPos _placer select 2) < 50) then {
+        _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call Rimsiakas_fnc_spawnVehicleNoFly;
+    } else {
+        _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call BIS_fnc_spawnVehicle;
+    };
+
     (_spawnedUnit select 0) disableAI "all"; // Temporarily disabled to avoid firefights breaking out while mission is initializing
 } foreach _groupConfig;
 
