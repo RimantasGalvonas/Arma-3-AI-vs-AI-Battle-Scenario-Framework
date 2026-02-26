@@ -1,3 +1,5 @@
+if (!(["Are you sure?", "Clear all pools", true, true] call BIS_fnc_guiMessage)) exitWith {};
+
 private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPoolFactionsConfig;
 
 _pool = createHashMapFromArray [

@@ -20,6 +20,8 @@ if (_selectedPresetName != _enteredPresetName && {!isNil {_savedPresets get _ent
 
 private _order = _savedPresetData getOrDefault ["order", ((_savedPresets get _highestOrderKey) get "order") + 10];
 
+if (!isNil {_savedPresetData get "preset"} && {!(["Are you sure?", "Overwrite " + _selectedPresetName, true, true] call BIS_fnc_guiMessage)}) exitWith {};
+
 _savedPresetData set ["order", _order];
 _savedPresetData set ["preset", +Rimsiakas_workingSpawnersData];
 _savedPresetData set ["readonly", false];

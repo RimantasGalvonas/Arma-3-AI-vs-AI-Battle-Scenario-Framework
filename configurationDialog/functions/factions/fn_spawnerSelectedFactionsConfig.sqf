@@ -11,8 +11,9 @@ private _groupsConfigControlGroup = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGCONT
 
 private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPoolFactionsConfig;
 
+private _spawnerData = (_selected get "spawner") get "data";
+
 if (isNil {_selected get "pool"}) then {
-    private _spawnerData = (_selected get "spawner") get "data";
     private _maxUnitsPerGroupField = displayCtrl FACTIONS_CONFIG_MAXUNITSPERGROUP_IDC;
     private _maxUnitsField = displayCtrl FACTIONS_CONFIG_MAXUNITS_IDC;
     private _spawnRateField = displayCtrl FACTIONS_CONFIG_SPAWNRATE_IDC;
@@ -31,6 +32,7 @@ if (isNil {_selected get "pool"}) then {
     _groupsConfigControlGroup ctrlShow false;
 } else {
     private _poolWeightField = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLWEIGHT_IDC;
+    private _removePoolButton = displayCtrl FACTIONS_CONFIG_REMOVEPOOLBUTTON_IDC;
 
     private _poolData = (_selected get "pool") get "data";
 
@@ -43,6 +45,12 @@ if (isNil {_selected get "pool"}) then {
     _poolPropertiesControlGroup ctrlShow true;
     _spawnerPropertiesControlGroup ctrlShow false;
     _groupsConfigControlGroup ctrlShow true;
+
+    if (count (_spawnerData get "pools") == 1) then {
+        _removePoolButton ctrlEnable false;
+    } else {
+        _removePoolButton ctrlEnable true;
+    };
 };
 
 

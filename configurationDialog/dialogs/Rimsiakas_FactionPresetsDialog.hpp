@@ -69,7 +69,7 @@ class Rimsiakas_FactionPresetsDialog
             class Rimsiakas_FactionPresetsDialog_SaveButton: Rimsiakas_FactionPresetsDialog_BottomButton
             {
                 idc = FACTION_PRESETS_SAVEBUTTON_IDC;
-                action = "[] call Rimsiakas_fnc_saveFactionPreset;";
+                action = "[] spawn Rimsiakas_fnc_saveFactionPreset;";
                 text = "Save";
                 x = 12.5 * GUI_GRID_W + GUI_GRID_X;
                 y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -94,7 +94,7 @@ class Rimsiakas_FactionPresetsDialog
             class Rimsiakas_FactionPresetsDialog_DeleteButton: Rimsiakas_FactionPresetsDialog_BottomButton
             {
                 idc = FACTION_PRESETS_DELETEBUTTON_IDC;
-                action = "[] call Rimsiakas_fnc_deleteFactionPreset;";
+                action = "[] spawn Rimsiakas_fnc_deleteFactionPreset;";
                 text = "Delete";
                 x = 12.5 * GUI_GRID_W + GUI_GRID_X;
             };

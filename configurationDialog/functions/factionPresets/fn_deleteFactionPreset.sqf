@@ -5,6 +5,8 @@ private _presetNameControl = displayCtrl FACTION_PRESETS_PRESETNAME_IDC;
 
 private _presetName = _presetListControl lbText (lbCurSel _presetListControl);
 
+if (!(["Are you sure?", "Delete " + _presetName, true, true] call BIS_fnc_guiMessage)) exitWith {};
+
 private _savedPresets = missionProfileNamespace getVariable ["Rimsiakas_factionPresets", createHashMap];
 
 private _savedPresetData = _savedPresets get _presetName;

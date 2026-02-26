@@ -249,7 +249,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = (MARGIN + 3.5) * GUI_GRID_W + GUI_GRID_X;
                 y = 4 * GUI_GRID_H + GUI_GRID_Y;
                 w = 4 * GUI_GRID_W;
-                action = "[] call Rimsiakas_fnc_clearAllPoolsFactionsConfig;"
+                action = "[] spawn Rimsiakas_fnc_clearAllPoolsFactionsConfig;"
             }
         };
     };
@@ -301,7 +301,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-                h = 14 * GUI_GRID_H;
+                h = 13 * GUI_GRID_H;
                 onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFactionsConfig";
             };
 
@@ -310,10 +310,20 @@ class Rimsiakas_FactionsConfigDialog
                 idc = FACTIONS_CONFIG_REMOVEGROUPBUTTON_IDC;
                 text = "Remove selected";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
-                y = 17 * GUI_GRID_H + GUI_GRID_Y;
+                y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 tooltip = "Can also double-click an entry";
                 action = "[] call Rimsiakas_fnc_removeGroupFactionsConfig;"
+            }
+
+            class Rimsiakas_FactionsConfigDialog_RemovePoolButton: Rimsiakas_ButtonSmall
+            {
+                idc = FACTIONS_CONFIG_REMOVEPOOLBUTTON_IDC;
+                text = "Remove pool";
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 17 * GUI_GRID_H + GUI_GRID_Y;
+                w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
+                action = "[] spawn Rimsiakas_fnc_removePoolFactionsConfig;"
             }
         };
     };
