@@ -8,18 +8,6 @@ if (surfaceIsWater (getPos _placer) && {_placer getVariable ["relocateToNearestL
 
 
 
-private _areaTriggers = _placer getVariable ["areaTriggers", []];
-private _whitelistedSearchAreas = [];
-private _blackListedSearchAreas = ["water"];
-
-if (count _areaTriggers > 0) then {
-    _whitelistedSearchAreas = _areaTriggers;
-} else {
-    _whitelistedSearchAreas = [[getPos _placer, _placer getVariable "maxSpawnRadius"]];
-    _blackListedSearchAreas append [[getPos _placer, _placer getVariable "minSpawnRadius"]];
-};
-
-
 // Child placers
 {
     if (_x getVariable "logicType" == "placer") then {
@@ -33,7 +21,7 @@ if (count _areaTriggers > 0) then {
         };
 
         if (isNil "_randomPos") then {
-            _randomPos = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
+            _randomPos = [_placer] call Rimsiakas_fnc_getRandomPosInPlacerArea;
         };
 
         _x setPos _randomPos;
@@ -84,7 +72,7 @@ if (count _areaTriggers > 0) then {
 // Spawners
 {
     if (_x getVariable "logicType" == "spawner") then {
-        _randomPos = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
+        _randomPos = [_placer] call Rimsiakas_fnc_getRandomPosInPlacerArea;
         _x setPos _randomPos;
         [_x, _placer] call Rimsiakas_fnc_initializeSpawner;
     };
@@ -117,7 +105,7 @@ if (count _areaTriggers > 0) then {
 
         if ((_randomPosition select 0) == 0) then {
             // If no flat area can be found, choose a random one
-            _randomPosition = [_whitelistedSearchAreas, _blackListedSearchAreas] call BIS_fnc_randomPos;
+            _randomPosition = [_placer] call Rimsiakas_fnc_getRandomPosInPlacerArea;
         };
 
         // Clear the chosen area

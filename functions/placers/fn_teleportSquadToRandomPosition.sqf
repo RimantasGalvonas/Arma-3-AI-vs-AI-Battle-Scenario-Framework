@@ -36,15 +36,17 @@ private _startingRoadSection = [_placer] call Rimsiakas_fnc_findRoad;
 
 
 // No road section was found
-if (isNil "_startingRoadSection" == true) exitWith {
+if (isNil "_startingRoadSection") exitWith {
     private _requiredArea = 10 + (count (_vehicles) * 5);
 
-    private _defaultPos = [[0,0],[0,0]];
+    private _defaultPos = [0, 0, 0];
 
-    private _randomPosition = [_placer, _requiredArea, 0, 0.3, 0, nil, _defaultPos] call Rimsiakas_fnc_findSafePosWithTrigger;
+    private _randomPosition = [_placer, _requiredArea, 0, 0.3, 0, ["water"], [_defaultPos]] call Rimsiakas_fnc_findSafePosWithTrigger;
 
-    if ((_randomPosition select 0) == 0) then {
-        _randomPosition = [_placer, 1, 0, 0.3, 0] call Rimsiakas_fnc_findSafePosWithTrigger;
+    if ((_randomPosition distance2D _defaultPos) < 1) then {
+        private _defaultPos = [_placer] call Rimsiakas_fnc_getRandomPosInPlacerArea;
+        _randomPosition = [_placer, 1, 0, 0.3, 0, ["water"], [_defaultPos]] call Rimsiakas_fnc_findSafePosWithTrigger; // Try to get at least something flat
+
         private _terrainObjects = nearestTerrainObjects [_randomPosition, [], _requiredArea, false];
 
         {
@@ -73,7 +75,7 @@ if (isNil "_startingRoadSection" == true) exitWith {
 
 
 // Road section was found
-if (isNil "_startingRoadSection" == false) exitWith {
+if (!isNil "_startingRoadSection") exitWith {
     private _nearbyRoadSections = nearestTerrainObjects [getPos _startingRoadSection, ["ROAD", "MAIN ROAD", "TRACK"], 100, true];
 
 
@@ -91,7 +93,7 @@ if (isNil "_startingRoadSection" == false) exitWith {
             }
         } forEach _nearbyRoadSections;
 
-        if (isNil "_availableRoadSection" == false) then {
+        if (!isNil "_availableRoadSection") then {
             _vehicle setPos (getPos _availableRoadSection);
         } else {
             // No safe road section was found, so clear an area nearby
