@@ -25,7 +25,7 @@ while {true} do {
 
     waitUntil {(!isNil "Rimsiakas_missionInitialized" && {Rimsiakas_missionInitialized == true})};
 
-    [_spawnerUnits] call Rimsiakas_fnc_reenableAI;
+    [_spawnerUnits] call Rimsiakas_fnc_reenableAIAndDamage;
 
     if (_spawnRate == 0) exitWith {};
 

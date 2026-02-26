@@ -28,7 +28,7 @@ class CfgFunctions
                 preInit = 1;
                 postInit = 1;
             };
-            class reenableAI {};
+            class reenableAIAndDamage {};
             class createIntelGrid {};
             class controlGroupSpeed {};
             class controlGroupJoining {};

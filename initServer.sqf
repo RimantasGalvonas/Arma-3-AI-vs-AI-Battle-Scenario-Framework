@@ -60,7 +60,7 @@ _placersToProcessLast = [];
 } forEach _placersToProcessLast;
 
 
-remoteExec ["Rimsiakas_fnc_reenableAI"];
+remoteExec ["Rimsiakas_fnc_reenableAIAndDamage"];
 
 
 [] spawn {

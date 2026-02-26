@@ -21,6 +21,8 @@ private _group = createGroup [_side, true];
         _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call BIS_fnc_spawnVehicle;
     };
 
+    (_spawnedUnit select 0) allowDamage false;
+    { _x allowDamage false; } foreach (_spawnedUnit select 1);
     (_spawnedUnit select 0) disableAI "all"; // Temporarily disabled to avoid firefights breaking out while mission is initializing
 } foreach _groupConfig;
 
