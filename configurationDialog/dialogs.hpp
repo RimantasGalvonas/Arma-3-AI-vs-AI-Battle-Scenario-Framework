@@ -11,6 +11,7 @@ import RscListBox;
 import RscTreeSearch;
 import RscPictureKeepAspect;
 import RscXListBox;
+import RscStructuredText;
 
 
 #include "elementIds.hpp"

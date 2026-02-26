@@ -18,9 +18,9 @@ class Rimsiakas_CustomGroupDialog
     {
         idc = CUSTOM_GROUP_FORM_BACKGROUND_IDC;
         x = 0 * GUI_GRID_W + GUI_GRID_X;
-        y = 5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 2 * GUI_GRID_H + GUI_GRID_Y;
         w = 40 * GUI_GRID_W;
-        h = 10 * GUI_GRID_H;
+        h = 18 * GUI_GRID_H;
         colorBackground[] = {0.15,0.15,0.15,0.9};
     };
 
@@ -28,53 +28,30 @@ class Rimsiakas_CustomGroupDialog
     {
         idc = CUSTOM_GROUP_FORM_CONTROLGROUP_IDC;
         x = 0 * GUI_GRID_W + GUI_GRID_X;
-        y = 5 * GUI_GRID_H + GUI_GRID_Y;
+        y = 2 * GUI_GRID_H + GUI_GRID_Y;
         w = 40 * GUI_GRID_W;
-        h = 10 * GUI_GRID_H;
+        h = 18 * GUI_GRID_H;
 
         class Controls
         {
-            class Rimsiakas_CustomGroupDialog_Instruction1: RscText
+            class Rimsiakas_CustomGroupDialog_Instruction: RscStructuredText
             {
-                idc = -1;
-                text = "Enter the config class names for the custom group in a JSON array format. For example:";
+                idc = CUSTOM_GROUP_FORM_INSTRUCTION_IDC;
+                text = "Paste an array of groups that you want to add.<br/>Groups are defined as JSON arrays containing the class names of units in the group.<br/>Example:<br/><t size=""0.66"" font=""EtelkaMonospacePro"">[<br/>  [""B_MRAP_01_F"",""B_MRAP_01_hmg_F""],                <t color=""#ff0000"">&lt;- Group 1</t><br/>  [""B_G_Offroad_01_armed_F"",""B_G_Offroad_01_AT_F""]  <t color=""#ff0000"">&lt;- Group 2</t><br/>]</t><br/>Vehicles will be spawned with crew.";
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = 39 * GUI_GRID_W;
-                h = 1 * GUI_GRID_H;
-                sizeEx = 0.035;
-            };
-
-            class Rimsiakas_CustomGroupDialog_Instruction2: RscText
-            {
-                idc = -1;
-                text = "[""B_LSV_01_armed_F"",""B_MRAP_01_hmg_F""]";
-                font = "EtelkaMonospacePro";
-                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-                y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
-                w = 39 * GUI_GRID_W;
-                h = 1 * GUI_GRID_H;
+                h = 6.5 * GUI_GRID_H;
                 sizeEx = 0.03;
-            };
-
-            class Rimsiakas_CustomGroupDialog_Instruction3: RscText
-            {
-                idc = -1;
-                text = "Vehicles will be spawned with crew.";
-                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-                y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
-                w = 39 * GUI_GRID_W;
-                h = 1 * GUI_GRID_H;
-                sizeEx = 0.035;
             };
 
             class Rimsiakas_CustomGroupDialog_Input: RscEdit
             {
                 idc = CUSTOM_GROUP_FORM_INPUT_IDC;
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-                y = 4 * GUI_GRID_H + GUI_GRID_Y;
+                y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = 39 * GUI_GRID_W;
-                h = 3.5 * GUI_GRID_H;
+                h = 8 * GUI_GRID_H;
                 style = ST_MULTI;
                 sizeEx = 0.03;
                 font = "EtelkaMonospacePro";
@@ -87,7 +64,7 @@ class Rimsiakas_CustomGroupDialog
                 action = "[] call Rimsiakas_fnc_addCustomGroupFactionsConfig;";
 
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-                y = 8 * GUI_GRID_H + GUI_GRID_Y;
+                y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = 5 * GUI_GRID_W;
                 h = 1.5 * GUI_GRID_H;
             };
@@ -99,7 +76,7 @@ class Rimsiakas_CustomGroupDialog
                 action = "closeDialog 2;";
 
                 x = 6 * GUI_GRID_W + GUI_GRID_X;
-                y = 8 * GUI_GRID_H + GUI_GRID_Y;
+                y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = 5 * GUI_GRID_W;
                 h = 1.5 * GUI_GRID_H;
             };
