@@ -2,9 +2,11 @@
 
 private _groupsConfigTree = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGTREE_IDC;
 
+if (_groupsConfigTree tvCount [0] > 0) exitWith {};
+
 {
     if (configName _x == "Empty") then {
-        continue
+        continue;
     };
 
     private _side = _x;
@@ -37,5 +39,3 @@ private _groupsConfigTree = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGTREE_IDC;
         } forEach ("true" configClasses _faction);
     } forEach ("true" configClasses _side);
 } forEach ("true" configClasses (configFile >> "cfgGroups"));
-
-Rimsiakas_groupsConfigTreePopulated = true;
