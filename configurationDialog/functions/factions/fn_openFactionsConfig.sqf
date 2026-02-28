@@ -57,30 +57,12 @@
     {
         private _spawner = _x;
 
-        private _poolsConfig = _spawner getVariable ["groupPools", []];
-
         private _spawnerData = createHashMapFromArray [
             ["maxUnitsPerGroup", _spawner getVariable ["maxUnitsPerGroup", 0]],
             ["maxUnits", _spawner getVariable ["maxUnits", 0]],
-            ["spawnRate", _spawner getVariable ["spawnRate", 0]]
+            ["spawnRate", _spawner getVariable ["spawnRate", 0]],
+            ["pools", _spawner getVariable ["pools", []]]
         ];
-
-        private _pools = [];
-
-        {
-            if (typeName _x != "ARRAY") then {
-                continue;
-            };
-
-            _poolData = createHashMapFromArray [
-                ["groups", _x],
-                ["weight", _poolsConfig select (_forEachIndex + 1)]
-            ];
-
-            _pools append [_poolData];
-        } forEach _poolsConfig;
-
-        _spawnerData set ["pools", _pools];
 
         _collectedSpawners set [str _spawner, _spawnerData];
     } forEach _spawners;

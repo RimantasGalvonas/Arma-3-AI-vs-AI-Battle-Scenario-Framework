@@ -144,22 +144,28 @@ Configure the <b>spawner</b> by setting variables for it in its <b>init</b> fiel
 <pre>
 this setVariable ["logicType", "spawner"];
 this setVariable ["maxUnitsPerGroup", 8];
-this setVariable ["spawnRate", 10];
+this setVariable ["spawnRate", 5];
 this setVariable ["maxUnits", 20];
 
-private _pool1 = [
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons",
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad"
+private _pool1 = createHashMapFromArray [
+    ["groups", [
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfAssault",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
+    ]],
+    ["weight", 10]
 ];
 
-private _pool2 = [
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Mechanized" >> "BUS_MechInfSquad",
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized" >> "BUS_MotInf_Team",
-    configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized" >> "BUS_MotInf_Reinforce"
+private _pool2 = createHashMapFromArray [
+    ["groups", [
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
+    ]],
+    ["weight", 2]
 ];
 
-this setVariable ["groupPools", [_pool1, 10, _pool2, 5]];
+this setVariable ["pools", [_pool1, _pool2]];
 
 this setVariable [
     "callback",
@@ -199,12 +205,12 @@ private _pool2 = [
 ...
 ];
 
-this setVariable ["groupPools", [_pool1, 10, _pool2, 5]];
+this setVariable ["pools", [_pool1, _pool2]];
 </pre>
 You must define at least one <b>pool</b> per spawner.
 
 
-One of the pools will be randomly selected according to assigned weights. (See [selectRandomWeighted](https://community.bistudio.com/wiki/selectRandomWeighted) for the `[_pool1, 66, _pool2, 33]` syntax explanation ).
+One of the pools will be randomly selected according to assigned weights. (See [selectRandomWeighted](https://community.bistudio.com/wiki/selectRandomWeighted) for how it works).
 Then one of the groups from that pool will be randomly selected to spawn.
 So in this example the spawner is configured to spawn one of three infantry groups ~<b>66</b>% of the time and one of three mounted groups ~<b>33</b>% of the time, every <b>10</b> seconds until <b>20</b> spawned units limit is reached.
 

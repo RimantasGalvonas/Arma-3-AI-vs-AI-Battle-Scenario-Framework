@@ -17,15 +17,8 @@ if (!isServer) then {
 
     _spawner setVariable ["maxUnitsPerGroup",_y get "maxUnitsPerGroup"];
     _spawner setVariable ["maxUnits", _y get "maxUnits"];
-    _spawner setVariable ["spawnRate",_y get "spawnRate"];
-
-    private _pools = [];
-
-    {
-        _pools append [_x get "groups", _x get "weight"];
-    } forEach (_y get "pools");
-
-    _spawner setVariable ["groupPools", _pools];
+    _spawner setVariable ["spawnRate", _y get "spawnRate"];
+    _spawner setVariable ["pools", _y get "pools"];
 
     publicVariableServer _x;
 } forEach (_data get "spawners");

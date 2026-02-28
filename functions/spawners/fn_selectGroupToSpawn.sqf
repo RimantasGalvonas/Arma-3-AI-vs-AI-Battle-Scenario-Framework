@@ -2,7 +2,15 @@ params ["_spawner"];
 
 private _maxUnitsPerGroup = _spawner getVariable ["maxUnitsPerGroup", 0];
 
-private _groupsPool = selectRandomWeighted (_spawner getVariable ["groupPools", []]);
+private _poolsAndWeights = [];
+
+{
+    _poolsAndWeights append [_x get "groups", _x get "weight"];
+} forEach (_spawner getVariable ["pools", []]);
+
+hint str _poolsAndWeights;
+
+private _groupsPool = selectRandomWeighted _poolsAndWeights;
 
 if (count _groupsPool == 0) exitWith {
     [];
