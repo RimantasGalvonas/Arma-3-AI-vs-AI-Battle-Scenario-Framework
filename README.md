@@ -141,43 +141,42 @@ this setVariable ["spawners", [<b>spawner_1</b>]];
 </li>
 <li>
 Configure the <b>spawner</b> by setting variables for it in its <b>init</b> field. Example configuration:
-<pre>
-this setVariable ["logicType", "spawner"];
-this setVariable ["maxUnitsPerGroup", 8];
-this setVariable ["spawnRate", 5];
-this setVariable ["maxUnits", 20];
 
-private _pool1 = createHashMapFromArray [
-    ["groups", [
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfAssault",
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
-    ]],
-    ["weight", 10],
-    ["vehicleCrewGrouping", false]
-];
+    this setVariable ["logicType", "spawner"];
+    this setVariable ["maxUnitsPerGroup", 8];
+    this setVariable ["spawnRate", 5];
+    this setVariable ["maxUnits", 20];
 
-private _pool2 = createHashMapFromArray [
-    ["groups", [
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad",
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",
-        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
-    ]],
-    ["weight", 2],
-    ["vehicleCrewGrouping", false]
-];
-
-this setVariable ["pools", [_pool1, _pool2]];
-
-this setVariable [
-    "callback",
-    {
-        params ["_group", "_spawner", "_placer"];
-        {addSwitchableUnit _x;} forEach units _group;
-        [_placer] call Rimsiakas_fnc_placer;
-    }
-];
-</pre>
+    private _pool1 = createHashMapFromArray [
+        ["groups", [
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfAssault",
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
+        ]],
+        ["weight", 10],
+        ["vehicleCrewGrouping", false]
+    ];
+    
+    private _pool2 = createHashMapFromArray [
+        ["groups", [
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad",
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",
+            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
+        ]],
+        ["weight", 2],
+        ["vehicleCrewGrouping", false]
+    ];
+    
+    this setVariable ["pools", [_pool1, _pool2]];
+    
+    this setVariable [
+        "callback",
+        {
+            params ["_group", "_spawner", "_placer"];
+            {addSwitchableUnit _x;} forEach units _group;
+            [_placer] call Rimsiakas_fnc_placer;
+        }
+    ];
 <ul>
 <br>
 Explanation:
