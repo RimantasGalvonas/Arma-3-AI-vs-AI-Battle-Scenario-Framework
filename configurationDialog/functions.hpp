@@ -67,6 +67,7 @@ class configurationDialogFactionConfig
     class groupConfigSelectedFactionsConfig {};
     class addCustomGroupFactionsConfig {};
     class removePoolFactionsConfig {};
+    class checkboxCheckedFactionsConfig {};
 }
 
 class configurationDialogFactionPresets

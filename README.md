@@ -153,7 +153,8 @@ private _pool1 = createHashMapFromArray [
         configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
         configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
     ]],
-    ["weight", 10]
+    ["weight", 10],
+    ["vehicleCrewGrouping", false]
 ];
 
 private _pool2 = createHashMapFromArray [
@@ -162,7 +163,8 @@ private _pool2 = createHashMapFromArray [
         configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",
         configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
     ]],
-    ["weight", 2]
+    ["weight", 2],
+    ["vehicleCrewGrouping", false]
 ];
 
 this setVariable ["pools", [_pool1, _pool2]];
@@ -220,6 +222,8 @@ private _pool1 = [
     ["B_Truck_01_ammo_F", "B_Truck_01_Repair_F"]
 ];
 </pre>
+
+The <b>vehicleCrewGrouping</b> value determines how to count spawned vehicles towards the <b>maxUnits</b> limit - the entire vehicle's crew as one or each crewman individually.
 </li>
 <li>
 <pre>

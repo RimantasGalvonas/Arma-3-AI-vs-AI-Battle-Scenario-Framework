@@ -282,15 +282,27 @@ class Rimsiakas_FactionsConfigDialog
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
             };
 
-            class Rimsiakas_FactionsConfigDialog_PoolDetailsLabel: RscText
+            class Rimsiakas_FactionsConfigDialog_VehicleCrewGroupingLabel: RscText
             {
-                idc = FACTIONS_CONFIG_POOLDETAILSLABEL_IDC;
+                idc = FACTIONS_CONFIG_POOLVEHICLECREWGROUPINGLABEL_IDC;
                 sizeEx = 0.035;
-                text = "Groups in pool:";
+                text = "Count vehicle crew as one:";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
-                w = 11 * GUI_GRID_W;
+                w = 8.5 * GUI_GRID_W;
                 h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_VehicleCrewGrouping: RscCheckBox
+            {
+                idc = FACTIONS_CONFIG_POOLVEHICLECREWGROUPING_IDC;
+                x = (COLUMN_WIDTH - MARGIN - 2) * GUI_GRID_W;
+                y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 1 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+                tooltip = "Whether to count the entire vehicle crew as a single unit for the spawner's max units limit.";
+                checked = 0;
+                onCheckedChanged = "_this call Rimsiakas_fnc_checkboxCheckedFactionsConfig;";
             };
 
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolGroups: RscListBox

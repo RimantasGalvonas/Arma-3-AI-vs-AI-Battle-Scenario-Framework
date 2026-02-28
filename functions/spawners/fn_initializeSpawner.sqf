@@ -17,7 +17,7 @@ private _syncedUnits = [];
     };
 } forEach synchronizedObjects _spawner;
 
-_spawner setVariable ["spawnedUnits", _syncedUnits];
+_spawner setVariable ["spawnedUnitsAndCrewArrays", _syncedUnits];
 
 private _spawnerProcess = [_spawner, _placer] spawn Rimsiakas_fnc_spawner;
 

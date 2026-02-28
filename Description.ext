@@ -86,6 +86,7 @@ class CfgFunctions
             class selectGroupToSpawn {};
             class spawnGroup {};
             class assignHighCommanderToSpawnedGroup {};
+            class getAliveSpawnerUnitsAndCrewArrays {};
         };
 
         class rewrites

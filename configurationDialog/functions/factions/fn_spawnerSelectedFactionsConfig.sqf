@@ -32,14 +32,18 @@ if (isNil {_selected get "pool"}) then {
     _groupsConfigControlGroup ctrlShow false;
 } else {
     private _poolWeightField = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLWEIGHT_IDC;
+    private _vehicleCrewGroupingField = displayCtrl FACTIONS_CONFIG_POOLVEHICLECREWGROUPING_IDC;
     private _removePoolButton = displayCtrl FACTIONS_CONFIG_REMOVEPOOLBUTTON_IDC;
 
     private _poolData = (_selected get "pool") get "data";
 
     [_poolData] call Rimsiakas_fnc_populatePoolGroupsFactionsConfig;
 
-    private _weight = _poolData getOrdEfault ["weight", 0];
+    private _weight = _poolData getOrDefault ["weight", 0];
     _poolWeightField ctrlSetText (str _weight);
+
+    private _vehicleCrewGrouping = _poolData getOrDefault ["vehicleCrewGrouping", false];
+    _vehicleCrewGroupingField cbSetChecked _vehicleCrewGrouping;
 
     _secondColumnFrame ctrlSetText "Groups pool properties";
     _poolPropertiesControlGroup ctrlShow true;

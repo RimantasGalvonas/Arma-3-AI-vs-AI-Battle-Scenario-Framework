@@ -5,18 +5,16 @@ private _maxUnitsPerGroup = _spawner getVariable ["maxUnitsPerGroup", 0];
 private _poolsAndWeights = [];
 
 {
-    _poolsAndWeights append [_x get "groups", _x get "weight"];
+    _poolsAndWeights append [_x, _x get "weight"];
 } forEach (_spawner getVariable ["pools", []]);
 
-hint str _poolsAndWeights;
+private _pool = selectRandomWeighted _poolsAndWeights;
 
-private _groupsPool = selectRandomWeighted _poolsAndWeights;
+private _groupConfig = selectRandom (_pool get "groups");
 
-if (count _groupsPool == 0) exitWith {
-    [];
+if (count _groupConfig == 0) exitWith {
+    [[], _pool];
 };
-
-private _groupConfig = selectRandom _groupsPool;
 
 // Convert from group config to units array
 if (typeName _groupConfig == "CONFIG") then {
@@ -36,11 +34,11 @@ if (typeName _groupConfig == "CONFIG") then {
 if (typeName _groupConfig != "ARRAY") exitWith {
     ["Spawner %1 is misconfigured.", str _spawner] call BIS_fnc_error;
 
-    [];
+    [[], _pool];
 };
 
 if (count _groupConfig == 0) exitWith {
-    [];
+    [[], _pool];
 };
 
 
@@ -52,4 +50,4 @@ if (_maxUnitsPerGroup > 0 && {count _groupConfig > _maxUnitsPerGroup}) then {
     _groupConfig resize _maxUnitsPerGroup;
 };
 
-_groupConfig;
+[_groupConfig, _pool];

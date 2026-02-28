@@ -10,6 +10,8 @@ private _side = _sideId call BIS_fnc_sideType;
 
 private _group = createGroup [_side, true];
 
+private _spawnedUnits = [];
+
 {
     private _tempUnitPosition = (getPos _spawner) findEmptyPosition [2, 200, _x]; // Simple starting position. The full placement logic happens in Rimsiakas_fnc_teleportSquadToRandomPosition
 
@@ -22,8 +24,12 @@ private _group = createGroup [_side, true];
     };
 
     (_spawnedUnit select 0) allowDamage false;
-    { _x allowDamage false; } foreach (_spawnedUnit select 1);
-    (_spawnedUnit select 0) disableAI "all"; // Temporarily disabled to avoid firefights breaking out while mission is initializing
+    {
+        _x allowDamage false;
+        (_spawnedUnit select 0) disableAI "all"; // Temporarily disabled to avoid firefights breaking out while mission is initializing
+    } foreach (_spawnedUnit select 1);
+
+    _spawnedUnits append [_spawnedUnit];
 } foreach _groupConfig;
 
 [_group, _placer] call Rimsiakas_fnc_teleportSquadToRandomPosition;
@@ -46,4 +52,4 @@ private _callback = _spawner getVariable ["callback", {}];
 
 [_group, _spawner, _placer] call _callback;
 
-_group;
+[_group, _spawnedUnits];
