@@ -21,6 +21,10 @@ private _spawnedUnits = [];
         _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call Rimsiakas_fnc_spawnVehicleNoFly;
     } else {
         _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call BIS_fnc_spawnVehicle;
+
+        private _spawnedVehicle = _spawnedUnit select 0;
+        _spawnedVehicle setVariable ["Rimsiakas_originalSpawnVelocity", velocityModelSpace _spawnedVehicle];
+        _spawnedVehicle setVariable ["Rimsiakas_originalSpawnHeight", (getPos _spawnedVehicle) select 2];
     };
 
     (_spawnedUnit select 0) allowDamage false;
