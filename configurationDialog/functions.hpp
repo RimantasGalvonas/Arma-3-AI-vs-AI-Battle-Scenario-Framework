@@ -52,22 +52,22 @@ class configurationDialogFactionConfig
     file = "configurationDialog\functions\factions";
 
     class openFactionsConfig {};
-    class populateSpawnerTreeFactionsConfig {};
-    class spawnerSelectedFactionsConfig {};
-    class inputChangedFactionsConfig {};
-    class addGroupFactionsConfig {};
-    class removeGroupFactionsConfig {};
-    class populatePoolGroupsFactionsConfig {};
-    class populateGroupsConfigTreeGroupsFactionsConfig {};
+    class factionsConfigUISpawnerSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUISpawnerSelected.sqf" };
+    class factionsConfigUIInputChanged { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIInputChanged.sqf" };
+    class factionsConfigUIGroupConfigSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIGroupConfigSelected.sqf" };
+    class factionsConfigUICheckboxChecked { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUICheckboxChecked.sqf" };
+    class populateSpawnerTree {};
+    class addGroupToPool {};
+    class removeGroupFromPool {};
+    class populatePoolGroupsList {};
+    class populateFactionGroupsConfigTree {};
     class confirmFactionsConfig {};
-    class getSelectedSpawnerAndPoolFactionsConfig {};
-    class clearAllPoolsFactionsConfig {};
-    class addPoolFactionsConfig {};
+    class getSelectedSpawnerAndPool {};
+    class clearAllPoolsInSpawner {};
+    class addPoolToSpawner {};
     class createMarkersForSpawners {};
-    class groupConfigSelectedFactionsConfig {};
-    class addCustomGroupFactionsConfig {};
-    class removePoolFactionsConfig {};
-    class checkboxCheckedFactionsConfig {};
+    class addCustomGroupToPool {};
+    class removePoolFromSpawner {};
 }
 
 class configurationDialogFactionPresets
@@ -79,5 +79,5 @@ class configurationDialogFactionPresets
     class deleteFactionPreset {};
     class saveFactionPreset {};
     class factionPresetSelected {};
-    class generateDefaultPreset {};
+    class generateDefaultFactionPreset {};
 }

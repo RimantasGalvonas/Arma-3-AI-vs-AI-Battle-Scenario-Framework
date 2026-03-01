@@ -61,7 +61,7 @@ class Rimsiakas_CustomGroupDialog
             {
                 idc = CUSTOM_GROUP_FORM_CONFIRMBUTTON_IDC;
                 text = "Confirm";
-                action = "[] call Rimsiakas_fnc_addCustomGroupFactionsConfig;";
+                action = "[] call Rimsiakas_fnc_addCustomGroupToPool;";
 
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
                 y = 16 * GUI_GRID_H + GUI_GRID_Y;

@@ -1,11 +1,11 @@
-#include "..\..\elementIds.hpp"
+#include "..\..\..\elementIds.hpp"
 
 params ["_control", "_checked"];
 
 _checked = _checked == 1;
 
 
-private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPoolFactionsConfig;
+private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPool;
 
 private _selectedSpawnerData = (_selected get "spawner") get "data";
 

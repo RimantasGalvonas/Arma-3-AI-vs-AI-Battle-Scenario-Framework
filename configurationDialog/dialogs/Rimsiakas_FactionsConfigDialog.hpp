@@ -35,7 +35,7 @@ class Rimsiakas_FactionsConfigDialog
         x = (COLUMN_WIDTH - MARGIN - 2) * GUI_GRID_W;
         w = 2 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        onEditChanged = "_this call Rimsiakas_fnc_inputChangedFactionsConfig"
+        onEditChanged = "_this call Rimsiakas_fnc_factionsConfigUIInputChanged"
     };
 
     class Rimsiakas_FactionsConfigDialog_MainBackground: Rimsiakas_MainBackground
@@ -153,7 +153,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 9.5 * GUI_GRID_H;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_spawnerSelectedFactionsConfig";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_factionsConfigUISpawnerSelected";
             };
         };
     }
@@ -239,7 +239,7 @@ class Rimsiakas_FactionsConfigDialog
                 text = "Add pool";
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 4 * GUI_GRID_H + GUI_GRID_Y;
-                action = "[] call Rimsiakas_fnc_addPoolFactionsConfig;"
+                action = "[] call Rimsiakas_fnc_addPoolToSpawner;"
             }
 
             class Rimsiakas_FactionsConfigDialog_ClearPoolsButton: Rimsiakas_ButtonSmall
@@ -249,7 +249,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = (MARGIN + 3.5) * GUI_GRID_W + GUI_GRID_X;
                 y = 4 * GUI_GRID_H + GUI_GRID_Y;
                 w = 4 * GUI_GRID_W;
-                action = "[] spawn Rimsiakas_fnc_clearAllPoolsFactionsConfig;"
+                action = "[] spawn Rimsiakas_fnc_clearAllPoolsInSpawner;"
             }
         };
     };
@@ -302,7 +302,7 @@ class Rimsiakas_FactionsConfigDialog
                 h = 1 * GUI_GRID_H;
                 tooltip = "Whether to count the entire vehicle crew as a single unit for the spawner's max units limit.";
                 checked = 0;
-                onCheckedChanged = "_this call Rimsiakas_fnc_checkboxCheckedFactionsConfig;";
+                onCheckedChanged = "_this call Rimsiakas_fnc_factionsConfigUICheckboxChecked;";
             };
 
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolGroups: RscListBox
@@ -314,7 +314,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13 * GUI_GRID_H;
-                onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFactionsConfig";
+                onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFromPool";
             };
 
             class Rimsiakas_FactionsConfigDialog_RemoveGroupButton: Rimsiakas_ButtonSmall
@@ -325,7 +325,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 tooltip = "Can also double-click an entry";
-                action = "[] call Rimsiakas_fnc_removeGroupFactionsConfig;"
+                action = "[] call Rimsiakas_fnc_removeGroupFromPool;"
             }
 
             class Rimsiakas_FactionsConfigDialog_RemovePoolButton: Rimsiakas_ButtonSmall
@@ -335,7 +335,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 17 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-                action = "[] spawn Rimsiakas_fnc_removePoolFactionsConfig;"
+                action = "[] spawn Rimsiakas_fnc_removePoolFromSpawner;"
             }
         };
     };
@@ -390,8 +390,8 @@ class Rimsiakas_FactionsConfigDialog
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13.5 * GUI_GRID_H;
                 multiselectEnabled = 1;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_groupConfigSelectedFactionsConfig;"
-                onTreeDblClick = "[] call Rimsiakas_fnc_addGroupFactionsConfig;";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_factionsConfigUIGroupConfigSelected;"
+                onTreeDblClick = "[] call Rimsiakas_fnc_addGroupToPool;";
                 idcSearch = FACTIONS_CONFIG_GROUPSCONFIGSEARCH_IDC;
             };
 
@@ -402,7 +402,7 @@ class Rimsiakas_FactionsConfigDialog
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-                action = "[] call Rimsiakas_fnc_addGroupFactionsConfig;";
+                action = "[] call Rimsiakas_fnc_addGroupToPool;";
             }
 
             class Rimsiakas_FactionsConfigDialog_AddCustomGroupButton: Rimsiakas_ButtonSmall

@@ -1,4 +1,4 @@
-#include "..\..\elementIds.hpp"
+#include "..\..\..\elementIds.hpp"
 
 params ["_control", "_path"];
 
@@ -9,7 +9,7 @@ private _spawnerPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_SPAWNERDETA
 private _poolPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_POOLDETAILSCONTROLGROUP_IDC;
 private _groupsConfigControlGroup = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGCONTROLGROUP_IDC;
 
-private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPoolFactionsConfig;
+private _selected = [] call Rimsiakas_fnc_getSelectedSpawnerAndPool;
 
 private _spawnerData = (_selected get "spawner") get "data";
 
@@ -37,7 +37,7 @@ if (isNil {_selected get "pool"}) then {
 
     private _poolData = (_selected get "pool") get "data";
 
-    [_poolData] call Rimsiakas_fnc_populatePoolGroupsFactionsConfig;
+    [_poolData] call Rimsiakas_fnc_populatePoolGroupsList;
 
     private _weight = _poolData getOrDefault ["weight", 0];
     _poolWeightField ctrlSetText (str _weight);

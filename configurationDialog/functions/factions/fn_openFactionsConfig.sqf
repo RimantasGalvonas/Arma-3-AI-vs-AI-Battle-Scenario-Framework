@@ -72,11 +72,11 @@
     if (isNil "Rimsiakas_initialSpawnersData") then {
         Rimsiakas_initialSpawnersData = +Rimsiakas_lastSavedSpawnersData;
 
-        [] call Rimsiakas_fnc_generateDefaultPreset;
+        [] call Rimsiakas_fnc_generateDefaultFactionPreset;
     };
 
 
 
-    [] call Rimsiakas_fnc_populateSpawnerTreeFactionsConfig;
-    [] call Rimsiakas_fnc_populateGroupsConfigTreeGroupsFactionsConfig;
+    [] call Rimsiakas_fnc_populateSpawnerTree;
+    [] call Rimsiakas_fnc_populateFactionGroupsConfigTree;
 };
