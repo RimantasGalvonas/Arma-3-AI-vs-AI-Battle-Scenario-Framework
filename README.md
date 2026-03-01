@@ -2,20 +2,22 @@
 This is a customizeable mission framework to be used in the Eden editor. It allows you to quickly create a variety of battle scenarios involving many AI units just by placing and configuring a few objects in the editor.
 
 #### Features
-- Randomize the position of units across a certain area and make the units roam the mission area looking for enemies.
-- Groups inform each other of known enemy locations and respond if they are able.
-- Waypoints for infantry units are placed in a way that prefers moving between and attacking from areas with cover.
-- Works on all levels of command: you can play as a simple soldier, a squad leader or a battlefield commander.
+- Randomized placement of AI units at predefined spawn areas.
+- Automatic waypoint creation that has the AI groups searching for and attacking enemies across the mission area.
+- AI groups sharing locations of known enemies with friendly units, distributing targets to attack among themselves.
+- Smart AI group movement - groups try to stick to areas with cover, pick advantageous positions to attack from, taking height advantage, amount of cover and distance from other friendly units into account. Option to have them walk slowly in covered areas and run across open terrain.
+- Ability for players to switch to another nearby group or take over as the group's leader.
+- Works on all levels of command: you can setup missions where you play as a simple soldier, a squad leader, a battlefield commander, or switch between these roles.
+- Mission configuration GUI with options to select the mission area, spawned units, weather and some AI options.
 - Colored grid on the map showing the approximate location of enemies.
-- Dynamic mission area - select the mission location on start.
-- Works from small scale engagements to battles spanning across the entire map.
+- Works from small-scale engagements to battles spanning across the entire map.
 - Suitable both for singleplayer and multiplayer scenarios.
 
 # Installation
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.4/AI-vs-AI-Battle-Scenario-Template-1.4.4.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.5.0/AI-vs-AI-Battle-Scenario-Template-1.5.0.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -654,7 +656,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
-1.5.0 (YYYY-MM-DD)
+1.5.0 (2026-03-01)
 <ul>
 <li>More powerful group spawning functionality.</li>
 <li>Spawner configuration GUI.</li>
@@ -665,7 +667,11 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Fix incorrect behavior when pressing Esc in mission location preview.</li>
 <li>Add a compass arrow icons in mission location preview.</li>
 <li>Remove the Grimes Simple Revive integration.</li>
-<li>Allow joining groups from the allied side</li>
+<li>Allow joining groups from the allied side.</li>
+<li>Move mission area transformation controls to the main config window.</li>
+<li>Fix vehicles sometimes being placed at the pre-defined default terrain position.</li>
+<li>Disable damage for a few seconds after spawning.</li>
+<li>Allow placers in the air.</li>
 </ul>
 </li>
 <li>
