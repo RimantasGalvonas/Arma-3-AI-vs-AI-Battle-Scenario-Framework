@@ -3,6 +3,7 @@ class Rimsiakas_CustomGroupDialog
     idd = CUSTOM_GROUP_FORM_IDD;
     movingEnabled = false;
     enableSimulation = true;
+    onLoad = "[] spawn Rimsiakas_fnc_openCustomGroupDialog;";
 
     controlsBackground[]=
     {
@@ -34,10 +35,21 @@ class Rimsiakas_CustomGroupDialog
 
         class Controls
         {
-            class Rimsiakas_CustomGroupDialog_Instruction: RscStructuredText
+            class Rimsiakas_CustomGroupDialog_AddInstruction: RscStructuredText
             {
-                idc = CUSTOM_GROUP_FORM_INSTRUCTION_IDC;
+                idc = CUSTOM_GROUP_FORM_ADDINSTRUCTION_IDC;
                 text = "Paste an array of groups that you want to add.<br/>Groups are defined as JSON arrays containing the class names of units in the group.<br/>Example:<br/><t size=""0.66"" font=""EtelkaMonospacePro"">[<br/>  [""B_MRAP_01_F"",""B_MRAP_01_hmg_F""],                <t color=""#ff0000"">&lt;- Group 1</t><br/>  [""B_G_Offroad_01_armed_F"",""B_G_Offroad_01_AT_F""]  <t color=""#ff0000"">&lt;- Group 2</t><br/>]</t><br/>Vehicles will be spawned with crew.";
+                x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+                y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 39 * GUI_GRID_W;
+                h = 6.5 * GUI_GRID_H;
+                sizeEx = 0.03;
+            };
+
+            class Rimsiakas_CustomGroupDialog_EditInstruction: RscStructuredText
+            {
+                idc = CUSTOM_GROUP_FORM_EDITINSTRUCTION_IDC;
+                text = "Paste an array of units you wish to be in the group.<br/><br/>Example:<br/><t size=""0.66"" font=""EtelkaMonospacePro"">[""B_MRAP_01_F"",""B_MRAP_01_hmg_F""]</t><br/><br/>Vehicles will be spawned with crew.";
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = 39 * GUI_GRID_W;

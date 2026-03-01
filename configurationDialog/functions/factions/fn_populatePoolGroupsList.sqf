@@ -12,6 +12,7 @@ lbClear _poolGroupsList;
     private _group = _x;
     private "_name";
     private "_tooltip";
+    private _data = "";
 
     if (typeName _x == "ARRAY") then {
         private _units = [];
@@ -21,6 +22,7 @@ lbClear _poolGroupsList;
 
         _name = format ["Custom group (%1)", (_units joinString ", ")];
         _tooltip = _units joinString "\n";
+        _data = "custom";
     } else {
         private _hierarchy = (configHierarchy (_group) apply {getText (_x >> "name")}) - [""];
         _name = format ["%1 (%2 / %3)", _hierarchy select -1, _hierarchy select 1, _hierarchy select 2];
@@ -29,4 +31,5 @@ lbClear _poolGroupsList;
 
     private _index = _poolGroupsList lbAdd _name;
     _poolGroupsList lbSetTooltip [_index, _tooltip];
+    _poolGroupsList lbSetData [_index, _data];
 } forEach (_selectedPool getOrDefault ["groups", []]);

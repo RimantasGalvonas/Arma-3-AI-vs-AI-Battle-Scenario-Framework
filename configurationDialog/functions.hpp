@@ -56,6 +56,7 @@ class configurationDialogFactionConfig
     class factionsConfigUIInputChanged { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIInputChanged.sqf" };
     class factionsConfigUIGroupConfigSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIGroupConfigSelected.sqf" };
     class factionsConfigUICheckboxChecked { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUICheckboxChecked.sqf" };
+    class factionsConfigUIPoolGroupSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIPoolGroupSelected.sqf" };
     class populateSpawnerTree {};
     class addGroupToPool {};
     class removeGroupFromPool {};
@@ -68,6 +69,7 @@ class configurationDialogFactionConfig
     class createMarkersForSpawners {};
     class addCustomGroupToPool {};
     class removePoolFromSpawner {};
+    class openCustomGroupDialog {};
 }
 
 class configurationDialogFactionPresets

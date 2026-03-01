@@ -70,3 +70,7 @@ _map = displayCtrl FACTIONS_CONFIG_MAP_IDC;
 _map ctrlMapAnimAdd [1, 0.5, getMarkerPos _markerName];
 
 ctrlMapAnimCommit _map;
+
+
+
+[] call Rimsiakas_fnc_factionsConfigUIPoolGroupSelected;
