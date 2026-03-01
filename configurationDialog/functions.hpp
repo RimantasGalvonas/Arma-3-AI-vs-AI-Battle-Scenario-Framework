@@ -52,11 +52,11 @@ class configurationDialogFactionConfig
     file = "configurationDialog\functions\factions";
 
     class openFactionsConfig {};
-    class factionsConfigUISpawnerSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUISpawnerSelected.sqf" };
-    class factionsConfigUIInputChanged { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIInputChanged.sqf" };
-    class factionsConfigUIGroupConfigSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIGroupConfigSelected.sqf" };
-    class factionsConfigUICheckboxChecked { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUICheckboxChecked.sqf" };
-    class factionsConfigUIPoolGroupSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIPoolGroupSelected.sqf" };
+    class factionsConfigUISpawnerSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUISpawnerSelected.sqf"; };
+    class factionsConfigUIInputChanged { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIInputChanged.sqf"; };
+    class factionsConfigUIGroupConfigSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIGroupConfigSelected.sqf"; };
+    class factionsConfigUICheckboxChecked { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUICheckboxChecked.sqf"; };
+    class factionsConfigUIPoolGroupSelected { file = "configurationDialog\functions\factions\uiEvents\fn_factionsConfigUIPoolGroupSelected.sqf"; };
     class populateSpawnerTree {};
     class addGroupToPool {};
     class removeGroupFromPool {};

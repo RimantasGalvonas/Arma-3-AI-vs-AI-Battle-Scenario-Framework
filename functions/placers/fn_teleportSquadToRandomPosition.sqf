@@ -21,6 +21,10 @@ if (count (_vehicles) == 0) exitWith {
     private _randomPosition = [_placer, 1, 0, 0.6, 0] call Rimsiakas_fnc_findSafePosWithTrigger;
     {
         private _unitPosition = _randomPosition findEmptyPosition [2, 20, typeOf _x];
+        if (count _unitPosition == 0) then {
+            _unitPosition = _randomPosition;
+        };
+
         private _azimuth = [0, 359] call BIS_fnc_randomInt;
 
         vehicle _x setPos _unitPosition; // Set on vehicle because it might be a turret

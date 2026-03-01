@@ -462,7 +462,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_AiConfigButton: Rimsiakas_Button
             {
                 idc = MAIN_CONFIG_BUTTONS_AICONFIG_IDC;
-                action = "[] spawn {createDialog 'Rimsiakas_AiConfigurationDialog';};"
+                action = "[] spawn {createDialog 'Rimsiakas_AiConfigurationDialog';};";
                 text = "AI Config";
                 x = 12 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
@@ -471,7 +471,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_FactionConfigButton: Rimsiakas_Button
             {
                 idc = MAIN_CONFIG_BUTTONS_FACTIONCONFIG_IDC;
-                action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};"
+                action = "[] spawn {createDialog 'Rimsiakas_FactionsConfigDialog';};";
                 text = "Faction Config";
                 x = 18 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
