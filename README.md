@@ -2,20 +2,23 @@
 This is a customizeable mission framework to be used in the Eden editor. It allows you to quickly create a variety of battle scenarios involving many AI units just by placing and configuring a few objects in the editor.
 
 #### Features
-- Randomize the position of units across a certain area and make the units roam the mission area looking for enemies.
-- Groups inform each other of known enemy locations and respond if they are able.
-- Waypoints for infantry units are placed in a way that prefers moving between and attacking from areas with cover.
-- Works on all levels of command: you can play as a simple soldier, a squad leader or a battlefield commander.
+- Randomized placement of AI units at predefined spawn areas.
+- Automatic waypoint creation that has the AI groups searching for and attacking enemies across the mission area.
+- AI groups sharing locations of known enemies with friendly units, distributing targets to attack among themselves.
+- Smart AI infantry group movement - groups try to stick to areas with cover, pick advantageous positions to attack from, taking height advantage, amount of cover and distance from other friendly units into account. Option to have them walk slowly in covered areas and run across open terrain.
+- Ability for players to switch to another nearby group or take over as the group's leader.
+- Mission configuration GUI with options to select the mission area, spawned units, weather and some AI options.
+- Battlefield illumination by flares at night.
 - Colored grid on the map showing the approximate location of enemies.
-- Dynamic mission area - select the mission location on start.
-- Works from small scale engagements to battles spanning across the entire map.
+- Works on all levels of command: you can setup missions where you play as a simple soldier, a squad leader, a battlefield commander, or switch between these roles.
+- Works from small-scale engagements to battles spanning across the entire map.
 - Suitable both for singleplayer and multiplayer scenarios.
 
 # Installation
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.4/AI-vs-AI-Battle-Scenario-Template-1.4.4.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.0/AI-vs-AI-Battle-Scenario-Framework-1.5.0.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -422,7 +425,7 @@ Sync your <b>triggers</b> to the <b>patrolCenter</b> entity to have them moved w
 This makes the trigger inactive until placement of units on the battlefield is finished.
 </li>
 <li>
-Using the <b>Advanced Config</b> dialog allows you to rotate and scale the mission area.<br/>When you change the scale of the mission area, the triggers the areas of triggers and placers that are synced to the <b>Patrol Center</b> entity are also scaled.<br/>
+When you scale or rotate the mission area, the triggers the areas of triggers and placers that are synced to the <b>Patrol Center</b> entity are also scaled.<br/>
 If you want the placer spawn radiuses not to change when doing this, add this variable to its init field:
 <pre>this setVariable ["scalable", false];</pre>
 Because triggers do not have an init field, you will have to use an init field of some other entity (e.g. <b>Game Logic</b>) to set this value:
@@ -566,7 +569,7 @@ The framework currently uses these default files:
 To add to these scripts without modifying the framework, you can add "extension" files in the **mission** directory. For example:
 - **mission/initPlayerLocal_pre.sqf** - contents of your file be inserted at the start of **initPlayerLocal.sqf**.
 - **mission/initPlayerLocal_post.sqf** - contents of your file be inserted at the start of **initPlayerLocal.sqf**.
-- **mission/initPlayerLocal.sqf** - **initPlayerLocal.sqf** will be replaced by the contents your file.
+- **mission/initPlayerLocal.sqf** - **initPlayerLocal.sqf** will be replaced by the contents of your file.
 
 Additionally, if you want to insert your own code into the **CfgFunctions** section of **Description.ext**, you can create a **mission\Description_functions.hpp** file.  
 
@@ -583,7 +586,7 @@ Extract these to Documents/Arma 3/missions/ and open with the Eden editor.
 <summary>Take part in a NATO assault against an area controlled by AAF and CSAT [SP/MP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.1/PartakeInAnAssaultAgainstEnemySector.Altis.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.4.1/PartakeInAnAssaultAgainstEnemySector.Altis.zip)
 
 This is the main example mission, showing off most of the available functionality and includes an explanation on how it was made in the mission diary.
 
@@ -595,16 +598,11 @@ Made on v1.4.1
 <summary>Force Through Gamemode [SP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.4.4/ForceThroughMissions.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.0/ForceThroughMissions.zip)
 
 This is the source for these missions: https://steamcommunity.com/workshop/filedetails/?id=2427506774
 
-This scenario demonstrates the possibility to add additional logic to the scenarios right in the editor without having to modify the scripts themselves. Look for the **missionLocationChangerLogic** object and expressions in the **Spawn AI** modules.
-
-Made on v1.4.4
-
-Editing tutorial:
-https://www.youtube.com/watch?v=kwI_mhtQ6OI
+Made on v1.5.0
 
 </details>
 </li>
@@ -613,7 +611,7 @@ https://www.youtube.com/watch?v=kwI_mhtQ6OI
 <summary>Survive an assault on your camp until reinforcements arrive [SP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/0.4.4/HoldOutUntilReinforcementsArrive.Altis.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/0.4.4/HoldOutUntilReinforcementsArrive.Altis.zip)
 
 An intense scenario where you must survive an attack from all sides until reinforcements arrive to eliminate the enemy threat.
 
@@ -625,7 +623,7 @@ Made on v0.4.4
 <summary>Basic battle across entire Altis [SP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Template/releases/download/1.0.1/WarAcrossAltis.Altis.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.0.1/WarAcrossAltis.Altis.zip)
 
 Basically just a benchmark to show the scalability of these scripts.
 
@@ -654,7 +652,7 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
-1.5.0 (YYYY-MM-DD)
+1.5.0 (2026-03-01)
 <ul>
 <li>More powerful group spawning functionality.</li>
 <li>Spawner configuration GUI.</li>
@@ -665,7 +663,11 @@ If you publish a scenario based on this template, please mention me in the credi
 <li>Fix incorrect behavior when pressing Esc in mission location preview.</li>
 <li>Add a compass arrow icons in mission location preview.</li>
 <li>Remove the Grimes Simple Revive integration.</li>
-<li>Allow joining groups from the allied side</li>
+<li>Allow joining groups from the allied side.</li>
+<li>Move mission area transformation controls to the main config window.</li>
+<li>Fix vehicles sometimes being placed at the pre-defined default terrain position.</li>
+<li>Disable damage for a few seconds after spawning.</li>
+<li>Allow placers in the air.</li>
 </ul>
 </li>
 <li>
