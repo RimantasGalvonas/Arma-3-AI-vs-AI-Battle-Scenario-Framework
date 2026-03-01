@@ -67,8 +67,8 @@ _markerName = "spawnerMarker" + ((_selected get "spawner") get "name");
 _markerName setMarkerColorLocal "colorBlue";
 
 _map = displayCtrl FACTIONS_CONFIG_MAP_IDC;
+ctrlMapAnimClear _map;
 _map ctrlMapAnimAdd [1, 0.5, getMarkerPos _markerName];
-
 ctrlMapAnimCommit _map;
 
 
