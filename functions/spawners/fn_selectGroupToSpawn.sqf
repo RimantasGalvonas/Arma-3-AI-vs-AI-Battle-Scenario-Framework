@@ -12,7 +12,7 @@ private _pool = selectRandomWeighted _poolsAndWeights;
 
 private _groupConfig = selectRandom (_pool get "groups");
 
-if (count _groupConfig == 0) exitWith {
+if (isNil "_groupConfig" || {count _groupConfig == 0}) exitWith {
     [[], _pool];
 };
 

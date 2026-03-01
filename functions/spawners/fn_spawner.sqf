@@ -7,13 +7,13 @@ while {true} do {
 
     if (_spawnRate > 0 && {_maxUnitsPerSpawner > 0 && {count (_allSpawnerUnits) >= _maxUnitsPerSpawner}}) then {
         sleep _spawnRate;
-
         continue;
     };
 
     ([_spawner] call Rimsiakas_fnc_selectGroupToSpawn) params ["_groupConfig", "_pool"];
 
-    if (count _groupConfig == 0) then {
+    if (isNil "_groupConfig" || {count _groupConfig == 0}) then {
+        sleep _spawnRate;
         continue;
     };
 
