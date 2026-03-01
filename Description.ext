@@ -76,6 +76,7 @@ class CfgFunctions
             class findNearestLand {};
             class getVehicleClassesInGroup {};
             class getRandomPosInPlacerArea {};
+            class resetOriginalSpawnHeightAndVelocity {};
         };
 
         class spawners
