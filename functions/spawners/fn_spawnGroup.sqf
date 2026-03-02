@@ -18,6 +18,7 @@ private _spawnedUnits = [];
     private "_spawnedUnit";
 
     if ((getPos _placer select 2) < 50) then {
+        _tempUnitPosition set [2, [10000, 30000] call BIS_fnc_randomInt]; // Spawn very high above the ground to avoid collisions
         _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call Rimsiakas_fnc_spawnVehicleNoFly;
     } else {
         _spawnedUnit = [_tempUnitPosition, 0, _x, _group] call BIS_fnc_spawnVehicle;
