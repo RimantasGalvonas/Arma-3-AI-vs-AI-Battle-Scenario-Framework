@@ -153,7 +153,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 9.5 * GUI_GRID_H;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_factionsConfigUISpawnerSelected;";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_spawnerSelected;";
             };
         };
     }
@@ -314,7 +314,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13 * GUI_GRID_H;
-                onLBSelChanged = "_this call Rimsiakas_fnc_factionsConfigUIPoolGroupSelected";
+                onLBSelChanged = "_this call Rimsiakas_fnc_poolGroupSelected";
                 onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFromPool";
             };
 
@@ -424,7 +424,7 @@ class Rimsiakas_FactionsConfigDialog
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13.5 * GUI_GRID_H;
                 multiselectEnabled = 1;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_factionsConfigUIGroupConfigSelected;";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_groupConfigSelected;";
                 onTreeDblClick = "[] call Rimsiakas_fnc_addGroupToPool;";
                 idcSearch = FACTIONS_CONFIG_GROUPSCONFIGSEARCH_IDC;
             };

@@ -1,4 +1,4 @@
-#include "..\..\elementIds.hpp"
+#include "..\elementIds.hpp"
 
 [] spawn {
     waitUntil {!isNull findDisplay FACTIONS_CONFIG_IDD};

@@ -1,4 +1,4 @@
-#include "..\..\..\elementIds.hpp"
+#include "..\..\elementIds.hpp"
 
 private _control = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLGROUPS_IDC;
 private _lbCurSel = lbCurSel _control; // Can't use event params because this function gets also called manually

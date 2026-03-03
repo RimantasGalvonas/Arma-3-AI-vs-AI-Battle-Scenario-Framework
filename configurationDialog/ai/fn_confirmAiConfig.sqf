@@ -1,4 +1,4 @@
-#include "..\..\elementIds.hpp"
+#include "..\elementIds.hpp"
 
 private _patrolFormation = lbData [AI_CONFIG_PATROLFORMATION_IDC, lbCurSel AI_CONFIG_PATROLFORMATION_IDC];
 patrolCenter setVariable ["aiConfigPatrolFormation", _patrolFormation, true];

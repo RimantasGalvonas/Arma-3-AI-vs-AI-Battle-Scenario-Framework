@@ -1,4 +1,4 @@
-#include "..\..\elementIds.hpp"
+#include "..\elementIds.hpp"
 
 private _factionConfigDialog = findDisplay FACTIONS_CONFIG_IDD;
 

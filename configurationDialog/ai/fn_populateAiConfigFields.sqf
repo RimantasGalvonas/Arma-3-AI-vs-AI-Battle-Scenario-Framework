@@ -1,4 +1,4 @@
-#include "..\..\elementIds.hpp"
+#include "..\elementIds.hpp"
 
 [] spawn {
     waitUntil {!isNull findDisplay AI_CONFIG_IDD};

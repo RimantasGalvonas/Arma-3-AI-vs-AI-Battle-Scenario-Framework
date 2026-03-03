@@ -1,4 +1,4 @@
-#include "..\..\..\elementIds.hpp"
+#include "..\..\elementIds.hpp"
 
 params ["_control", "_path"];
 
@@ -73,4 +73,4 @@ ctrlMapAnimCommit _map;
 
 
 
-[] call Rimsiakas_fnc_factionsConfigUIPoolGroupSelected;
+[] call Rimsiakas_fnc_poolGroupSelected;
