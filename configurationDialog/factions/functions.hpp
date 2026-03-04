@@ -17,8 +17,10 @@ class configurationDialogFactionConfig
     class spawnerSelected { file = "configurationDialog\factions\spawners\fn_spawnerSelected.sqf"; };
 
     class addGroupToPool { file = "configurationDialog\factions\pools\fn_addGroupToPool.sqf"; };
-    class poolGroupSelected { file = "configurationDialog\factions\pools\fn_poolGroupSelected.sqf"; };
+    class copyPoolGroups { file = "configurationDialog\factions\pools\fn_copyPoolGroups.sqf"; };
     class groupConfigSelected { file = "configurationDialog\factions\pools\fn_groupConfigSelected.sqf"; };
+    class pasteGroupsIntoPool { file = "configurationDialog\factions\pools\fn_pasteGroupsIntoPool.sqf"; };
+    class poolGroupSelected { file = "configurationDialog\factions\pools\fn_poolGroupSelected.sqf"; };
     class populateFactionGroupsConfigTree { file = "configurationDialog\factions\pools\fn_populateFactionGroupsConfigTree.sqf"; };
     class populatePoolGroupsList { file = "configurationDialog\factions\pools\fn_populatePoolGroupsList.sqf"; };
     class removeGroupFromPool { file = "configurationDialog\factions\pools\fn_removeGroupFromPool.sqf"; };

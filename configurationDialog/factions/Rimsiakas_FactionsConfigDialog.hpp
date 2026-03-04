@@ -313,21 +313,53 @@ class Rimsiakas_FactionsConfigDialog
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-                h = 13 * GUI_GRID_H;
+                h = 12 * GUI_GRID_H;
                 onLBSelChanged = "_this call Rimsiakas_fnc_poolGroupSelected";
                 onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFromPool";
             };
 
-           class Rimsiakas_FactionsConfigDialog_RemoveGroupButton: Rimsiakas_ButtonSmall
-           {
-               idc = FACTIONS_CONFIG_REMOVEGROUPBUTTON_IDC;
-               text = "Remove selected";
-               x = MARGIN * GUI_GRID_W + GUI_GRID_X;
-               y = 16 * GUI_GRID_H + GUI_GRID_Y;
-               w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
-               tooltip = "Can also double-click an entry";
-               action = "[] call Rimsiakas_fnc_removeGroupFromPool;";
-           }
+            class Rimsiakas_FactionsConfigDialog_CopyPasteButtonsControlGroup: RscControlsGroup
+            {
+                idc = FACTIONS_CONFIG_COPYPASTEBUTTONSCONTROLGROUP_IDC;
+                x = 0;
+                y = 15 * GUI_GRID_H + GUI_GRID_Y;
+                w = COLUMN_WIDTH * GUI_GRID_W;
+                h = 1 * GUI_GRID_W;
+
+                class Controls
+                {
+                    class Rimsiakas_FactionsConfigDialog_CopyButton: Rimsiakas_ButtonSmall
+                    {
+                        idc = FACTIONS_CONFIG_COPYPASTEBUTTONS_COPY_IDC;
+                        text = "Copy";
+                        x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                        y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                        w = (COLUMN_WIDTH / 2 - MARGIN * 1.5) * GUI_GRID_W;
+                        action = "[] call Rimsiakas_fnc_copyPoolGroups;";
+                    }
+
+                    class Rimsiakas_FactionsConfigDialog_PasteButton: Rimsiakas_ButtonSmall
+                    {
+                        idc = FACTIONS_CONFIG_COPYPASTEBUTTONS_PASTE_IDC;
+                        text = "Paste";
+                        x = (COLUMN_WIDTH / 2 + MARGIN * 0.5) * GUI_GRID_W + GUI_GRID_X;
+                        y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                        w = (COLUMN_WIDTH / 2 - MARGIN * 1.5) * GUI_GRID_W;
+                        action = "[] call Rimsiakas_fnc_pasteGroupsIntoPool;";
+                    }
+                }
+            };
+
+            class Rimsiakas_FactionsConfigDialog_RemoveGroupButton: Rimsiakas_ButtonSmall
+            {
+                idc = FACTIONS_CONFIG_REMOVEGROUPBUTTON_IDC;
+                text = "Remove selected";
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 16 * GUI_GRID_H + GUI_GRID_Y;
+                w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
+                tooltip = "Can also double-click an entry";
+                action = "[] call Rimsiakas_fnc_removeGroupFromPool;";
+            }
 
             class Rimsiakas_FactionsConfigDialog_CustomGroupButtonsControlGroup: RscControlsGroup
             {
