@@ -52,7 +52,7 @@ class Rimsiakas_FactionPresetsDialog
                 y = MARGIN * GUI_GRID_H + GUI_GRID_Y;
                 w = (WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13.5 * GUI_GRID_H;
-                onLBSelChanged = "[] call Rimsiakas_fnc_factionPresetSelected;";
+                onLBSelChanged = "[] call Rimsiakas_fnc_onPresetListSelectionChange;";
             };
 
             class Rimsiakas_FactionPresetsDialog_PresetName: RscEdit

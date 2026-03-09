@@ -7,7 +7,7 @@
 
     private _sortedPresetKeys = [keys _presets, [_presets], {(_input0 get _x) get "order"}, "ASCEND"] call BIS_fnc_sortBy;
 
-    private _presetsList = displayCtrl 500002;
+    private _presetsList = displayCtrl FACTION_PRESETS_PRESETLIST_IDC;
 
     lbClear _presetsList;
 

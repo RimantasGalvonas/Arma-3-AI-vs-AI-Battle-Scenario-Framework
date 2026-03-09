@@ -35,7 +35,7 @@ class Rimsiakas_FactionsConfigDialog
         x = (COLUMN_WIDTH - MARGIN - 2) * GUI_GRID_W;
         w = 2 * GUI_GRID_W;
         h = 1 * GUI_GRID_H;
-        onEditChanged = "_this call Rimsiakas_fnc_factionsConfigUIInputChanged;";
+        onEditChanged = "_this call Rimsiakas_fnc_onFactionsConfigTextInputChange;";
     };
 
     class Rimsiakas_FactionsConfigDialog_MainBackground: Rimsiakas_MainBackground
@@ -153,7 +153,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 9.5 * GUI_GRID_H;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_spawnerSelected;";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_onSpawnerPoolsTreeSelectionChange;";
             };
         };
     }
@@ -302,7 +302,7 @@ class Rimsiakas_FactionsConfigDialog
                 h = 1 * GUI_GRID_H;
                 tooltip = "Whether to count the entire vehicle crew as a single unit for the spawner's max units limit.";
                 checked = 0;
-                onCheckedChanged = "_this call Rimsiakas_fnc_factionsConfigUICheckboxChecked;";
+                onCheckedChanged = "_this call Rimsiakas_fnc_onFactionsConfigCheckboxCheck;";
             };
 
             class Rimsiakas_FactionsConfigDialog_SpawnerPoolGroups: RscListBox
@@ -314,7 +314,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 12 * GUI_GRID_H;
-                onLBSelChanged = "_this call Rimsiakas_fnc_poolGroupSelected";
+                onLBSelChanged = "_this call Rimsiakas_fnc_onPoolGroupListSelectionChange";
                 onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFromPool";
             };
 
@@ -456,7 +456,7 @@ class Rimsiakas_FactionsConfigDialog
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 13.5 * GUI_GRID_H;
                 multiselectEnabled = 1;
-                onTreeSelChanged = "_this call Rimsiakas_fnc_groupConfigSelected;";
+                onTreeSelChanged = "_this call Rimsiakas_fnc_onGroupConfigTreeSelectionChange;";
                 onTreeDblClick = "[] call Rimsiakas_fnc_addGroupToPool;";
                 idcSearch = FACTIONS_CONFIG_GROUPSCONFIGSEARCH_IDC;
             };
