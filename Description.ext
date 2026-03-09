@@ -6,8 +6,6 @@
     #include "mission\Description.ext"
 #else
 
-#include "CHVD\dialog.hpp"
-
 #include "configurationDialog\dialogs.hpp"
 
 class CfgFunctions
@@ -15,8 +13,6 @@ class CfgFunctions
     #if __has_include("mission\Description_functions.hpp")
         #include "mission\Description_functions.hpp"
     #endif
-
-    #include "CHVD\CfgFunctions.hpp"
 
     class Rimsiakas
     {

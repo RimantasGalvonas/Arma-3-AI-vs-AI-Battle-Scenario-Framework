@@ -638,15 +638,6 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 - [Reddit](https://www.reddit.com/r/armadev/comments/l8y1wy/ai_vs_ai_battle_scenario_template/)
 - [Steam](https://steamcommunity.com/app/107410/discussions/18/3104638636520370752/)
 
-# Credits
-Currently, this framework uses these scripts from other developers:
-
-- [CH View Distance Script by Champ-1](https://www.armaholic.com/page.php?id=27390)
-
-Thanks!
-
-If you publish a scenario based on this template, please mention me in the credits as well.
-
 # Changelog
 <details>
 <summary>Open changelog</summary>
@@ -655,6 +646,7 @@ If you publish a scenario based on this template, please mention me in the credi
 1.5.2 (YYYY-MM-DD)
 <ul>
 <li>Option to add extra ammo to spawned units.</li>
+<li>Remove CHVD integration.</li>
 </ul>
 </li>
 <li>

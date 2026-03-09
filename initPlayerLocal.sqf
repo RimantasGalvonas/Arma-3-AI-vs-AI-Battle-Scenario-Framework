@@ -44,8 +44,6 @@ if (patrolCenter getVariable ["dynamic", false] && {!isServer && {isNil "Rimsiak
 waitUntil {(!isNil "Rimsiakas_missionInitialized" && {Rimsiakas_missionInitialized == true})};
 
 
-player setVariable ["CHVD_initialized", true];
-
 
 [] call Rimsiakas_fnc_createIntelGrid;
 [] call Rimsiakas_fnc_displayFriendlyGroupTargets;
@@ -63,11 +61,6 @@ addMissionEventHandler ["TeamSwitch", {
     setGroupIconsVisible [true, false];
 
     _from enableAI "all";
-
-    if (!(_to getVariable ["CHVD_initialized", false])) then {
-        call CHVD_fnc_init;
-        _to setVariable ["CHVD_initialized", true];
-    };
 
     [] call Rimsiakas_fnc_addGroupActions;
 }];
