@@ -73,4 +73,4 @@ ctrlMapAnimCommit _map;
 
 
 
-[] call Rimsiakas_fnc_poolGroupSelected;
+[] call Rimsiakas_fnc_onPoolGroupListSelectionChange;
