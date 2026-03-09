@@ -28,5 +28,6 @@ import RscStructuredText;
 #include "areaPreview\Rimsiakas_MissionAreaPreviewDialog.hpp"
 #include "factions\Rimsiakas_FactionsConfigDialog.hpp"
 #include "factions\customGroup\Rimsiakas_CustomGroupDialog.hpp"
+#include "factions\inventory\Rimsiakas_AllowedInventoryAdjustmentItemsDialog.hpp"
 #include "factions\presets\Rimsiakas_FactionPresetsDialog.hpp"
 #include "main\Rimsiakas_MainConfigDialog.hpp"

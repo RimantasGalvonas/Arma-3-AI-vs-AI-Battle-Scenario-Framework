@@ -296,6 +296,81 @@ class Rimsiakas_FactionsConfigDialog
                 idc = FACTIONS_CONFIG_MAXEXTRAMAGAZINES_IDC;
                 y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
             };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustLabel: RscText
+            {
+                idc = -1; // TODO
+                text = "Chance to add/remove (%):";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 10 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustNVGsLabel: RscText
+            {
+                idc = -1; // TODO
+                text = "NVGs:";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 8 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustNVGs: Rimsiakas_FactionsConfigDialog_TextInput
+            {
+                idc = -1; // TODO
+                tooltip = "-100 to always remove, 100 to always add, 0 for no adjustment.";
+                y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustSuppressorsLabel: RscText
+            {
+                idc = -1; // TODO
+                text = "Suppressors:";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 8 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustSuppressors: Rimsiakas_FactionsConfigDialog_TextInput
+            {
+                idc = -1; // TODO
+                tooltip = "-100 to always remove, 100 to always add, 0 for no adjustment.";
+                y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustOpticsLabel: RscText
+            {
+                idc = -1; // TODO
+                text = "Optics:";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 12.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 8 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_ChanceToAdjustOptics: Rimsiakas_FactionsConfigDialog_TextInput
+            {
+                idc = -1; // TODO
+                tooltip = "-100 to always remove, 100 to always add, 0 for no adjustment.";
+                y = 12.5 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_AdjustAllowedItemsButton: Rimsiakas_ButtonSmall
+            {
+                idc = -1; // TODO
+                text = "Adjust allowed items";
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 14 * GUI_GRID_H + GUI_GRID_Y;
+                w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
+                action = "createDialog 'Rimsiakas_AllowedInventoryAdjustmentItemsDialog';";
+            }
         };
     };
 

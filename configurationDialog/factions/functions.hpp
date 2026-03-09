@@ -12,6 +12,12 @@ class configurationDialogFactionConfig
     class populateVehiclesConfigTree { file = "configurationDialog\factions\customGroup\fn_populateVehiclesConfigTree.sqf"; };
     class removeVehicleFromGroup { file = "configurationDialog\factions\customGroup\fn_removeVehicleFromGroup.sqf"; };
 
+    class addItemToAllowedItemsTree { file = "configurationDialog\factions\inventory\fn_addItemToAllowedItemsTree.sqf"; };
+    class onInventoryAdjustmentItemTreeSelectionChange { file = "configurationDialog\factions\inventory\fn_onInventoryAdjustmentItemTreeSelectionChange.sqf"; };
+    class openAllowedInventoryAdjustmentItemsDialog { file = "configurationDialog\factions\inventory\fn_openAllowedInventoryAdjustmentItemsDialog.sqf"; };
+    class populateInventoryAdjustmentItemsTree { file = "configurationDialog\factions\inventory\fn_populateInventoryAdjustmentItemsTree.sqf"; };
+    class removeItemFromAllowedItemsTree { file = "configurationDialog\factions\inventory\fn_removeItemFromAllowedItemsTree.sqf"; };
+
     class addGroupToPool { file = "configurationDialog\factions\pools\fn_addGroupToPool.sqf"; };
     class copyPoolGroups { file = "configurationDialog\factions\pools\fn_copyPoolGroups.sqf"; };
     class onGroupConfigTreeSelectionChange { file = "configurationDialog\factions\pools\fn_onGroupConfigTreeSelectionChange.sqf"; };
