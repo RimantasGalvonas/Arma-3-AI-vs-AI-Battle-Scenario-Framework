@@ -61,6 +61,7 @@
             ["maxUnitsPerGroup", _spawner getVariable ["maxUnitsPerGroup", 0]],
             ["maxUnits", _spawner getVariable ["maxUnits", 0]],
             ["spawnRate", _spawner getVariable ["spawnRate", 0]],
+            ["inventoryAdjustments", _spawner getVariable ["inventoryAdjustments", createHashMap]],
             ["pools", _spawner getVariable ["pools", []]]
         ];
 

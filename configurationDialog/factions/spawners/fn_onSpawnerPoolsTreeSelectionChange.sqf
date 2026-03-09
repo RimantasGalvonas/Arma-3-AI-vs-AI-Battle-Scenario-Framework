@@ -17,14 +17,21 @@ if (isNil {_selected get "pool"}) then {
     private _maxUnitsPerGroupField = displayCtrl FACTIONS_CONFIG_MAXUNITSPERGROUP_IDC;
     private _maxUnitsField = displayCtrl FACTIONS_CONFIG_MAXUNITS_IDC;
     private _spawnRateField = displayCtrl FACTIONS_CONFIG_SPAWNRATE_IDC;
+    private _maxUnitLoadField = displayCtrl FACTIONS_CONFIG_MAXUNITLOAD_IDC;
+    private _maxExtraMagsField = displayCtrl FACTIONS_CONFIG_MAXEXTRAMAGAZINES_IDC;
 
     private _maxUnitsPerGroup = _spawnerData getOrDefault ["maxUnitsPerGroup", []];
     private _maxUnits = _spawnerData getOrDefault ["maxUnits", []];
     private _spawnRate = _spawnerData getOrDefault ["spawnRate", []];
+    private _inventoryAdjustments = _spawnerData getOrDefault ["inventoryAdjustments", createHashMap, true];
+    private _maxUnitLoad = _inventoryAdjustments getOrDefault ["maxUnitLoad", 0, true];
+    private _maxExtraMags = _inventoryAdjustments getOrDefault ["maxExtraMags", 0, true];
 
     _maxUnitsPerGroupField ctrlSetText (str _maxUnitsPerGroup);
     _maxUnitsField ctrlSetText (str _maxUnits);
     _spawnRateField ctrlSetText (str _spawnRate);
+    _maxUnitLoadField ctrlSetText (str _maxUnitLoad);
+    _maxExtraMagsField ctrlSetText (str _maxExtraMags);
 
     _secondColumnFrame ctrlSetText "Spawner properties";
     _spawnerPropertiesControlGroup ctrlShow true;

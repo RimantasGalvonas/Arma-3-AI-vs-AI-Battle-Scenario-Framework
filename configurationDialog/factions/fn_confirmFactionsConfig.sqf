@@ -19,6 +19,7 @@ if (!isServer) then {
     _spawner setVariable ["maxUnits", _y get "maxUnits"];
     _spawner setVariable ["spawnRate", _y get "spawnRate"];
     _spawner setVariable ["pools", _y get "pools"];
+    _spawner setVariable ["inventoryAdjustments", _y get "inventoryAdjustments"];
 
     publicVariableServer _x;
 } forEach (_data get "spawners");

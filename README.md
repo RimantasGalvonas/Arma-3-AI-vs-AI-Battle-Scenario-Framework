@@ -652,6 +652,13 @@ If you publish a scenario based on this template, please mention me in the credi
 <summary>Open changelog</summary>
 <ul>
 <li>
+1.5.2 (YYYY-MM-DD)
+<ul>
+<li>Option to add extra ammo to spawned units.</li>
+</ul>
+</li>
+<li>
+<li>
 1.5.1 (2026-03-04)
 <ul>
 <li>Improve custom group GUI with vehicle config tree.</li>

@@ -251,6 +251,51 @@ class Rimsiakas_FactionsConfigDialog
                 w = 4 * GUI_GRID_W;
                 action = "[] spawn Rimsiakas_fnc_clearAllPoolsInSpawner;";
             }
+
+            class Rimsiakas_FactionsConfigDialog_AdditionalAmmoLabel: RscText
+            {
+                idc = FACTIONS_CONFIG_ADDITIONALAMMOLABEL_IDC;
+                text = "Additional ammo:";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 5.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 10 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_MaxUnitLoadLabel: RscText
+            {
+                idc = FACTIONS_CONFIG_MAXUNITLOADLABEL_IDC;
+                text = "Max unit load (%):";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 9 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_MaxUnitLoad: Rimsiakas_FactionsConfigDialog_TextInput
+            {
+                idc = FACTIONS_CONFIG_MAXUNITLOAD_IDC;
+                y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_MaxMagazinesLabel: RscText
+            {
+                idc = FACTIONS_CONFIG_MAXEXTRAMAGAZINESLABEL_IDC;
+                text = "Max extra magazines:";
+                sizeEx = 0.035;
+                x = MARGIN * GUI_GRID_W + GUI_GRID_X;
+                y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
+                w = 9 * GUI_GRID_W;
+                h = 1 * GUI_GRID_H;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_MaxExtraMagazines: Rimsiakas_FactionsConfigDialog_TextInput
+            {
+                idc = FACTIONS_CONFIG_MAXEXTRAMAGAZINES_IDC;
+                y = 7.5 * GUI_GRID_H + GUI_GRID_Y;
+            };
         };
     };
 

@@ -44,6 +44,7 @@ if ("Support" in ([_group] call Rimsiakas_fnc_getVehicleClassesInGroup)) then {
     private _waypoint = _group addWaypoint [(getPos leader _group), 0];
     _waypoint setWaypointType "SUPPORT";
 } else {
+    [_group, _spawner] call Rimsiakas_fnc_adjustInventoryForSpawnedGroup;
     [_group] call Rimsiakas_fnc_searchForEnemies;
     [_group] call Rimsiakas_fnc_orientGroupTowardsWaypoint;
 
