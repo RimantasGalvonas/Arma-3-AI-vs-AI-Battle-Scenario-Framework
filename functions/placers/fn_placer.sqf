@@ -82,14 +82,6 @@ if (surfaceIsWater (getPos _placer) && {_placer getVariable ["relocateToNearestL
 
 
 
-// Units from groups variable
-{
-    [_placer, _x] call Rimsiakas_fnc_squadSpawner;
-    {_x disableAI "all"} forEach allUnits; // Temporarily disabled to avoid firefights breaking out while mission is initializing
-} forEach (_placer getVariable "groups");
-
-
-
 // Camps
 {
     [_x, _placer] call Rimsiakas_fnc_spawnCamp;
