@@ -74,7 +74,7 @@ player addEventHandler ["Killed", {
     } forEach hcAllGroups _unit;
 }];
 
-
+[] call Rimsiakas_fnc_generateLastPlayedFactionPreset;
 
 cutText ["", "BLACK IN", 1];
 

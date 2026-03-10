@@ -648,6 +648,7 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 <li>Option to add extra ammo to spawned units.</li>
 <li>Remove CHVD integration.</li>
 <li>Placer param to skip generating waypoints.</li>
+<li>Generate last played factions preset.</li>
 </ul>
 </li>
 <li>

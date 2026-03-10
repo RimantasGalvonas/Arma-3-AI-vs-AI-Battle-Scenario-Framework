@@ -23,6 +23,7 @@ class configurationDialogFactionConfig
 
     class deleteFactionPreset { file = "configurationDialog\factions\presets\fn_deleteFactionPreset.sqf"; };
     class generateDefaultFactionPreset { file = "configurationDialog\factions\presets\fn_generateDefaultFactionPreset.sqf"; };
+    class generateLastPlayedFactionPreset { file = "configurationDialog\factions\presets\fn_generateLastPlayedFactionPreset.sqf"; };
     class loadFactionPreset { file = "configurationDialog\factions\presets\fn_loadFactionPreset.sqf"; };
     class onPresetListSelectionChange { file = "configurationDialog\factions\presets\fn_onPresetListSelectionChange.sqf"; };
     class openFactionPresets { file = "configurationDialog\factions\presets\fn_openFactionPresets.sqf"; };
