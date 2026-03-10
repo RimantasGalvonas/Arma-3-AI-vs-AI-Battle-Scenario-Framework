@@ -66,20 +66,18 @@ Rimsiakas_missionAreaPreviewProcessId = [] spawn {
 
     // Camera movement
     private _pos = getMarkerPos "missionAreaMarker";
-    private _posX = _pos select 0;
-    private _posY = _pos select 1;
     private _radius = ((getMarkerSize "missionAreaMarker") select 0) * 1.5;
     private _altitude = 300;
 
-    private _coords = [_pos, _radius, 0] call BIS_fnc_relPos;
+    private _coords = _pos getPos [_radius, 180];
     _coords set [2, _altitude];
 
     Rimsiakas_missionAreaPreviewCamera = "camera" camCreate _coords;
     Rimsiakas_missionAreaPreviewCamera camPrepareTarget _pos;
     Rimsiakas_missionAreaPreviewCamera cameraEffect ["internal", "back"];
 
-    for "_angle" from 0 to 360 do {
-        _coords = [_pos, _radius, _angle] call BIS_fnc_relPos;
+    for "_angle" from 180 to 540 do {
+        _coords = _pos getPos [_radius, _angle];
         _coords set [2, _altitude];
 
         Rimsiakas_missionAreaPreviewCamera camPreparePos _coords;
@@ -88,8 +86,8 @@ Rimsiakas_missionAreaPreviewProcessId = [] spawn {
 
         waitUntil {camCommitted Rimsiakas_missionAreaPreviewCamera};
 
-        if (_angle == 360) then {
-            _angle = 0;
+        if (_angle == 540) then {
+            _angle = 181;
         };
     };
 };
