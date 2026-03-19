@@ -62,14 +62,26 @@ You may change the <b>dynamic</b> value to <b>true</b> in `this setVariable ["dy
 </details>
 
 <details>
-<summary>Unit Placer Setup</summary>
+<summary>Placer Setup</summary>
 
-## Unit Placer Setup
-<b>Placers</b> are used to place AI units randomly within a certain area.
+## Placer Setup
+<b>Placers</b> are used to randomize the location of certain items within a defined area.
 
-You must create some <b>placers</b> and sync them to the <b>Patrol Center</b> entity.
+Things that can be synced to a placer to have its position randomized:
+<ul>
+<li>Groups (note - sync only one unit from the group, not the whole group - syncing multiple units from the same group causes redundant calculations and slows down mission initialization)</li>
+<li>Objects</li>
+<li><b>Respawn Position</b> Module</li>
+<li><b>Spawn AI</b> Module</li>
+<li><b>Spawn AI: Spawnpoint</b> Module</li>
+</ul>
+
+Additionally, these placers can place AI spawners and can have sub-placers. This is described further below in separate sections.
+
+Configuring placers:
 <ol>
 <li>Place a <b>Game Logic</b> entity somewhere.
+<li>Sync it to the <b>Patrol Center</b> entity.</li>
 <li>
 In its init box enter this:<br>
 <pre>
@@ -100,26 +112,9 @@ You may adjust the **minSpawnRadius** and **maxSpawnRadius**. These values deter
 </li>
 </ol>
 </li>
-
-<li>Sync the <b>placer</b> to the <b>Patrol Center</b>.</li>
 </ol>
 
 You may repeat these steps to make as many placers as you want.
-
-<br>
-</details>
-
-<details>
-<summary>Configuring Placers To Place Units</summary>
-
-## Configuring Placers To Place Units
-This randomizes the location of units within the radius defined in the placer and continuously creates waypoints to make the units patrol the mission area.
-
-The simplest way to make a placer spawn units is to place units or vehicles in the editor and sync them to the **placer**.
-
-Sync only one unit from the group, not the entire group. Doing otherwise would still work but it forces redundant calculations and makes initialization much slower.
-
-If you want to spawn new units rather than randomize the location of editor-placed units, see **Configuring Spawners** below.
 
 <br>
 </details>
@@ -129,7 +124,7 @@ If you want to spawn new units rather than randomize the location of editor-plac
 
 ## Configuring Spawners
 
-**Spawners** allow you to spawn new groups within a **placer's** area. It partially mimics the functionality of Arma's **Spawn AI** module.
+**Spawners** allow you to spawn new groups within a **placer's** area. It partially mimics the functionality of Arma's **Spawn AI** module, but in a more streamlined way and comes with additional features.
 <br><br>
 
 <ol>
