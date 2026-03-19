@@ -15,11 +15,12 @@ class configurationDialogFactionConfig
     class addGroupToPool { file = "configurationDialog\factions\pools\fn_addGroupToPool.sqf"; };
     class copyPoolGroups { file = "configurationDialog\factions\pools\fn_copyPoolGroups.sqf"; };
     class onGroupConfigTreeSelectionChange { file = "configurationDialog\factions\pools\fn_onGroupConfigTreeSelectionChange.sqf"; };
+    class onPoolGroupListDoubleClick { file = "configurationDialog\factions\pools\fn_onPoolGroupListDoubleClick.sqf"; };
     class onPoolGroupListSelectionChange { file = "configurationDialog\factions\pools\fn_onPoolGroupListSelectionChange.sqf"; };
     class pasteGroupsIntoPool { file = "configurationDialog\factions\pools\fn_pasteGroupsIntoPool.sqf"; };
     class populateFactionGroupsConfigTree { file = "configurationDialog\factions\pools\fn_populateFactionGroupsConfigTree.sqf"; };
     class populatePoolGroupsList { file = "configurationDialog\factions\pools\fn_populatePoolGroupsList.sqf"; };
-    class removeGroupFromPool { file = "configurationDialog\factions\pools\fn_removeGroupFromPool.sqf"; };
+    class removeSelectedGroupFromPool { file = "configurationDialog\factions\pools\fn_removeSelectedGroupFromPool.sqf"; };
 
     class deleteFactionPreset { file = "configurationDialog\factions\presets\fn_deleteFactionPreset.sqf"; };
     class generateDefaultFactionPreset { file = "configurationDialog\factions\presets\fn_generateDefaultFactionPreset.sqf"; };

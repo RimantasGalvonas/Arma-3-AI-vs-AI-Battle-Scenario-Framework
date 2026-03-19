@@ -360,7 +360,7 @@ class Rimsiakas_FactionsConfigDialog
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 h = 12 * GUI_GRID_H;
                 onLBSelChanged = "_this call Rimsiakas_fnc_onPoolGroupListSelectionChange";
-                onLBDblClick = "[] call Rimsiakas_fnc_removeGroupFromPool";
+                onLBDblClick = "_this call Rimsiakas_fnc_onPoolGroupListDoubleClick";
             };
 
             class Rimsiakas_FactionsConfigDialog_CopyPasteButtonsControlGroup: RscControlsGroup
@@ -403,7 +403,7 @@ class Rimsiakas_FactionsConfigDialog
                 y = 16 * GUI_GRID_H + GUI_GRID_Y;
                 w = (COLUMN_WIDTH - MARGIN * 2) * GUI_GRID_W;
                 tooltip = "Can also double-click an entry";
-                action = "[] call Rimsiakas_fnc_removeGroupFromPool;";
+                action = "[] call Rimsiakas_fnc_removeSelectedGroupFromPool;";
             }
 
             class Rimsiakas_FactionsConfigDialog_CustomGroupButtonsControlGroup: RscControlsGroup
@@ -434,7 +434,7 @@ class Rimsiakas_FactionsConfigDialog
                         y = 0 * GUI_GRID_H + GUI_GRID_Y;
                         w = (COLUMN_WIDTH / 2 - MARGIN * 1.5) * GUI_GRID_W;
                         tooltip = "Can also double-click an entry";
-                        action = "[] call Rimsiakas_fnc_removeGroupFromPool;";
+                        action = "[] call Rimsiakas_fnc_removeSelectedGroupFromPool;";
                     }
                 }
             };
