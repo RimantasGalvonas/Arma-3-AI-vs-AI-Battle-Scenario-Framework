@@ -18,7 +18,7 @@ This is a customizeable mission framework to be used in the Eden editor. It allo
 1. Open up Arma, open up the editor, select a map and open it.
 2. Place a player unit, save the mission.
 3. On the top menu: <b>Scenario > Open Scenario Folder</b>
-4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.1/AI-vs-AI-Battle-Scenario-Framework-1.5.1.zip)
+4. [Download this mission's .zip archive.](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.2/AI-vs-AI-Battle-Scenario-Framework-1.5.2.zip)
 5. Extract its contents to your mission's folder.
 6. Go back to Arma, save and reopen the mission (**Scenario > Open...**), press PLAY SCENARIO.
 7. If done correctly, you should see a hint confirming that the installation was successful.
@@ -593,11 +593,11 @@ Made on v1.4.1
 <summary>Force Through Gamemode [SP/COOP]</summary>
 <br>
 
-[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.1/ForceThroughMissions.zip)
+[Download](https://github.com/RimantasGalvonas/Arma-3-AI-vs-AI-Battle-Scenario-Framework/releases/download/1.5.2/ForceThroughMissions.zip)
 
 This is the source for these missions: https://steamcommunity.com/workshop/filedetails/?id=2427506774
 
-Made on v1.5.1
+Made on v1.5.2
 
 </details>
 </li>
@@ -638,7 +638,7 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 <summary>Open changelog</summary>
 <ul>
 <li>
-1.5.2 (YYYY-MM-DD)
+1.5.2 (2026-03-19)
 <ul>
 <li>Option to add extra ammo to spawned units.</li>
 <li>Remove CHVD integration.</li>
@@ -647,7 +647,6 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 <li>Edit custom group on double click instead of deleting.</li>
 </ul>
 </li>
-<li>
 <li>
 1.5.1 (2026-03-04)
 <ul>
