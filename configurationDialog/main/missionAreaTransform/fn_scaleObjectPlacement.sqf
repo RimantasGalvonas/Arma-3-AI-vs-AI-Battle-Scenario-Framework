@@ -102,7 +102,6 @@ private _scaleObjectPlacementFunc = {
 // Use unscaled values to keep this reversible. Otherwise it gets all messed up due to float imprecision
 if (isNil {patrolCenter getVariable ["scaling", nil];}) then {
     patrolCenter setVariable ["patrolRadius_original", patrolCenter getVariable "patrolRadius", true];
-    patrolCenter setVariable ["intelGridSize_original", patrolCenter getVariable "intelGridSize", true];
     patrolCenter setVariable ["maxInfantryResponseDistance_original", patrolCenter getVariable "maxInfantryResponseDistance", true];
     patrolCenter setVariable ["maxVehicleResponseDistance_original", patrolCenter getVariable "maxVehicleResponseDistance", true];
     patrolCenter setVariable ["maxAirResponseDistance_original", patrolCenter getVariable "maxAirResponseDistance", true];
@@ -110,7 +109,6 @@ if (isNil {patrolCenter getVariable ["scaling", nil];}) then {
 
 _patrolRadius = (patrolCenter getVariable "patrolRadius_original") * _scale;
 patrolCenter setVariable ["patrolRadius", ceil _patrolRadius, true];
-patrolCenter setVariable ["intelGridSize", floor ((patrolCenter getVariable "intelGridSize_original") * _scale), true];
 patrolCenter setVariable ["maxInfantryResponseDistance", round ((patrolCenter getVariable "maxInfantryResponseDistance_original") * _scale), true];
 patrolCenter setVariable ["maxVehicleResponseDistance", round ((patrolCenter getVariable "maxVehicleResponseDistance_original") * _scale), true];
 patrolCenter setVariable ["maxAirResponseDistance", round ((patrolCenter getVariable "maxAirResponseDistance_original") * _scale), true];
