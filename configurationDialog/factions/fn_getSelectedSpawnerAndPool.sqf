@@ -7,7 +7,7 @@ private _spawnerList = _factionConfigDialog displayCtrl FACTIONS_CONFIG_SPAWNERP
 private _spawnerSelectionPath = (tvSelection _spawnerList) select 0;
 private _spawnerIndex = _spawnerSelectionPath select 0;
 private _selectedSpawnerName = _spawnerList tvText [_spawnerIndex];
-private _selectedSpawnerData = (Rimsiakas_workingSpawnersData get "spawners") get _selectedSpawnerName;
+private _selectedSpawnerData = (Rimsiakas_workingFactionsData get "spawners") get _selectedSpawnerName;
 
 private _result = createHashMap;
 

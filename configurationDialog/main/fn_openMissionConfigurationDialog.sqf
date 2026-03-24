@@ -34,13 +34,22 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
     _pos = _ctrl ctrlMapScreenToWorld [_x, _y];
 
-    [_pos] remoteExecCall ["Rimsiakas_fnc_handleMapClick", 2];
+    [_pos] remoteExecCall ["Rimsiakas_fnc_handleMapClickOnServer", 2];
 }];
 
-_map ctrlMapAnimAdd [0, 0.5, getMarkerPos "missionAreaMarker"];
-ctrlMapAnimCommit _map;
+[] call Rimsiakas_fnc_centerMapOnPatrolCenter;
 
 
 
 ctrlSetText [MAIN_CONFIG_PATROLRADIUSVALUE_IDC, str ((patrolCenter getVariable "patrolRadius") * 2)];
 lbSetCurSel [MAIN_CONFIG_FLARE_FIELD_IDC, patrolCenter getVariable ["flaresLevel", 0]];
+
+
+
+if (isNil "Rimsiakas_defaultPresetGenerated") then {
+   if (isNil "Rimsiakas_initialFactionsData") then {
+       [] call Rimsiakas_fnc_collectFactionsData;
+   };
+
+   [] call Rimsiakas_fnc_generateDefaultConfigurationPreset;
+};

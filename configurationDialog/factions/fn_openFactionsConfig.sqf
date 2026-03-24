@@ -3,8 +3,6 @@
 [] spawn {
     waitUntil {!isNull findDisplay FACTIONS_CONFIG_IDD};
 
-    private _spawners = entities "LOGIC" select {_x getVariable ["logicType", ""] == "spawner"};
-
     private _spawnerPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_SPAWNERDETAILSCONTROLGROUP_IDC;
     private _poolPropertiesControlGroup = displayCtrl FACTIONS_CONFIG_POOLDETAILSCONTROLGROUP_IDC;
     private _groupsConfigControlGroup = displayCtrl FACTIONS_CONFIG_GROUPSCONFIGCONTROLGROUP_IDC;
@@ -29,52 +27,10 @@
         } forEach Rimsiakas_markersForSpawners;
     };
 
+    [] call Rimsiakas_fnc_collectFactionsData;
 
-    private _spawnersTree = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLSTREE_IDC;
-
-    Rimsiakas_lastSavedSpawnersData = createHashMap;
-    private _collectedSpawners = createHashMap;
-    Rimsiakas_lastSavedSpawnersData set ["spawners", _collectedSpawners];
-
-
-
-    private _independentRelation = 0;
-
-    if ([independent, west] call BIS_fnc_sideIsFriendly) then {
-        _independentRelation = _independentRelation + 1;
-    };
-
-    if ([independent, east] call BIS_fnc_sideIsFriendly) then {
-        _independentRelation = _independentRelation + 2;
-    };
-
+    _independentRelation = Rimsiakas_lastSavedFactionsData get "independentRelation";
     _greenforAlliesField lbSetCurSel _independentRelation;
-
-    Rimsiakas_lastSavedSpawnersData set ["independentRelation", _independentRelation];
-
-
-
-    {
-        private _spawner = _x;
-
-        private _spawnerData = createHashMapFromArray [
-            ["maxUnitsPerGroup", _spawner getVariable ["maxUnitsPerGroup", 0]],
-            ["maxUnits", _spawner getVariable ["maxUnits", 0]],
-            ["spawnRate", _spawner getVariable ["spawnRate", 0]],
-            ["inventoryAdjustments", _spawner getVariable ["inventoryAdjustments", createHashMap]],
-            ["pools", _spawner getVariable ["pools", []]]
-        ];
-
-        _collectedSpawners set [str _spawner, _spawnerData];
-    } forEach _spawners;
-
-    Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData;
-
-    if (isNil "Rimsiakas_initialSpawnersData") then {
-        Rimsiakas_initialSpawnersData = +Rimsiakas_lastSavedSpawnersData;
-
-        [] call Rimsiakas_fnc_generateDefaultFactionPreset;
-    };
 
 
 

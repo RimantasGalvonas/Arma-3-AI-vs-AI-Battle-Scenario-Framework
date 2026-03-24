@@ -17,10 +17,12 @@ switch (_action) do
     default {};
 };
 
+[] call Rimsiakas_fnc_updateMissionAreaSelectionMarkerFromServer;
+
 if (!isMultiplayer || {hasInterface}) then {
-    call Rimsiakas_fnc_afterMissionAreaTransform;
+    call Rimsiakas_fnc_refreshMissionAreaSizeValue;
 } else {
     if (!isNil "Rimsiakas_loggedInAdmin") then {
-        remoteExec ["Rimsiakas_fnc_afterMissionAreaTransform", Rimsiakas_loggedInAdmin];
+        remoteExec ["Rimsiakas_fnc_refreshMissionAreaSizeValue", Rimsiakas_loggedInAdmin];
     };
 };

@@ -2,6 +2,7 @@ class configurationDialogFactionConfig
 {
     file = "configurationDialog\factions";
 
+    class collectFactionsData {};
     class confirmFactionsConfig {};
     class getSelectedSpawnerAndPool {};
     class openFactionsConfig {};
@@ -21,14 +22,6 @@ class configurationDialogFactionConfig
     class populateFactionGroupsConfigTree { file = "configurationDialog\factions\pools\fn_populateFactionGroupsConfigTree.sqf"; };
     class populatePoolGroupsList { file = "configurationDialog\factions\pools\fn_populatePoolGroupsList.sqf"; };
     class removeSelectedGroupFromPool { file = "configurationDialog\factions\pools\fn_removeSelectedGroupFromPool.sqf"; };
-
-    class deleteFactionPreset { file = "configurationDialog\factions\presets\fn_deleteFactionPreset.sqf"; };
-    class generateDefaultFactionPreset { file = "configurationDialog\factions\presets\fn_generateDefaultFactionPreset.sqf"; };
-    class generateLastPlayedFactionPreset { file = "configurationDialog\factions\presets\fn_generateLastPlayedFactionPreset.sqf"; };
-    class loadFactionPreset { file = "configurationDialog\factions\presets\fn_loadFactionPreset.sqf"; };
-    class onPresetListSelectionChange { file = "configurationDialog\factions\presets\fn_onPresetListSelectionChange.sqf"; };
-    class openFactionPresets { file = "configurationDialog\factions\presets\fn_openFactionPresets.sqf"; };
-    class saveFactionPreset { file = "configurationDialog\factions\presets\fn_saveFactionPreset.sqf"; };
 
     class addPoolToSpawner { file = "configurationDialog\factions\spawners\fn_addPoolToSpawner.sqf"; };
     class clearAllPoolsInSpawner { file = "configurationDialog\factions\spawners\fn_clearAllPoolsInSpawner.sqf"; };

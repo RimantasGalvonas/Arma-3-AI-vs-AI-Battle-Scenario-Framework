@@ -1,6 +1,6 @@
 #include "..\..\elementIds.hpp"
 
-_sortedSpawnerKeys = [keys (Rimsiakas_workingSpawnersData get "spawners"), [], {_x}, "ASCEND"] call BIS_fnc_sortBy;
+_sortedSpawnerKeys = [keys (Rimsiakas_workingFactionsData get "spawners"), [], {_x}, "ASCEND"] call BIS_fnc_sortBy;
 
 private _spawnersTree = displayCtrl FACTIONS_CONFIG_SPAWNERPOOLSTREE_IDC;
 
@@ -10,7 +10,7 @@ tvClear _spawnersTree;
 
 {
     private _spawnerIndex = _forEachIndex;
-    private _spawner = (Rimsiakas_workingSpawnersData get "spawners") get _x;
+    private _spawner = (Rimsiakas_workingFactionsData get "spawners") get _x;
     private _poolsConfig = _spawner get "pools";
 
     _spawnersTree tvAdd [[], _x];

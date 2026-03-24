@@ -110,7 +110,7 @@ class Rimsiakas_FactionsConfigDialog
                         text = "Both";
                     };
                 };
-                onLBSelChanged = "Rimsiakas_workingSpawnersData set [""independentRelation"", _this select 1];";
+                onLBSelChanged = "Rimsiakas_workingFactionsData set [""independentRelation"", _this select 1];";
             };
         };
     }
@@ -550,20 +550,10 @@ class Rimsiakas_FactionsConfigDialog
             class Rimsiakas_FactionsConfigDialog_CancelButton: Rimsiakas_Button
             {
                 idc = FACTIONS_CONFIG_BUTTONS_CANCEL_IDC;
-                action = "Rimsiakas_workingSpawnersData = +Rimsiakas_lastSavedSpawnersData; closeDialog 2;";
+                action = "Rimsiakas_workingFactionsData = +Rimsiakas_lastSavedFactionsData; closeDialog 2;";
                 text = "Cancel";
                 x = 6 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
-            };
-
-            class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_Button
-            {
-                idc = FACTIONS_CONFIG_BUTTONS_FACTIONPRESETS_IDC;
-                action = "[] spawn {createDialog 'Rimsiakas_FactionPresetsDialog';};";
-                text = "Presets";
-                x = 12 * GUI_GRID_W + GUI_GRID_X;
-                y = 0 * GUI_GRID_H + GUI_GRID_Y;
-                w = 5.5 * GUI_GRID_W;
             };
         }
     }

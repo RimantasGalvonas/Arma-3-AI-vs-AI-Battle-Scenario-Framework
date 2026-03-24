@@ -1,31 +1,31 @@
 #define MARGIN (0.5)
 #define WIDTH (18.5)
 
-class Rimsiakas_FactionPresetsDialog
+class Rimsiakas_ConfigurationPresetsDialog
 {
-    idd = FACTION_PRESETS_IDD;
+    idd = CONFIGURATION_PRESETS_IDD;
     movingEnabled = false;
     enableSimulation = true;
-    onLoad = "call Rimsiakas_fnc_openFactionPresets";
+    onLoad = "call Rimsiakas_fnc_openConfigurationPresets";
 
     controlsBackground[]=
     {
-        Rimsiakas_FactionPresetsDialog_Background
+        Rimsiakas_ConfigurationPresetsDialog_Background
     };
 
     controls[]=
     {
-        Rimsiakas_FactionPresetsDialog_MainControlGroup
+        Rimsiakas_ConfigurationPresetsDialog_MainControlGroup
     };
 
-    class Rimsiakas_FactionPresetsDialog_BottomButton: Rimsiakas_Button
+    class Rimsiakas_ConfigurationPresetsDialog_BottomButton: Rimsiakas_Button
     {
         y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
     }
 
-    class Rimsiakas_FactionPresetsDialog_Background: RscText
+    class Rimsiakas_ConfigurationPresetsDialog_Background: RscText
     {
-        idc = FACTION_PRESETS_BACKGROUND_IDC;
+        idc = CONFIGURATION_PRESETS_BACKGROUND_IDC;
         x = 9.5 * GUI_GRID_W + GUI_GRID_X;
         y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
         w = WIDTH * GUI_GRID_W;
@@ -33,9 +33,9 @@ class Rimsiakas_FactionPresetsDialog
         colorBackground[] = {0.15,0.15,0.15,0.9};
     };
 
-    class Rimsiakas_FactionPresetsDialog_MainControlGroup: RscControlsGroup
+    class Rimsiakas_ConfigurationPresetsDialog_MainControlGroup: RscControlsGroup
     {
-        idc = FACTION_PRESETS_MAINCONTROLGROUP_IDC;
+        idc = CONFIGURATION_PRESETS_MAINCONTROLGROUP_IDC;
         x = 9.5 * GUI_GRID_W + GUI_GRID_X;
         y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
         w = WIDTH * GUI_GRID_W;
@@ -43,9 +43,9 @@ class Rimsiakas_FactionPresetsDialog
 
         class Controls
         {
-            class Rimsiakas_FactionPresetsDialog_PresetList: RscListBox
+            class Rimsiakas_ConfigurationPresetsDialog_PresetList: RscListBox
             {
-                idc = FACTION_PRESETS_PRESETLIST_IDC;
+                idc = CONFIGURATION_PRESETS_PRESETLIST_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -55,9 +55,9 @@ class Rimsiakas_FactionPresetsDialog
                 onLBSelChanged = "[] call Rimsiakas_fnc_onPresetListSelectionChange;";
             };
 
-            class Rimsiakas_FactionPresetsDialog_PresetName: RscEdit
+            class Rimsiakas_ConfigurationPresetsDialog_PresetName: RscEdit
             {
-                idc = FACTION_PRESETS_PRESETNAME_IDC;
+                idc = CONFIGURATION_PRESETS_PRESETNAME_IDC;
                 sizeEx = 0.03;
                 colorBackground[] = {0,0,0,0.3};
                 x = MARGIN * GUI_GRID_W + GUI_GRID_X;
@@ -66,35 +66,35 @@ class Rimsiakas_FactionPresetsDialog
                 h = 1.5 * GUI_GRID_H;
             };
 
-            class Rimsiakas_FactionPresetsDialog_SaveButton: Rimsiakas_FactionPresetsDialog_BottomButton
+            class Rimsiakas_ConfigurationPresetsDialog_SaveButton: Rimsiakas_ConfigurationPresetsDialog_BottomButton
             {
-                idc = FACTION_PRESETS_SAVEBUTTON_IDC;
-                action = "[] spawn Rimsiakas_fnc_saveFactionPreset;";
+                idc = CONFIGURATION_PRESETS_SAVEBUTTON_IDC;
+                action = "[] spawn Rimsiakas_fnc_saveConfigurationPreset;";
                 text = "Save";
                 x = 12.5 * GUI_GRID_W + GUI_GRID_X;
                 y = 14.5 * GUI_GRID_H + GUI_GRID_Y;
             }
 
-            class Rimsiakas_FactionPresetsDialog_LoadButton: Rimsiakas_FactionPresetsDialog_BottomButton
+            class Rimsiakas_ConfigurationPresetsDialog_LoadButton: Rimsiakas_ConfigurationPresetsDialog_BottomButton
             {
-                idc = FACTION_PRESETS_LOADBUTTON_IDC;
-                action = "[] call Rimsiakas_fnc_loadFactionPreset; closeDialog 1;"; // TODO: Load the damn thing first
+                idc = CONFIGURATION_PRESETS_LOADBUTTON_IDC;
+                action = "[] call Rimsiakas_fnc_loadConfigurationPreset; closeDialog 1;";
                 text = "Load";
                 x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             };
 
-            class Rimsiakas_FactionPresetsDialog_CancelButton: Rimsiakas_FactionPresetsDialog_BottomButton
+            class Rimsiakas_ConfigurationPresetsDialog_CancelButton: Rimsiakas_ConfigurationPresetsDialog_BottomButton
             {
-                idc = FACTION_PRESETS_CANCELBUTTON_IDC;
+                idc = CONFIGURATION_PRESETS_CANCELBUTTON_IDC;
                 action = "closeDialog 2;";
                 text = "Close";
                 x = 6.5 * GUI_GRID_W + GUI_GRID_X;
             };
 
-            class Rimsiakas_FactionPresetsDialog_DeleteButton: Rimsiakas_FactionPresetsDialog_BottomButton
+            class Rimsiakas_ConfigurationPresetsDialog_DeleteButton: Rimsiakas_ConfigurationPresetsDialog_BottomButton
             {
-                idc = FACTION_PRESETS_DELETEBUTTON_IDC;
-                action = "[] spawn Rimsiakas_fnc_deleteFactionPreset;";
+                idc = CONFIGURATION_PRESETS_DELETEBUTTON_IDC;
+                action = "[] spawn Rimsiakas_fnc_deleteConfigurationPreset;";
                 text = "Delete";
                 x = 12.5 * GUI_GRID_W + GUI_GRID_X;
             };

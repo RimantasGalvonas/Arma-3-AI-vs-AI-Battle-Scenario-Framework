@@ -638,6 +638,13 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 <summary>Open changelog</summary>
 <ul>
 <li>
+1.5.3 (2026-03-25)
+<ul>
+<li>Transmit env changes to clients immediately, making it respond faster on dedicated server.</li>
+<li>Replace faction config presets with presets for the entire mission config.</li>
+</ul>
+</li>
+<li>
 1.5.2 (2026-03-19)
 <ul>
 <li>Option to add extra ammo to spawned units.</li>

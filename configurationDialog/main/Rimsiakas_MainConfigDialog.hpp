@@ -82,7 +82,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_Map_RotateCCW: Rimsiakas_ButtonSmall
             {
                 idc = MAIN_CONFIG_MAP_ROTATECCW_IDC;
-                action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                action = "['rotate_ccw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButtonOnServer', 2];";
                 text = "Rotate CCW";
                 x = 0 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
@@ -92,7 +92,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_Map_RotateCW: Rimsiakas_ButtonSmall
             {
                 idc = MAIN_CONFIG_MAP_ROTATECW_IDC;
-                action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                action = "['rotate_cw'] remoteExecCall ['Rimsiakas_fnc_handleTransformButtonOnServer', 2];";
                 text = "Rotate CW";
                 x = 5 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
@@ -102,7 +102,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_Map_ScaleDown: Rimsiakas_ButtonSmall
             {
                 idc = MAIN_CONFIG_MAP_SCALEDOWN_IDC;
-                action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                action = "['scale_down'] remoteExecCall ['Rimsiakas_fnc_handleTransformButtonOnServer', 2];";
                 text = "Scale-";
                 x = 10 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
@@ -111,7 +111,7 @@ class Rimsiakas_MainConfigDialog
             class Rimsiakas_MainConfigDialog_Map_ScaleUp: Rimsiakas_ButtonSmall
             {
                 idc = MAIN_CONFIG_MAP_SCALEUP_IDC;
-                action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButton', 2];";
+                action = "['scale_up'] remoteExecCall ['Rimsiakas_fnc_handleTransformButtonOnServer', 2];";
                 text = "Scale+";
                 x = 14 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
@@ -228,6 +228,7 @@ class Rimsiakas_MainConfigDialog
             {
                 idc = MAIN_CONFIG_FLARE_FIELD_IDC;
                 tooltip = "How strongly to illuminate the battlefield at night.";
+                onLBSelChanged = "[] call Rimsiakas_fnc_onFlaresLevelChange;";
                 class Items
                 {
                     class Disabled
@@ -476,6 +477,16 @@ class Rimsiakas_MainConfigDialog
                 x = 18 * GUI_GRID_W + GUI_GRID_X;
                 y = 0 * GUI_GRID_H + GUI_GRID_Y;
                 w = 6.5 * GUI_GRID_W;
+            };
+
+            class Rimsiakas_FactionsConfigDialog_FactionPresetsButton: Rimsiakas_Button
+            {
+                idc = FACTIONS_CONFIG_BUTTONS_FACTIONPRESETS_IDC;
+                action = "[] spawn {createDialog 'Rimsiakas_ConfigurationPresetsDialog';};";
+                text = "Presets";
+                x = 25 * GUI_GRID_W + GUI_GRID_X;
+                y = 0 * GUI_GRID_H + GUI_GRID_Y;
+                w = 5.5 * GUI_GRID_W;
             };
         };
     };

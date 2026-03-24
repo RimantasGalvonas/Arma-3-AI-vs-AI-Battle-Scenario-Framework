@@ -70,7 +70,6 @@ _targets = [_targets, [leader _group], { _input0 distance _x }, "DESCEND"] call 
     // TODO: should actually only pay attention to other FRIENDLY units. Might be that there's a scenario where three hostile factions are fighting.
     private _targetAlreadyAttackedBy = (group _target) getVariable ["targetedBy", []];
 
-    // TODO: should add a GUI config for this number? Make sure the number is also updated in fn_afterTargetChange.sqf if I update this.
     // The second part of the condition is there to allow the current target to reach the "_lastReportedTargetPosition" part.
     if (count _targetAlreadyAttackedBy > (_maxAttackRatio - 1) && {!(group _target isEqualTo (_group getVariable ["currentTargetGroup", false]))}) then {
         continue;

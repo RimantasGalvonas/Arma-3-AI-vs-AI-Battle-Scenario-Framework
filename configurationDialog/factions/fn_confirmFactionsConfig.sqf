@@ -1,13 +1,13 @@
 params [["_data", nil]];
 
 if (isNil "_data") then {
-    _data = Rimsiakas_workingSpawnersData;
+    _data = Rimsiakas_workingFactionsData;
 };
 
 
 
-if (!isServer) then {
-    [_data] remoteExec ["Rimsiakas_fnc_confirmFactionsConfig"];
+if (!isServer) then { // then instead of exitWith is intentional to run this on both client and server to avoid weird synchronization issues. ...or at least I think so - writing this comment way after I implemented this.
+    [_data] remoteExec ["Rimsiakas_fnc_confirmFactionsConfig", 2];
 };
 
 
@@ -15,7 +15,7 @@ if (!isServer) then {
 {
     private _spawner = missionNamespace getVariable _x;
 
-    _spawner setVariable ["maxUnitsPerGroup",_y get "maxUnitsPerGroup"];
+    _spawner setVariable ["maxUnitsPerGroup", _y get "maxUnitsPerGroup"];
     _spawner setVariable ["maxUnits", _y get "maxUnits"];
     _spawner setVariable ["spawnRate", _y get "spawnRate"];
     _spawner setVariable ["pools", _y get "pools"];
