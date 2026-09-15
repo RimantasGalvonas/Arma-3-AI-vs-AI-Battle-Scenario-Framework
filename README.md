@@ -138,7 +138,7 @@ this setVariable ["spawners", [<b>spawner_1</b>]];
 </pre>
 </li>
 <li>
-Configure the <b>spawner</b> by setting variables for it in its <b>init</b> field. Example configuration:
+Configure the <b>spawner</b> by setting variables for it in its <b>init</b> field. Example configuration with explanation below:
 
     this setVariable ["logicType", "spawner"];
     this setVariable ["maxUnitsPerGroup", 8];
@@ -173,6 +173,14 @@ Configure the <b>spawner</b> by setting variables for it in its <b>init</b> fiel
             {addSwitchableUnit _x;} forEach units _group;
             [_placer] call Rimsiakas_fnc_placer;
         }
+    ];
+
+    this setVariable [ 
+        "inventoryAdjustments", 
+        createHashMapFromArray [ 
+            ["maxUnitLoad", 82], 
+            ["maxExtraMags", 10] 
+        ] 
     ];
 <ul>
 <br>
@@ -244,6 +252,19 @@ this setVariable [
 ];
 </pre>
 This allows you to run some code after the group is spawned. The spawned group, the spawner and the placer that the spawner is associated with, are passed as arguments to the function you provide here.
+</li>
+<li>
+<pre>
+this setVariable [ 
+    "inventoryAdjustments", 
+    createHashMapFromArray [ 
+        ["maxUnitLoad", 82], 
+        ["maxExtraMags", 10] 
+    ] 
+];
+</pre>
+
+Some mods have their units configured with ridiculously low ammo loadouts by default. This allows you to add extra ammo to units spawned by this spawner.
 </li>
 </ul>
 </li>
