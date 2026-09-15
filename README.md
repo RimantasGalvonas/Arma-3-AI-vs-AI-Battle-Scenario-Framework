@@ -151,17 +151,16 @@ Configure the <b>spawner</b> by setting variables for it in its <b>init</b> fiel
             configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
             configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
         ]],
-        ["weight", 10],
+        ["weight", 80],
         ["vehicleCrewGrouping", false]
     ];
     
     private _pool2 = createHashMapFromArray [
         ["groups", [
             configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad",
-            configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconTeam",
             configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
         ]],
-        ["weight", 2],
+        ["weight", 20],
         ["vehicleCrewGrouping", false]
     ];
     
@@ -196,22 +195,33 @@ If you set these variables, it makes the <b>spawner</b> spawn new groups continu
 </li>
 <li>
 <pre>
-private _pool1 = [
-    ...
+private _pool1 = createHashMapFromArray [
+    ["groups", [
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfAssault",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad_Weapons"
+    ]],
+    ["weight", 80],
+    ["vehicleCrewGrouping", false]
 ];
-
-private _pool2 = [
-...
+&nbsp;
+private _pool2 = createHashMapFromArray [
+    ["groups", [
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_ReconSquad",
+        configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_SniperTeam"
+    ]],
+    ["weight", 20],
+    ["vehicleCrewGrouping", false]
 ];
-
+&nbsp;
 this setVariable ["pools", [_pool1, _pool2]];
 </pre>
 You must define at least one <b>pool</b> per spawner.
 
 
-One of the pools will be randomly selected according to assigned weights. (See [selectRandomWeighted](https://community.bistudio.com/wiki/selectRandomWeighted) for how it works).
+One of the pools will be randomly selected according to assigned <b>weight</b>s. (See [selectRandomWeighted](https://community.bistudio.com/wiki/selectRandomWeighted) for how it works).
 Then one of the groups from that pool will be randomly selected to spawn.
-So in this example the spawner is configured to spawn one of three infantry groups ~<b>66</b>% of the time and one of three mounted groups ~<b>33</b>% of the time, every <b>10</b> seconds until <b>20</b> spawned units limit is reached.
+So in this example the spawner is configured to spawn one of three regular infantry squads ~<b>80</b>% of the time and either a sniper team or a recon squad ~<b>20</b>% of the time.
 
 You may also create custom groups out of individual units:
 <pre>
