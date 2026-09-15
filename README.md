@@ -641,6 +641,7 @@ If you have any questions, suggestions, feedback, etc. you can contact me here:
 1.5.5 (YYYY-MM-DD)
 <ul>
 <li>Reduce errors when trying to find a spawn zone in watery areas.</li>
+<li>Fix imprecise attack position waypoint placement.</li>
 </ul>
 </li>
 <li>

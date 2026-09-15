@@ -103,7 +103,7 @@ if (_groupHasVehicles == true) then {
         private _attackPositionWPStatement = "%1 [group this] call Rimsiakas_fnc_updateAttackingFromPos;";
         _attackPositionWPStatement = format [_attackPositionWPStatement, _additionalWaypointStatements];
 
-        private _attackPositionWP = _group addWayPoint [_attackPosition, 1];
+        private _attackPositionWP = _group addWayPoint [AGLToASL _attackPosition, -1];
         _attackPositionWP setWaypointType "MOVE";
         _attackPositionWP setWaypointStatements [_attackPositionWPCondition, _attackPositionWPStatement];
         if (!isPlayer leader _group) then {
